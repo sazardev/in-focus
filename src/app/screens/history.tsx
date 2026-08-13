@@ -92,7 +92,7 @@ function AxisBar({ label, value, tier }: { label: string; value: number; tier: s
 				aria-valuemin={0}
 				aria-valuemax={100}
 			>
-				<div className="recap__bar-fill" style={{ width: `${value}%` }} />
+				<div className="recap__bar-fill" style={{ transform: `scaleX(${value / 100})` }} />
 			</div>
 		</div>
 	);

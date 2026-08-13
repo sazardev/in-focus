@@ -3,7 +3,14 @@ import { useProfileStore } from "@/features/profile";
 import { playNotification, useSoundStore } from "@/shared/sound";
 import { BASE_TONES, FONT_SCALES, useThemeStore } from "@/shared/theme";
 import { useToastStore } from "@/shared/toast/store";
-import { BackIcon, Button } from "@/shared/ui";
+import { Avatar, Button, Switch } from "@/shared/ui";
+import { AppScreen } from "./app-screen";
+
+const PRONOUN_LABEL: Record<string, string> = { he: "Él", she: "Ella", neutral: "Neutro" };
+
+function SectionLabel({ children }: { children: string }) {
+	return <span className="showcase-panel__label">{children}</span>;
+}
 
 export function SettingsScreen() {
 	const navigate = useNavigationStore((state) => state.navigate);
@@ -19,37 +26,28 @@ export function SettingsScreen() {
 	const toggleSound = useSoundStore((state) => state.toggleSound);
 
 	return (
-		<div className="screen">
-			<header className="nav-bar">
-				<div className="nav-bar__side">
-					<button
-						type="button"
-						className="nav-icon"
-						aria-label="Volver"
-						onClick={() => navigate("home")}
-					>
-						<BackIcon label="Volver" width={20} height={20} />
-					</button>
-				</div>
-				<div className="nav-bar__title">
-					<span className="nav-bar__name">Ajustes</span>
-				</div>
-				<div className="nav-bar__side" />
-			</header>
-
-			<main className="screen__body">
-				<section className="settings">
-					<div className="settings__group">
-						<span className="showcase-panel__label">Perfil</span>
-						<p className="settings__value">
-							{profile?.name} ·{" "}
-							{profile?.pronouns === "he" ? "Él" : profile?.pronouns === "she" ? "Ella" : "Neutro"}
-						</p>
+		<AppScreen title="Ajustes">
+			<div className="settings">
+				<section className="settings__group">
+					<SectionLabel>Perfil</SectionLabel>
+					<div className="settings__row">
+						<div className="settings__row-main">
+							<Avatar name={profile?.name ?? "?"} size="md" />
+							<div>
+								<p className="settings__value">
+									{profile?.name ?? "—"} · {PRONOUN_LABEL[profile?.pronouns ?? "neutral"]}
+								</p>
+								<p className="settings__hint">Lo que Maya sabe de ti.</p>
+							</div>
+						</div>
 					</div>
+				</section>
 
-					<div className="settings__group">
-						<span className="showcase-panel__label">Tema</span>
-						<div className="showcase-panel__row">
+				<section className="settings__group">
+					<SectionLabel>Apariencia</SectionLabel>
+					<div className="settings__row">
+						<span className="settings__row-label">Tema</span>
+						<div className="settings__row-control">
 							<Button
 								type="button"
 								variant={theme === "system" ? "primary" : "default"}
@@ -73,10 +71,9 @@ export function SettingsScreen() {
 							</Button>
 						</div>
 					</div>
-
-					<div className="settings__group">
-						<span className="showcase-panel__label">Tono base</span>
-						<div className="showcase-panel__row">
+					<div className="settings__row">
+						<span className="settings__row-label">Tono base</span>
+						<div className="settings__row-control">
 							{BASE_TONES.map((option) => (
 								<Button
 									key={option}
@@ -89,10 +86,9 @@ export function SettingsScreen() {
 							))}
 						</div>
 					</div>
-
-					<div className="settings__group">
-						<span className="showcase-panel__label">Tamaño de texto</span>
-						<div className="showcase-panel__row">
+					<div className="settings__row">
+						<span className="settings__row-label">Texto</span>
+						<div className="settings__row-control">
 							{FONT_SCALES.map((option) => (
 								<Button
 									key={option.value}
@@ -107,35 +103,38 @@ export function SettingsScreen() {
 								</Button>
 							))}
 						</div>
-						<p className="showcase-panel__note">Ajusta el tamaño del texto en toda la app.</p>
 					</div>
+					<p className="settings__hint">Ajusta el tamaño del texto en toda la app.</p>
+				</section>
 
-					<div className="settings__group">
-						<span className="showcase-panel__label">Sonido</span>
-						<div className="showcase-panel__row">
-							<Button
-								type="button"
-								variant={soundEnabled ? "primary" : "default"}
-								onClick={() => {
-									toggleSound();
-									useToastStore
-										.getState()
-										.push(soundEnabled ? "Sonido desactivado" : "Sonido activado");
-								}}
-							>
-								{soundEnabled ? "Sonido activado" : "Sonido desactivado"}
-							</Button>
-							<Button type="button" variant="ghost" onClick={() => playNotification()}>
-								Probar sonido
-							</Button>
-						</div>
-						<p className="showcase-panel__note">
-							Notificaciones, tecleo, envío y fotos con sonido.
-						</p>
+				<section className="settings__group">
+					<SectionLabel>Sonido</SectionLabel>
+					<div className="settings__row">
+						<span className="settings__row-label">Efectos de sonido</span>
+						<Switch
+							checked={soundEnabled}
+							onChange={() => {
+								toggleSound();
+								useToastStore
+									.getState()
+									.push(soundEnabled ? "Sonido desactivado" : "Sonido activado");
+							}}
+							label="Activar efectos de sonido"
+						/>
 					</div>
+					<div className="settings__row">
+						<span className="settings__row-label">Prueba</span>
+						<Button type="button" variant="ghost" onClick={() => playNotification()}>
+							Probar sonido
+						</Button>
+					</div>
+					<p className="settings__hint">Notificaciones, tecleo, envío y fotos con sonido.</p>
+				</section>
 
-					<div className="settings__group">
-						<span className="showcase-panel__label">Partida</span>
+				<section className="settings__group">
+					<SectionLabel>Partida</SectionLabel>
+					<div className="settings__row">
+						<span className="settings__row-label">Empezar de nuevo</span>
 						<Button
 							type="button"
 							variant="ghost"
@@ -148,7 +147,7 @@ export function SettingsScreen() {
 						</Button>
 					</div>
 				</section>
-			</main>
-		</div>
+			</div>
+		</AppScreen>
 	);
 }

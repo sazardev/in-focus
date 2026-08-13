@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useFakeTypingStore } from "./store";
 
-const AUTO_TYPING_MS = 80;
+const AUTO_TYPING_MS = 120;
 
 /**
  * Simula el tecleo de la respuesta elegida: una vez que `chooseOption` activa

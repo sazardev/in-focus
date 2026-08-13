@@ -1,7 +1,14 @@
 import { useNavigationStore } from "@/app/navigation";
 import { AppGlyph, type AppKind } from "@/app/os/app-icons";
 import { MacWindow } from "@/app/os/mac-window";
-import { CalendarWidget, ClockWidget, TrashGlyph } from "@/app/os/os-chrome";
+import { MenuBar, useKeyboardShortcuts } from "@/app/os/menubar";
+import {
+	BatteryGlyph,
+	CalendarWidget,
+	ClockWidget,
+	TrashGlyph,
+	WifiGlyph,
+} from "@/app/os/os-chrome";
 import { useWindowsStore } from "@/app/windows";
 import { useDialogueStore } from "@/features/dialogue";
 import { useNotificationsStore } from "@/features/notifications";
@@ -15,11 +22,40 @@ interface AppDef {
 	badge?: number;
 }
 
-function AppIcon({ app, size = "default" }: { app: AppDef; size?: "default" | "dock" }) {
+/** Barra de estado iOS (springboard): hora a la izquierda, señal/batería a la derecha. */
+function StatusBar() {
+	const now = new Date();
+	const time = now.toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" });
+	return (
+		<div className="status-bar" aria-hidden="true">
+			<span className="status-bar__left">{time}</span>
+			<span className="status-bar__right">
+				<span className="status-bar__signal">
+					<i />
+					<i />
+					<i />
+					<i />
+				</span>
+				<WifiGlyph size={15} />
+				<BatteryGlyph size={15} />
+			</span>
+		</div>
+	);
+}
+
+function AppIcon({
+	app,
+	size = "default",
+	active = false,
+}: {
+	app: AppDef;
+	size?: "default" | "dock";
+	active?: boolean;
+}) {
 	const inner = (
 		<>
 			<span className="app-icon__glyph">
-				<AppGlyph kind={app.kind} size={size === "dock" ? 58 : 60} />
+				<AppGlyph kind={app.kind} size={size === "dock" ? 48 : 60} />
 			</span>
 			{size === "default" ? <span className="app-icon__label">{app.label}</span> : null}
 			{size === "dock" ? <span className="dock-tooltip">{app.label}</span> : null}
@@ -31,14 +67,25 @@ function AppIcon({ app, size = "default" }: { app: AppDef; size?: "default" | "d
 
 	if (!app.onOpen) {
 		return (
-			<div className={`${className} app-icon--static`} role="img" aria-label={app.label}>
+			<div
+				className={`${className} app-icon--static`}
+				data-active={active || undefined}
+				role="img"
+				aria-label={app.label}
+			>
 				{inner}
 			</div>
 		);
 	}
 
 	return (
-		<button type="button" className={className} onClick={app.onOpen} aria-label={app.label}>
+		<button
+			type="button"
+			className={className}
+			data-active={active || undefined}
+			onClick={app.onOpen}
+			aria-label={app.label}
+		>
 			{inner}
 		</button>
 	);
@@ -50,6 +97,8 @@ export function HomeScreen() {
 	const started = useDialogueStore((state) => state.started);
 	const start = useDialogueStore((state) => state.start);
 	const device = useDeviceKind();
+
+	useKeyboardShortcuts();
 
 	function openChat() {
 		if (!started) start();
@@ -102,43 +151,47 @@ export function HomeScreen() {
 
 	if (device === "laptop") {
 		const minimized = windows.filter((window) => window.minimized);
+		const isOpen = (id: string) => windows.some((window) => window.id === id && !window.minimized);
 		return (
-			<div className="desktop">
-				<div className="desktop__widgets">
-					<ClockWidget large />
-					<CalendarWidget />
-				</div>
-				{windows
-					.filter((window) => !window.minimized)
-					.map((window) => (
-						<MacWindow key={window.id} win={window} />
-					))}
-				<div className="desktop__dock">
-					{laptopDock.map((app) => (
-						<AppIcon key={app.id} app={app} size="dock" />
-					))}
-					<span className="dock-divider" aria-hidden="true" />
-					{minimized.map((window) => {
-						const app = laptopDock.find((item) => item.id === window.id);
-						return (
-							<button
-								key={window.id}
-								type="button"
-								className="dock-thumb"
-								onClick={() => openWindow(window.id)}
-								aria-label={`Restaurar ${app?.label ?? window.id}`}
-							>
-								<span className="app-icon__glyph">
-									{app ? <AppGlyph kind={app.kind} size={52} /> : null}
-								</span>
-							</button>
-						);
-					})}
-					<button type="button" className="dock-trash" aria-label="Papelera">
-						<span className="dock-trash__glyph">
-							<TrashGlyph size={22} />
-						</span>
-					</button>
+			<div className="desktop-root">
+				<MenuBar />
+				<div className="desktop">
+					<div className="desktop__widgets">
+						<ClockWidget large />
+						<CalendarWidget />
+					</div>
+					{windows
+						.filter((window) => !window.minimized)
+						.map((window) => (
+							<MacWindow key={window.id} win={window} />
+						))}
+					<div className="desktop__dock">
+						{laptopDock.map((app) => (
+							<AppIcon key={app.id} app={app} size="dock" active={isOpen(app.id)} />
+						))}
+						<span className="dock-divider" aria-hidden="true" />
+						{minimized.map((window) => {
+							const app = laptopDock.find((item) => item.id === window.id);
+							return (
+								<button
+									key={window.id}
+									type="button"
+									className="dock-thumb"
+									onClick={() => openWindow(window.id)}
+									aria-label={`Restaurar ${app?.label ?? window.id}`}
+								>
+									<span className="app-icon__glyph">
+										{app ? <AppGlyph kind={app.kind} size={52} /> : null}
+									</span>
+								</button>
+							);
+						})}
+						<button type="button" className="dock-trash" aria-label="Papelera">
+							<span className="dock-trash__glyph">
+								<TrashGlyph size={22} />
+							</span>
+						</button>
+					</div>
 				</div>
 			</div>
 		);
@@ -146,9 +199,7 @@ export function HomeScreen() {
 
 	return (
 		<div className={`springboard springboard--${device}`}>
-			<div className="springboard__top">
-				<ClockWidget large />
-			</div>
+			<StatusBar />
 			<div className="springboard__widgets">
 				<CalendarWidget />
 			</div>

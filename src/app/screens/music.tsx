@@ -61,7 +61,7 @@ export function MusicScreen() {
 
 				<div className="music__progress">
 					<div className="music__bar">
-						<span className="music__fill" style={{ width: `${progress}%` }} />
+						<span className="music__fill" style={{ transform: `scaleX(${progress / 100})` }} />
 					</div>
 					<div className="music__times">
 						<span>{elapsedLabel}</span>

@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useNavigationStore } from "@/app/navigation";
+import type { Message } from "@/entities";
 import { VirtualMessageList } from "@/features/chat/virtual-message-list";
 import { useDialogue } from "@/features/dialogue";
 import { useFakeTyping } from "@/features/fake-typing";
 import { useGameClockStore } from "@/features/game-clock";
 import { ExpoCountdown } from "@/features/game-clock/expo-countdown";
+import { useRenderTick } from "@/shared/perf/perf";
 import { Avatar, BackIcon, CameraIcon, GalleryIcon, SendIcon } from "@/shared/ui";
 
 const PRESENCE_LABEL = {
@@ -15,6 +17,7 @@ const PRESENCE_LABEL = {
 };
 
 export function ChatScreen() {
+	useRenderTick();
 	const navigate = useNavigationStore((state) => state.navigate);
 	const {
 		messages,
@@ -34,6 +37,14 @@ export function ChatScreen() {
 
 	// Al elegir una opción, el auto-fill simula el tecleo y envía solo.
 	useFakeTyping(confirmSend);
+
+	// Estable para no re-renderizar la lista virtual en cada tick de typing.
+	const handleReact = useCallback(
+		(messageId: string, reaction: Message["reaction"]) => {
+			if (reaction) reactToMessage(messageId, reaction);
+		},
+		[reactToMessage],
+	);
 
 	useEffect(() => {
 		markAllRead();
@@ -100,13 +111,7 @@ export function ChatScreen() {
 
 			<ExpoCountdown />
 
-			<VirtualMessageList
-				messages={messages}
-				isMayaTyping={isMayaTyping}
-				onReact={(messageId, reaction) => {
-					if (reaction) reactToMessage(messageId, reaction);
-				}}
-			/>
+			<VirtualMessageList messages={messages} isMayaTyping={isMayaTyping} onReact={handleReact} />
 
 			{options ? (
 				<div className="option-menu">

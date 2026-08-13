@@ -71,7 +71,7 @@ export function BootScreen({ onDone }: { onDone: () => void }) {
 			</div>
 			<span className="boot__brand">In Focus</span>
 			<div className="boot__progress">
-				<span className="boot__bar" style={{ width: `${progress * 100}%` }} />
+				<span className="boot__bar" style={{ transform: `scaleX(${progress})` }} />
 			</div>
 			<span className="boot__line">{BOOT_LINES[lineIndex]}</span>
 		</div>

@@ -10,4 +10,5 @@ export {
 	SendIcon,
 } from "./icons";
 export { ReactionMenu } from "./reaction-menu";
+export { Switch } from "./switch";
 export { TypingIndicator } from "./typing-indicator";

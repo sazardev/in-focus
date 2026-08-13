@@ -1,4 +1,4 @@
-import { type ComponentType, useEffect, useRef, useState } from "react";
+import { type ComponentType, memo, useEffect, useRef, useState } from "react";
 import { CalendarScreen } from "@/app/screens/calendar";
 import { CameraScreen } from "@/app/screens/camera";
 import { ChatScreen } from "@/app/screens/chat";
@@ -9,6 +9,7 @@ import { MusicScreen } from "@/app/screens/music";
 import { NotesScreen } from "@/app/screens/notes";
 import { SettingsScreen } from "@/app/screens/settings";
 import { type MacWindowState, useWindowsStore } from "@/app/windows";
+import { useRenderTick } from "@/shared/perf/perf";
 
 const APP_SCREENS: Record<string, ComponentType> = {
 	chat: ChatScreen,
@@ -35,7 +36,8 @@ const APP_TITLES: Record<string, string> = {
 };
 
 /** Ventana macOS en el escritorio: semáforos, arrastre por la barra, redimensionado. */
-export function MacWindow({ win }: { win: MacWindowState }) {
+export const MacWindow = memo(function MacWindow({ win }: { win: MacWindowState }) {
+	useRenderTick();
 	const closeWindow = useWindowsStore((state) => state.closeWindow);
 	const focusWindow = useWindowsStore((state) => state.focusWindow);
 	const moveWindow = useWindowsStore((state) => state.moveWindow);
@@ -44,7 +46,6 @@ export function MacWindow({ win }: { win: MacWindowState }) {
 	const toggleMaximize = useWindowsStore((state) => state.toggleMaximize);
 	const topZ = useWindowsStore((state) => state.topZ);
 	const focused = win.z === topZ;
-	const Content = APP_SCREENS[win.id] ?? null;
 
 	const MIN_W = 300;
 	const MIN_H = 240;
@@ -124,7 +125,14 @@ export function MacWindow({ win }: { win: MacWindowState }) {
 	return (
 		<section
 			className={`mac-window ${win.maximized ? "mac-window--maximized" : ""} ${focused ? "mac-window--focused" : ""} ${exiting === "close" ? "mac-window--close" : ""} ${exiting === "minimize" ? "mac-window--minimize" : ""}`}
-			style={{ left: win.x, top: win.y, width: win.w, height: win.h, zIndex: win.z }}
+			style={{
+				left: 0,
+				top: 0,
+				translate: `${win.x}px ${win.y}px`,
+				width: win.w,
+				height: win.h,
+				zIndex: win.z,
+			}}
 			role="dialog"
 			aria-label={APP_TITLES[win.id] ?? win.id}
 			onPointerDown={() => focusWindow(win.id)}
@@ -158,7 +166,7 @@ export function MacWindow({ win }: { win: MacWindowState }) {
 				<span className="mac-window__title">{APP_TITLES[win.id] ?? win.id}</span>
 				<span className="mac-window__spacer" aria-hidden="true" />
 			</header>
-			<div className="mac-window__body">{Content ? <Content /> : null}</div>
+			<WindowContent winId={win.id} />
 			{!win.maximized
 				? handles.map((direction) => (
 						<span
@@ -171,4 +179,14 @@ export function MacWindow({ win }: { win: MacWindowState }) {
 			{!win.maximized ? <span className="mac-window__grip" aria-hidden="true" /> : null}
 		</section>
 	);
-}
+});
+
+/**
+ * El contenido de la ventana va memoizado por id: al arrastrar o redimensionar
+ * la ventana, React re-renderiza solo el frame (position/size), nunca el screen
+ * interno. Los screens se re-renderizan por sí solos cuando su store cambia.
+ */
+const WindowContent = memo(function WindowContent({ winId }: { winId: string }) {
+	const Content = APP_SCREENS[winId] ?? null;
+	return <div className="mac-window__body">{Content ? <Content /> : null}</div>;
+});

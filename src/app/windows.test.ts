@@ -29,6 +29,18 @@ describe("windows store (macOS)", () => {
 		expect(useWindowsStore.getState().windows[0]).toMatchObject({ x: 120, y: 80 });
 	});
 
+	it("no deja arrastrar la ventana fuera del viewport (siempre queda barra de título)", () => {
+		useWindowsStore.getState().openWindow("notes");
+		useWindowsStore.getState().moveWindow("notes", -9999, -9999);
+		expect(useWindowsStore.getState().windows[0].y).toBeGreaterThanOrEqual(-10);
+		expect(useWindowsStore.getState().windows[0].x).toBe(-320);
+
+		useWindowsStore.getState().moveWindow("notes", 99999, 99999);
+		const window = useWindowsStore.getState().windows[0];
+		expect(window.x).toBe(904);
+		expect(window.y).toBe(744);
+	});
+
 	it("redimensiona y respeta el tamaño mínimo", () => {
 		useWindowsStore.getState().openWindow("notes");
 		useWindowsStore.getState().resizeWindow("notes", 10, 10, 500, 400);

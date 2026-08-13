@@ -1,14 +1,14 @@
 :root {
-	/* ── Radio ─────────────────────────────────────────── */
-	--radius-sm: 8px;
-	--radius-md: 12px;
-	--radius-lg: 16px;
-	--radius-xl: 20px;
-	--radius-2xl: 24px;
+	/* ── Radio (estándar macOS) ────────────────────────── */
+	--radius-sm: 6px; /* botones, inputs */
+	--radius-md: 8px; /* tarjetas */
+	--radius-lg: 12px; /* ventanas, paneles */
+	--radius-xl: 18px; /* burbujas de chat, widgets */
+	--radius-2xl: 24px; /* dock, notificaciones grandes */
 	--radius-pill: 999px;
 	--radius-avatar: 50%;
 
-	/* ── Espaciado ─────────────────────────────────────── */
+	/* ── Espaciado (rejilla de 8px) ───────────────────── */
 	--space-1: 4px;
 	--space-2: 8px;
 	--space-3: 12px;
@@ -18,50 +18,52 @@
 	--space-8: 32px;
 	--space-10: 40px;
 
-	/* ── Tipografía ────────────────────────────────────── */
+	/* ── Tipografía (SF Pro) ──────────────────────────── */
 	--font-family:
-		system-ui, -apple-system, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+		-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica,
+		Arial, sans-serif;
+	--font-mono: "SF Mono", "Menlo", "Monaco", "Courier New", monospace;
 	--font-weight-regular: 400;
 	--font-weight-medium: 500;
 	--font-weight-semibold: 600;
-	--text-xs: 11px;
-	--text-sm: 13px;
-	--text-base: 16px;
-	--text-lg: 17px;
-	--text-xl: 20px;
-	--text-2xl: 24px;
+	--text-xs: 11px; /* caption */
+	--text-sm: 13px; /* callout / cuerpo secundario (cuerpo macOS) */
+	--text-base: 15px; /* cuerpo de app */
+	--text-lg: 17px; /* cuerpo de chat / títulos */
+	--text-xl: 20px; /* title 2 */
+	--text-2xl: 24px; /* large title */
 	--leading-tight: 1.2;
 	--leading-normal: 1.45;
-	--leading-relaxed: 1.6;
+	--leading-relaxed: 1.55;
 	--tracking-tight: -0.02em;
-	--tracking-normal: 0em;
+	--tracking-normal: -0.01em;
 	--tracking-wide: 0.01em;
 
-	/* ── Movimiento ────────────────────────────────────── */
-	--duration-fast: 120ms;
-	--duration-base: 240ms;
+	/* ── Movimiento ───────────────────────────────────── */
+	--duration-fast: 150ms;
+	--duration-base: 250ms;
 	--duration-slow: 400ms;
 	--duration-slower: 650ms;
-	--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-	--ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+	--ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 	--ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-	/* ── Capas (z-index) ───────────────────────────────── */
+	/* ── Capas (z-index) ──────────────────────────────── */
 	--z-nav: 100;
 	--z-keyboard: 200;
 	--z-overlay: 300;
 	--z-toast: 400;
 
-	/* ── Presencia de Maya ─────────────────────────────── */
-	--presence-online: #3ba55d;
-	--presence-offline: #8a8a8e;
-	--presence-taking-photos: #c9a227;
-	--presence-typing: #3ba55d;
+	/* ── Presencia de Maya ────────────────────────────── */
+	--presence-online: #34c759;
+	--presence-offline: #8e8e93;
+	--presence-taking-photos: #ff9f0a;
+	--presence-typing: #34c759;
 }
 
-/* ════════════ TONOS BASE CÁLIDOS (Material Warmth) ════════════
-   Cada tono declara sus valores para modo claro y oscuro.
-   El tema (themes.css) decide cuál usar según data-theme. */
+/* ════════════ TONOS BASE CÁLIDOS ════════════
+   Identidad narrativa de In Focus. Cada tono declara sus valores para modo
+   claro y oscuro; el tema (themes.css) los expone como `--accent`. */
 
 /* Terracota suave */
 :root[data-tone="terracotta"] {
@@ -124,31 +126,31 @@
 }
 
 /* ════════════ TAMAÑO GLOBAL DE TEXTO (data-font) ════════════
-   Ajuste de comodidad: escala los tokens tipográficos. */
+   Ajuste de comodidad: escala los tokens tipográficos (md = base). */
 
 :root[data-font="sm"] {
 	--text-xs: 9px;
 	--text-sm: 11px;
-	--text-base: 14px;
+	--text-base: 13px;
 	--text-lg: 15px;
 	--text-xl: 17px;
 	--text-2xl: 20px;
 }
 
 :root[data-font="lg"] {
-	--text-xs: 13px;
-	--text-sm: 15px;
-	--text-base: 18px;
-	--text-lg: 20px;
-	--text-xl: 23px;
-	--text-2xl: 28px;
+	--text-xs: 12px;
+	--text-sm: 14px;
+	--text-base: 17px;
+	--text-lg: 19px;
+	--text-xl: 22px;
+	--text-2xl: 27px;
 }
 
 :root[data-font="xl"] {
-	--text-xs: 14px;
-	--text-sm: 17px;
-	--text-base: 21px;
-	--text-lg: 22px;
-	--text-xl: 26px;
-	--text-2xl: 31px;
+	--text-xs: 13px;
+	--text-sm: 15px;
+	--text-base: 19px;
+	--text-lg: 21px;
+	--text-xl: 25px;
+	--text-2xl: 30px;
 }

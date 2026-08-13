@@ -1,5 +1,5 @@
 import { useVirtualizer } from "@tanstack/react-virtual";
-import { useEffect, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 import type { Message } from "@/entities";
 import { PhotoBubble } from "@/features/chat/photo-bubble";
 import { ChatBubble, TypingIndicator } from "@/shared/ui";
@@ -21,8 +21,14 @@ function timeOf(sentAt: number): string {
  * Lista de chat virtualizada (STACK §5.2): solo renderiza los mensajes
  * visibles, manteniendo el uso de memoria bajo tras horas de conversación.
  * Auto-scroll al último mensaje; si el jugador sube, no lo fuerza.
+ * Memoizada: durante el auto-fill (cada ~120 ms) no se re-renderiza porque
+ * messages/isMayaTyping/onReact no cambian.
  */
-export function VirtualMessageList({ messages, isMayaTyping, onReact }: VirtualMessageListProps) {
+export const VirtualMessageList = memo(function VirtualMessageList({
+	messages,
+	isMayaTyping,
+	onReact,
+}: VirtualMessageListProps) {
 	const parentRef = useRef<HTMLDivElement>(null);
 	const stickToBottom = useRef(true);
 	const lastScrollTop = useRef(0);
@@ -123,11 +129,12 @@ export function VirtualMessageList({ messages, isMayaTyping, onReact }: VirtualM
 							) : (
 								<VirtualMessage
 									message={message}
+									messageId={message.id}
 									isBlockEnd={
 										messageIndex === messages.length - 1 ||
 										messages[messageIndex + 1].author !== message.author
 									}
-									onReact={(reaction) => onReact(message.id, reaction)}
+									onReact={onReact}
 								/>
 							)}
 						</div>
@@ -136,16 +143,18 @@ export function VirtualMessageList({ messages, isMayaTyping, onReact }: VirtualM
 			</div>
 		</main>
 	);
-}
+});
 
-function VirtualMessage({
+const VirtualMessage = memo(function VirtualMessage({
 	message,
+	messageId,
 	isBlockEnd,
 	onReact,
 }: {
 	message: Message;
+	messageId: string;
 	isBlockEnd: boolean;
-	onReact: (reaction: Message["reaction"]) => void;
+	onReact: (messageId: string, reaction: Message["reaction"]) => void;
 }) {
 	const isOwn = message.author === "player";
 	const timestamp = timeOf(message.sentAt);
@@ -157,7 +166,7 @@ function VirtualMessage({
 					message={message}
 					isBlockEnd={isBlockEnd}
 					timestamp={timestamp}
-					onReact={onReact}
+					onReact={(reaction) => onReact(messageId, reaction)}
 				/>
 			) : (
 				<ChatBubble
@@ -170,4 +179,4 @@ function VirtualMessage({
 			)}
 		</div>
 	);
-}
+});

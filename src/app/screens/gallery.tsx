@@ -1,8 +1,10 @@
 import { useNavigationStore } from "@/app/navigation";
 import { GalleryView } from "@/features/gallery";
+import { useRenderTick } from "@/shared/perf/perf";
 import { BackIcon } from "@/shared/ui";
 
 export function GalleryScreen() {
+	useRenderTick();
 	const navigate = useNavigationStore((state) => state.navigate);
 
 	return (

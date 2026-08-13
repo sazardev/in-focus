@@ -13,6 +13,8 @@ import { NotesScreen } from "@/app/screens/notes";
 import { SettingsScreen } from "@/app/screens/settings";
 import { NotificationStack } from "@/features/notifications";
 import { Onboarding, useProfileStore } from "@/features/profile";
+import { PerfOverlay } from "@/shared/perf/PerfOverlay";
+import { startPerfMeter, useRenderTick } from "@/shared/perf/perf";
 import { usePersistence } from "@/shared/persistence";
 import { ToastStack } from "@/shared/toast/toast-stack";
 import "./showcase.css";
@@ -22,6 +24,8 @@ export function App() {
 	const profile = useProfileStore((state) => state.profile);
 	const screen = useNavigationStore((state) => state.screen);
 	usePersistence();
+	useRenderTick();
+	startPerfMeter();
 
 	if (!booted) {
 		return <BootScreen onDone={() => setBooted(true)} />;
@@ -47,6 +51,7 @@ export function App() {
 					{screen === "camera" ? <CameraScreen /> : null}
 				</div>
 			</div>
+			<PerfOverlay />
 			<NotificationStack />
 			<ToastStack />
 		</div>

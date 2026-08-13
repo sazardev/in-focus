@@ -1,40 +1,66 @@
-/* ════════════ TEMA CLARO (default) ════════════ */
+/* ════════════ TEMA CLARO (default) ════════════
+   Superficies neutras Apple: blancos y grises muy cercanos, texto casi negro. */
 
 :root,
 :root[data-theme="light"] {
 	color-scheme: light;
-	--bg: #fdfbf7;
-	--bg-elevated: #ffffff;
-	--bg-inset: #f6f2eb;
-	--text: #2e241b;
-	--text-secondary: #7a6c5e;
-	--text-tertiary: #a39687;
-	--hairline: rgba(46, 36, 27, 0.08);
-	--bubble-incoming-bg: #efece8;
-	--bubble-incoming-text: #2e241b;
-	--nav-bg: rgba(253, 251, 247, 0.74);
-	--shadow-soft: 0 2px 10px rgba(46, 36, 27, 0.06);
-	--shadow-bubble: 0 1px 2px rgba(46, 36, 27, 0.08);
-	--overlay-scrim: rgba(20, 14, 9, 0.4);
+	--bg: #f5f5f7; /* ventana */
+	--bg-elevated: #ffffff; /* tarjetas, paneles */
+	--bg-inset: #e8e8ed; /* inputs, botones secundarios */
+	--bg-surface: rgba(0, 0, 0, 0.04); /* filas, barras */
+	--bg-hover: rgba(0, 0, 0, 0.06);
+	--bg-active: rgba(0, 0, 0, 0.1);
+	--text: #1d1d1f;
+	--text-secondary: #6e6e73;
+	--text-tertiary: #aeaeb2;
+	--hairline: rgba(0, 0, 0, 0.1);
+	--hairline-strong: rgba(0, 0, 0, 0.18);
+	--bubble-incoming-bg: #e9e9eb;
+	--bubble-incoming-text: #1d1d1f;
+	--nav-bg: rgba(248, 248, 249, 0.72);
+	--dock-bg: rgba(255, 255, 255, 0.45);
+	--shadow-soft: 0 0 0 0.5px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.06);
+	--shadow-md: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 8px 30px rgba(0, 0, 0, 0.12);
+	--shadow-window:
+		0 0 0 0.5px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08), 0 8px 30px rgba(0, 0, 0, 0.12),
+		0 24px 60px rgba(0, 0, 0, 0.1);
+	--shadow-bubble: 0 1px 2px rgba(0, 0, 0, 0.08);
+	--overlay-scrim: rgba(0, 0, 0, 0.4);
+	--toast-bg: rgba(40, 40, 42, 0.88);
+	--toast-text: #f5f5f7;
 }
 
-/* ════════════ TEMA OSCURO ════════════ */
+/* ════════════ TEMA OSCURO ════════════
+   Grises Apple más separados; el negro puro no existe. */
 
 :root[data-theme="dark"] {
 	color-scheme: dark;
-	--bg: #1e1c1a;
-	--bg-elevated: #262320;
-	--bg-inset: #171513;
-	--text: #f3ede5;
-	--text-secondary: #a39687;
-	--text-tertiary: #6f645a;
-	--hairline: rgba(243, 237, 229, 0.08);
-	--bubble-incoming-bg: #2c2824;
-	--bubble-incoming-text: #f3ede5;
-	--nav-bg: rgba(30, 28, 26, 0.76);
-	--shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.35);
+	--bg: #1c1c1e;
+	--bg-elevated: #2c2c2e;
+	--bg-inset: #3a3a3c;
+	--bg-surface: rgba(255, 255, 255, 0.06);
+	--bg-hover: rgba(255, 255, 255, 0.08);
+	--bg-active: rgba(255, 255, 255, 0.12);
+	--text: #f5f5f7;
+	--text-secondary: #98989d;
+	--text-tertiary: #636366;
+	--hairline: rgba(255, 255, 255, 0.1);
+	--hairline-strong: rgba(255, 255, 255, 0.2);
+	--bubble-incoming-bg: #3a3a3c;
+	--bubble-incoming-text: #f5f5f7;
+	--nav-bg: rgba(30, 30, 32, 0.72);
+	--dock-bg: rgba(44, 44, 46, 0.55);
+	--shadow-soft: 0 0 0 0.5px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+	--shadow-md: 0 0 0 0.5px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.35);
+	--shadow-lg: 0 0 0 0.5px rgba(0, 0, 0, 0.4), 0 8px 30px rgba(0, 0, 0, 0.4);
+	--shadow-window:
+		0 0 0 0.5px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.4),
+		0 24px 60px rgba(0, 0, 0, 0.5);
 	--shadow-bubble: 0 1px 2px rgba(0, 0, 0, 0.4);
 	--overlay-scrim: rgba(0, 0, 0, 0.6);
+	--toast-bg: rgba(60, 60, 62, 0.92);
+	--toast-text: #f5f5f7;
 }
 
 /* ════════════ ACENTO (desde el tono base) ════════════ */

@@ -1,0 +1,55 @@
+/* Overlay dev de métricas de rendimiento (FPS, frame time, renders). */
+.perf-overlay {
+	position: fixed;
+	top: 12px;
+	left: 12px;
+	z-index: 9999;
+	pointer-events: auto;
+	font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+	user-select: none;
+}
+
+.perf-overlay__panel {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 10px 12px;
+	border-radius: 12px;
+	background: rgba(10, 10, 14, 0.82);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	color: #f2f2f7;
+	font-size: 11px;
+	line-height: 1.35;
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+	transform: translateZ(0);
+}
+
+.perf-overlay__row {
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+	white-space: nowrap;
+}
+
+.perf-overlay__value {
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+}
+
+.perf-overlay__unit {
+	color: rgba(242, 242, 247, 0.55);
+}
+
+.perf-overlay__bad {
+	color: #ff453a;
+	font-weight: 700;
+}
+
+.perf-overlay__spark {
+	width: 100%;
+	height: 26px;
+	margin-top: 2px;
+	opacity: 0.9;
+}
