@@ -29,10 +29,8 @@ pub fn run() {
         .setup(|app| {
             let quit = MenuItem::with_id(app, "quit", "Salir de In Focus", true, None::<&str>)?;
             let show = MenuItem::with_id(app, "show", "Mostrar In Focus", true, None::<&str>)?;
-            let menu = Menu::with_items(
-                app,
-                &[&show, &PredefinedMenuItem::separator(app)?, &quit],
-            )?;
+            let menu =
+                Menu::with_items(app, &[&show, &PredefinedMenuItem::separator(app)?, &quit])?;
 
             let mut builder = TrayIconBuilder::with_id("main")
                 .menu(&menu)
