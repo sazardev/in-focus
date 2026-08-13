@@ -25,6 +25,8 @@ function timeOf(sentAt: number): string {
 export function VirtualMessageList({ messages, isMayaTyping, onReact }: VirtualMessageListProps) {
 	const parentRef = useRef<HTMLDivElement>(null);
 	const stickToBottom = useRef(true);
+	const lastScrollTop = useRef(0);
+	const lastPlayerMessageId = useRef<string | null>(null);
 	const totalItems = messages.length + (isMayaTyping ? 1 : 0);
 
 	const virtualizer = useVirtualizer({
@@ -37,7 +39,7 @@ export function VirtualMessageList({ messages, isMayaTyping, onReact }: VirtualM
 		measureElement: (element) => element.getBoundingClientRect().height,
 	});
 
-	const lastIndex = totalItems - 1;
+	const totalSize = virtualizer.getTotalSize();
 
 	useEffect(() => {
 		const element = parentRef.current;
@@ -47,11 +49,28 @@ export function VirtualMessageList({ messages, isMayaTyping, onReact }: VirtualM
 		void totalItems;
 	}, [totalItems]);
 
+	// Scroll suave hasta el fondo REAL: al entrar al chat y cuando llegan
+	// mensajes nuevos (si el jugador sigue cerca del final). Se repite al
+	// medirse el layout (totalSize) para no dejar ningún hueco abajo. Al
+	// enviar un mensaje propio, siempre baja hasta verlo.
 	useEffect(() => {
-		if (!stickToBottom.current) return;
-		virtualizer.scrollToIndex(lastIndex, { align: "end" });
-		void totalItems;
-	}, [lastIndex, totalItems, virtualizer]);
+		if (totalItems === 0) return;
+		const last = messages[messages.length - 1];
+		const justSent = last?.author === "player" && last.id !== lastPlayerMessageId.current;
+		if (justSent) lastPlayerMessageId.current = last.id;
+		if (!stickToBottom.current && !justSent) return;
+
+		const element = parentRef.current;
+		if (!element) return;
+		const id = requestAnimationFrame(() => {
+			if (stickToBottom.current || justSent) {
+				element.scrollTo({ top: element.scrollHeight, behavior: "smooth" });
+			}
+		});
+		void totalSize;
+		void virtualizer;
+		return () => cancelAnimationFrame(id);
+	}, [totalItems, totalSize, virtualizer, messages]);
 
 	return (
 		<main
@@ -59,7 +78,16 @@ export function VirtualMessageList({ messages, isMayaTyping, onReact }: VirtualM
 			className="message-canvas"
 			onScroll={(event) => {
 				const el = event.currentTarget;
-				stickToBottom.current = el.scrollHeight - el.scrollTop - el.clientHeight < 120;
+				const delta = el.scrollTop - lastScrollTop.current;
+				lastScrollTop.current = el.scrollTop;
+				const nearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 120;
+				if (delta < -2) {
+					// El usuario sube de verdad: se despega del fondo. El scroll
+					// automático (suave) nunca dispara esto porque baja.
+					stickToBottom.current = false;
+				} else if (nearBottom) {
+					stickToBottom.current = true;
+				}
 			}}
 		>
 			<div
@@ -79,6 +107,7 @@ export function VirtualMessageList({ messages, isMayaTyping, onReact }: VirtualM
 							key={isTypingRow ? "typing" : message.id}
 							data-index={virtualRow.index}
 							ref={virtualizer.measureElement}
+							className="virtual-row"
 							style={{
 								position: "absolute",
 								top: 0,

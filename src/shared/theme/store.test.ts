@@ -7,11 +7,11 @@ describe("theme store", () => {
 	});
 
 	afterEach(() => {
-		useThemeStore.setState({ theme: "light", tone: "terracotta" });
+		useThemeStore.setState({ theme: "system", tone: "terracotta" });
 	});
 
-	it("defaults to light theme and terracotta tone", () => {
-		expect(useThemeStore.getState().theme).toBe("light");
+	it("defaults to system theme and terracotta tone", () => {
+		expect(useThemeStore.getState().theme).toBe("system");
 		expect(useThemeStore.getState().tone).toBe("terracotta");
 	});
 
@@ -22,6 +22,7 @@ describe("theme store", () => {
 	});
 
 	it("toggles between light and dark", () => {
+		useThemeStore.getState().setTheme("light");
 		useThemeStore.getState().toggleTheme();
 		expect(useThemeStore.getState().theme).toBe("dark");
 		useThemeStore.getState().toggleTheme();

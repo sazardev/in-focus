@@ -122,3 +122,33 @@
 	--tone-dark-primary-soft: rgba(224, 140, 166, 0.16);
 	--tone-dark-primary-strong: #f0a8bd;
 }
+
+/* ════════════ TAMAÑO GLOBAL DE TEXTO (data-font) ════════════
+   Ajuste de comodidad: escala los tokens tipográficos. */
+
+:root[data-font="sm"] {
+	--text-xs: 9px;
+	--text-sm: 11px;
+	--text-base: 14px;
+	--text-lg: 15px;
+	--text-xl: 17px;
+	--text-2xl: 20px;
+}
+
+:root[data-font="lg"] {
+	--text-xs: 13px;
+	--text-sm: 15px;
+	--text-base: 18px;
+	--text-lg: 20px;
+	--text-xl: 23px;
+	--text-2xl: 28px;
+}
+
+:root[data-font="xl"] {
+	--text-xs: 14px;
+	--text-sm: 17px;
+	--text-base: 21px;
+	--text-lg: 22px;
+	--text-xl: 26px;
+	--text-2xl: 31px;
+}

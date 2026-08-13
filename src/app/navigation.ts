@@ -1,6 +1,16 @@
 import { create } from "zustand";
 
-export type Screen = "home" | "chat" | "gallery" | "settings";
+export type Screen =
+	| "home"
+	| "chat"
+	| "gallery"
+	| "settings"
+	| "notes"
+	| "calendar"
+	| "clock"
+	| "music"
+	| "camera"
+	| "history";
 
 interface NavigationState {
 	screen: Screen;

@@ -91,3 +91,12 @@ export function playPhoto(): void {
 	tone(ac, 1046, 0, 0.09, 0.09);
 	tone(ac, 1568, 0.07, 0.16, 0.08);
 }
+
+/** Arranque del sistema: chime cálido ascendente. */
+export function playBoot(): void {
+	const ac = audioContext();
+	if (!ac || !useSoundStore.getState().enabled) return;
+	tone(ac, 523, 0, 0.3, 0.09);
+	tone(ac, 659, 0.15, 0.3, 0.09);
+	tone(ac, 784, 0.3, 0.45, 0.1);
+}

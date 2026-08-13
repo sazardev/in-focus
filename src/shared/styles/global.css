@@ -51,25 +51,26 @@ a {
 
 .app-shell {
 	height: 100%;
-	display: grid;
-	place-items: center;
-	background:
-		radial-gradient(ellipse 80% 60% at 50% -10%, var(--accent-soft), transparent 60%), var(--bg);
+	display: flex;
+	flex-direction: column;
+	background: var(--bg);
+	overflow: hidden;
 }
 
+/* Full screen: el app llena toda la ventana, sin marco de dispositivo */
 .phone-frame {
 	position: relative;
-	height: min(720px, calc(100vh - 48px));
-	width: min(430px, 100%);
+	flex: 1;
+	min-height: 0;
+	width: 100%;
 	background: var(--bg);
-	border: 1px solid var(--hairline);
-	border-radius: var(--radius-2xl);
-	box-shadow: var(--shadow-soft);
 	overflow: hidden;
 }
 
 .phone-frame .chat-shell {
 	height: 100%;
+	width: 100%;
+	max-width: none;
 	border-radius: 0;
 	box-shadow: none;
 }

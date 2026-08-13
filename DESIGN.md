@@ -67,6 +67,14 @@ Para dar más impacto y reforzar la ilusión de estar dentro de un mensajero rea
 - **Tablet:** la app usa un **marco de tablet**: más ancho que el móvil (~768–1024px) con bezel redondeado; la columna de chat mantiene una proporción cómoda y deja espacio para posibles paneles secundarios.
 - **Reglas del marco:** el marco es decorativo y nunca corta contenido interactivo; el scroll y el overscroll se comportan como en el dispositivo real; el mockup escala con la ventana conservando la proporción del dispositivo simulado.
 
+### 5.1. Inicio (Springboard del sistema)
+
+El inicio se ve como el springboard del dispositivo simulado (DESIGN.md §5):
+- **Móvil (iOS):** fondo tipo wallpaper cálido, cuadrícula de iconos de app (squircle) y un **dock** inferior con cristal esmerilado (Mensajes, Galería, Ajustes).
+- **Tablet (iPad):** springboard con más columnas (6) e iconos más holgados.
+- **Escritorio (macOS):** escritorio con **barra de menú** superior (logo + hora en vivo), iconos de app y un dock inferior.
+- Los iconos de app funcionales navegan (Mensajes → chat, Galería/Fotos → galería, Ajustes); el resto son apps del sistema decorativas. El badge de Mensajes refleja los no leídos.
+
 ---
 
 ## 6. Microinteracciones y Animaciones

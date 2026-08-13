@@ -123,6 +123,49 @@ inalcanzables de nuevo.
   `story:average-line-length`) cuentan **code points** (un emoji = 1), no
   unidades UTF-16.
 
+## Apps de colección (Historia, Notas, Calendario)
+
+- **App "Historia"** (`src/app/screens/history.tsx`): **recopilado en tiempo
+  real** — stats (capítulos, decisiones, fotos), **Cómo vamos** (barras de
+  Afinidad/Romance/Confianza vivas desde `useRelationshipStore` + tier y "tip"
+  derivado), **Resumen del momento** (párrafo autogenerado con capítulo actual
+  y progreso), lista de 28 capítulos con estado (completado/en curso/bloqueado)
+  que se expanden a la entrada de diario, y **Tus decisiones, por capítulo**
+  (agrupadas desde `choiceLog`). Icono libro púrpura en home/dock; ventana en
+  escritorio.
+- **`choiceLog`** (en `dialogue/store.ts`): decisiones con texto
+  (`DialogueChoice { id, chapter, option }`), persistidas en localStorage
+  `in-focus:choices`. `confirmSend` las registra (nº de capítulo desde
+  `currentNode` + texto de la opción); `reset()` las borra. Se separa de
+  `choiceHistory` (índices, para resume determinista).
+- **Notas**: 3 pestañas — **Diario** (28 entradas completas en
+  `features/diary/data.ts`: `recap` de lo que se habló, `text` reflexión y
+  `note` marginalia; la UI añade **Tus decisiones** del capítulo desde
+  `choiceLog` y la **frase de Maya** de `quotes.ts` vía
+  `DiaryEntryCard`), **Frases** (frases icónicas de Maya, una por
+  capítulo, en `features/diary/quotes.ts`) y **Notas** libres persistidas.
+  Desbloqueo por capítulo vía `isDiaryUnlocked` (cap. 1, capítulo actual o
+  `$cap_NN_done`). Al añadir frases al catálogo: mantener 28 entradas en orden
+  (lo verifica `data.test.ts`).
+- **Calendario**: mes navegable (‹/›), hoy resaltado, fin de semana atenuado y
+  pie con eventos de la historia: **capítulo actual** (título del cap. desde
+  `DIARY`) y **cuenta atrás de la expo** si `expoDay` está fijado en
+  `game-clock` (días restantes según `day`).
+
+## Iconos de app y wallpaper
+
+- **Iconos de app** (`src/app/os/app-icons.tsx`): `AppGlyph`/`AppKind` — tile
+  "squircle" con gradiente + glifo del banco real **lucide-react** (Mensajes =
+  `MessageCircle` verde, Fotos = `Flower2` azul, Notas = `StickyNote` sobre
+  papel amarillo, Calendario = `CalendarDays` rojo, etc.). Se usan en
+  `home.tsx` (springboard + dock + miniaturas minimizadas). Para cambiar un
+  icono: editar `SPEC` en `app-icons.tsx`. **No usar las viejas clases
+  `app-icon__glyph--{kind}`** (eliminadas).
+- **Wallpaper**: `public/wallpapers/sierra.jpg` (2560×1600, descargado).
+  Aplicado como fondo del `.desktop` y `.springboard` con overlay oscuro;
+  etiquetas de apps en blanco con sombra para contraste. Si se reemplaza,
+  mantener la misma ruta o actualizar el CSS.
+
 ## Tauri / persistencia
 
 - IPC: solo `save_state` / `load_state` (`commands.rs`, `lib.rs`). Guardado en
@@ -131,9 +174,18 @@ inalcanzables de nuevo.
   messages, current_node, chapter_title, gallery_photos.
 - Un comando IPC nuevo exige registrarlo en el `invoke_handler` de `lib.rs` **y**
   (si es para el frontend) en `capabilities/default.json` (hoy solo
-  `core:default` + `opener:default`).
+  `core:default` + `opener:default` + `notification:default`).
+- **App "cerrada" sigue viva (bandeja)**: `lib.rs` intercepta el cierre de la
+  ventana (`WindowEvent::CloseRequested`) y la oculta en vez de salir; hay
+  bandeja (`tray-icon`) con "Mostrar In Focus" / "Salir" (flag `QUITTING`).
+  Requiere `tauri = { features = ["tray-icon"] }` en Cargo.toml.
+- **Notificaciones nativas**: `tauri-plugin-notification` (npm + cargo). El
+  store de notificaciones dispara `sendSystemNotification` (`shared/notify.ts`)
+  en cada push; llegan aunque la ventana esté oculta. Requiere el permiso
+  `notification:default` en capabilities.
 - Front: `shared/persistence` usa `invoke` con fallback a localStorage vía
-  `isTauri` (el juego también corre en navegador).
+  `isTauri` (el juego también corre en navegador). Toasts de usabilidad:
+  `shared/toast` (`push` + `ToastStack` en App).
 
 ## PUERTO 5174 (CRÍTICO)
 

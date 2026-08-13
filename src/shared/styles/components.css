@@ -393,12 +393,19 @@
 	gap: var(--space-2);
 	scroll-behavior: smooth;
 	overscroll-behavior: contain;
+	contain: layout paint;
 }
 
 .message-block {
 	display: flex;
 	flex-direction: column;
 	animation: message-in var(--duration-base) var(--ease-out) both;
+}
+
+/* Fila de la lista virtualizada: el padding forma parte de la altura medida,
+   así la separación entre burbujas entra en el scroll y no se solapan. */
+.virtual-row {
+	padding-bottom: var(--space-2);
 }
 
 .message-block--own {
@@ -431,6 +438,9 @@
 	padding-bottom: calc(var(--space-2) + env(safe-area-inset-bottom, 0px));
 	background: var(--bg);
 	border-top: 1px solid var(--hairline);
+	width: 100%;
+	max-width: 720px;
+	margin: 0 auto;
 }
 
 .input-pill {
@@ -520,6 +530,9 @@
 	border-top: 1px solid var(--hairline);
 	border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
 	animation: keyboard-up var(--duration-slow) var(--ease-out) both;
+	width: 100%;
+	max-width: 720px;
+	margin: 0 auto;
 }
 
 .option-btn {
@@ -614,80 +627,1510 @@
 	flex: 1;
 	overflow-y: auto;
 	padding: var(--space-4);
+	width: 100%;
+	max-width: 720px;
+	margin: 0 auto;
+	contain: layout paint;
 }
 
-/* Pantalla principal (home / springboard) */
-.home {
+/* ════════════ INICIO (springboard iOS / escritorio macOS) ════════════ */
+
+.springboard {
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: var(--space-8);
-	padding: var(--space-6);
-	background: var(--bg);
+	padding: var(--space-5) var(--space-4);
+	overflow: hidden;
+	background:
+		linear-gradient(rgba(16, 18, 34, 0.35), rgba(16, 18, 34, 0.55)),
+		url("/wallpapers/sierra.jpg") center / cover no-repeat;
 }
 
-.home__dock {
+.springboard__top {
+	align-self: flex-start;
+}
+
+.springboard__widgets {
 	display: flex;
+	gap: var(--space-3);
+	margin: var(--space-3) 0 var(--space-4);
+}
+
+.springboard__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+	gap: var(--space-6) var(--space-4);
+	justify-items: center;
+	align-content: start;
+	flex: 1;
+	width: 100%;
+	max-width: 640px;
+	margin: 0 auto;
+}
+
+.springboard__dock {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	gap: var(--space-5);
+	padding: var(--space-3) var(--space-5);
+	background: rgba(255, 255, 255, 0.55);
+	border-radius: var(--radius-2xl);
+	box-shadow: var(--shadow-bubble);
+	backdrop-filter: blur(16px) saturate(1.5);
+	-webkit-backdrop-filter: blur(16px) saturate(1.5);
+	margin-top: var(--space-4);
+}
+
+.springboard--tablet .springboard__dock {
 	gap: var(--space-6);
 }
 
+/* ── Escritorio (laptop / macOS) ── */
+.desktop {
+	position: relative;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: var(--space-5) var(--space-6);
+	overflow: hidden;
+	background:
+		linear-gradient(rgba(16, 18, 34, 0.22), rgba(16, 18, 34, 0.4)),
+		url("/wallpapers/sierra.jpg") center / cover no-repeat;
+}
+
+.desktop__widgets {
+	display: flex;
+	gap: var(--space-4);
+	justify-content: flex-end;
+}
+
+.desktop__dock {
+	position: relative;
+	z-index: 100;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	gap: 10px;
+	align-self: center;
+	max-width: 100%;
+	overflow-x: auto;
+	padding: 14px 12px 8px;
+	background: rgba(255, 255, 255, 0.5);
+	border-radius: 18px;
+	box-shadow:
+		0 0 0 0.5px rgba(0, 0, 0, 0.08),
+		0 10px 28px rgba(0, 0, 0, 0.22);
+	backdrop-filter: blur(20px) saturate(1.6);
+	-webkit-backdrop-filter: blur(20px) saturate(1.6);
+}
+
+/* Transición de pantallas (iOS): zoom de app al abrir/cerrar */
+.screen-transition {
+	height: 100%;
+	animation: ios-screen-in 0.32s var(--ease-out) both;
+}
+
+/* ── Ventana macOS ── */
+.mac-window {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	min-width: 300px;
+	min-height: 240px;
+	max-width: calc(100% - 32px);
+	max-height: calc(100% - 72px);
+	background: var(--bg-elevated);
+	border-radius: 12px;
+	box-shadow:
+		0 20px 52px rgba(0, 0, 0, 0.32),
+		0 2px 8px rgba(0, 0, 0, 0.18);
+	overflow: hidden;
+	animation: mac-window-in 0.22s var(--ease-out) both;
+}
+
+.mac-window--maximized {
+	/* biome-ignore lint/complexity/noImportantStyles: anula el posicionamiento inline al maximizar */
+	left: 0 !important;
+	/* biome-ignore lint/complexity/noImportantStyles: anula el posicionamiento inline al maximizar */
+	top: 0 !important;
+	/* biome-ignore lint/complexity/noImportantStyles: anula el tamaño inline al maximizar */
+	width: 100% !important;
+	/* biome-ignore lint/complexity/noImportantStyles: anula el tamaño inline al maximizar */
+	height: 100% !important;
+	border-radius: 0;
+}
+
+.mac-window--close {
+	animation: mac-window-out 0.2s var(--ease-in-out) both;
+}
+
+.mac-window--minimize {
+	animation: mac-window-min 0.2s var(--ease-in-out) both;
+}
+
+.mac-window__titlebar {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	height: 34px;
+	flex-shrink: 0;
+	padding: 0 10px;
+	background: var(--nav-bg);
+	border-bottom: 1px solid var(--hairline);
+	cursor: grab;
+	user-select: none;
+}
+
+.mac-window__titlebar:active {
+	cursor: grabbing;
+}
+
+.mac-window__lights {
+	display: flex;
+	gap: 7px;
+}
+
+.mac-light {
+	width: 12px;
+	height: 12px;
+	border: none;
+	border-radius: var(--radius-avatar);
+	padding: 0;
+	cursor: pointer;
+}
+
+.mac-light--close {
+	background: #ff5f57;
+}
+
+.mac-light--min {
+	background: #febc2e;
+}
+
+.mac-light--max {
+	background: #28c840;
+}
+
+.mac-window__title {
+	flex: 1;
+	text-align: center;
+	font-size: var(--text-sm);
+	font-weight: var(--font-weight-semibold);
+	color: var(--text-secondary);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.mac-window__spacer {
+	width: 58px;
+}
+
+.mac-window__body {
+	flex: 1;
+	min-height: 0;
+	overflow: hidden;
+	background: var(--bg);
+	contain: layout paint;
+}
+
+.mac-window__body > * {
+	height: 100%;
+}
+
+.mac-window .nav-bar {
+	display: none;
+}
+
+/* La ventana activa destaca; las inactivas se atenúan */
+.mac-window--focused .mac-window__titlebar {
+	background: var(--bg-elevated);
+}
+
+.mac-window:not(.mac-window--focused) {
+	box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+}
+
+.mac-window:not(.mac-window--focused) .mac-window__title {
+	color: var(--text-tertiary);
+}
+
+/* ── Redimensionado (bordes y esquinas) ── */
+.mac-resize {
+	position: absolute;
+	z-index: 6;
+}
+
+.mac-resize--n {
+	top: 0;
+	left: 10px;
+	right: 10px;
+	height: 5px;
+	cursor: ns-resize;
+}
+
+.mac-resize--s {
+	bottom: 0;
+	left: 10px;
+	right: 10px;
+	height: 5px;
+	cursor: ns-resize;
+}
+
+.mac-resize--e {
+	right: 0;
+	top: 10px;
+	bottom: 10px;
+	width: 5px;
+	cursor: ew-resize;
+}
+
+.mac-resize--w {
+	left: 0;
+	top: 10px;
+	bottom: 10px;
+	width: 5px;
+	cursor: ew-resize;
+}
+
+.mac-resize--ne {
+	top: 0;
+	right: 0;
+	width: 14px;
+	height: 14px;
+	cursor: nesw-resize;
+}
+
+.mac-resize--nw {
+	top: 0;
+	left: 0;
+	width: 14px;
+	height: 14px;
+	cursor: nwse-resize;
+}
+
+.mac-resize--se {
+	bottom: 0;
+	right: 0;
+	width: 16px;
+	height: 16px;
+	cursor: nwse-resize;
+}
+
+.mac-resize--sw {
+	bottom: 0;
+	left: 0;
+	width: 14px;
+	height: 14px;
+	cursor: nesw-resize;
+}
+
+/* Asa visual en la esquina inferior derecha */
+.mac-window__grip {
+	position: absolute;
+	bottom: 3px;
+	right: 3px;
+	width: 14px;
+	height: 14px;
+	pointer-events: none;
+	opacity: 0.45;
+	background-image:
+		linear-gradient(
+			135deg,
+			transparent 42%,
+			var(--text-secondary) 42%,
+			var(--text-secondary) 50%,
+			transparent 50%
+		),
+		linear-gradient(
+			135deg,
+			transparent 62%,
+			var(--text-secondary) 62%,
+			var(--text-secondary) 70%,
+			transparent 70%
+		),
+		linear-gradient(
+			135deg,
+			transparent 82%,
+			var(--text-secondary) 82%,
+			var(--text-secondary) 90%,
+			transparent 90%
+		);
+}
+
+/* ── Icono de app (iOS squircle) ── */
 .app-icon {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: var(--space-2);
-	width: 88px;
-	padding: var(--space-3) 0;
+	gap: var(--space-1);
+	width: 76px;
+	padding: var(--space-1) 0;
 	border: none;
 	background: transparent;
 	color: var(--text);
 	cursor: pointer;
 	border-radius: var(--radius-lg);
-	position: relative;
+	transition: transform 0.2s var(--ease-out);
 }
 
-.app-icon:hover {
-	background: var(--bg-inset);
+.app-icon--static {
+	cursor: default;
+}
+
+.app-icon:not(.app-icon--static):active {
+	transform: scale(0.96);
 }
 
 .app-icon__glyph {
 	display: grid;
 	place-items: center;
-	width: 56px;
-	height: 56px;
-	border-radius: var(--radius-2xl);
-	background: linear-gradient(145deg, var(--accent), var(--accent-strong));
-	color: var(--accent-contrast);
-	box-shadow: var(--shadow-soft);
+	width: 60px;
+	height: 60px;
+	border-radius: 14px;
+	color: #fff;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+	overflow: hidden;
+	background: transparent;
+}
+
+.app-icon__glyph svg {
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 
 .app-icon__label {
 	font-size: var(--text-xs);
 	font-weight: var(--font-weight-medium);
 	letter-spacing: var(--tracking-wide);
-	color: var(--text-secondary);
+	color: #fff;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .app-icon__badge {
 	position: absolute;
-	top: 4px;
-	right: 14px;
+	top: -2px;
+	right: 6px;
 	min-width: 18px;
 	height: 18px;
 	padding: 0 5px;
 	border-radius: var(--radius-pill);
-	background: var(--presence-online);
+	background: #e03d3d;
 	color: #fff;
-	font-size: var(--text-xs);
+	font-size: 11px;
 	font-weight: var(--font-weight-semibold);
+	display: grid;
+	place-items: center;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Dock (macOS) ── */
+.app-icon--dock {
+	width: auto;
+	padding: 0;
+	transition: transform 0.24s var(--ease-out);
+}
+
+.app-icon--dock .app-icon__glyph {
+	width: 48px;
+	height: 48px;
+	border-radius: 11px;
+	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
+}
+
+.desktop__dock:hover .app-icon--dock {
+	transform: translateY(-2px);
+}
+
+.desktop__dock .app-icon--dock:hover {
+	transform: scale(1.22) translateY(-5px);
+}
+
+/* Tooltip del icono del dock (nombre de la app) */
+.dock-tooltip {
+	position: absolute;
+	top: -36px;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 4px 10px;
+	border-radius: var(--radius-md);
+	background: rgba(30, 28, 26, 0.85);
+	color: #f5f1ea;
+	font-size: var(--text-xs);
+	font-weight: var(--font-weight-medium);
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.15s var(--ease-out);
+}
+
+.app-icon--dock:hover .dock-tooltip {
+	opacity: 1;
+}
+
+/* Miniatura de ventana minimizada en el dock */
+.dock-thumb {
+	display: grid;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.4);
+	cursor: pointer;
+	transition: transform 0.2s var(--ease-out);
+}
+
+.dock-thumb .app-icon__glyph {
+	width: 32px;
+	height: 32px;
+	border-radius: 8px;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.dock-thumb:hover {
+	transform: translateY(-3px) scale(1.08);
+}
+
+.dock-divider {
+	width: 1px;
+	height: 42px;
+	margin: 0 4px;
+	background: rgba(0, 0, 0, 0.14);
+}
+
+.dock-trash {
+	display: grid;
+	place-items: center;
+	width: 48px;
+	height: 48px;
+	border: none;
+	background: transparent;
+	color: rgba(30, 24, 17, 0.55);
+	cursor: pointer;
+	border-radius: 11px;
+	transition:
+		transform 0.24s var(--ease-out),
+		color var(--duration-fast) var(--ease-out);
+}
+
+.dock-trash:hover {
+	transform: scale(1.1);
+	color: rgba(30, 24, 17, 0.8);
+}
+
+.dock-trash__glyph {
 	display: grid;
 	place-items: center;
 }
 
-.home__demo {
-	align-self: stretch;
+/* ── Widgets del SO (reloj / calendario) ── */
+.os-widget {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: var(--space-3) var(--space-4);
+	background: rgba(255, 255, 255, 0.45);
+	border-radius: var(--radius-xl);
+	box-shadow: var(--shadow-bubble);
+	backdrop-filter: blur(18px) saturate(1.5);
+	-webkit-backdrop-filter: blur(18px) saturate(1.5);
+	color: var(--text);
+}
+
+.os-widget__weekday {
+	font-size: var(--text-lg);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: var(--tracking-tight);
+}
+
+.os-widget--clock .os-widget__time {
+	font-size: var(--text-2xl);
+	font-weight: var(--font-weight-semibold);
+	font-variant-numeric: tabular-nums;
+	line-height: var(--leading-tight);
+}
+
+.os-widget--clock .os-widget__date {
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+}
+
+.os-widget--calendar .os-widget__month {
+	font-size: var(--text-sm);
+	font-weight: var(--font-weight-semibold);
+	color: var(--accent);
+}
+
+.os-widget--calendar .os-widget__day {
+	font-size: 34px;
+	font-weight: var(--font-weight-semibold);
+	line-height: var(--leading-tight);
+}
+
+.os-widget--calendar .os-widget__weekday {
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+}
+
+/* ════════════ APPS DEL SISTEMA (reloj, calendario, notas, música, cámara) ════════════ */
+
+/* Reloj */
+.clock {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-4);
+	padding: var(--space-6) 0;
+}
+
+.clock__analog {
+	width: min(220px, 70vw);
+	aspect-ratio: 1;
+}
+
+.clock__face {
+	width: 100%;
+	height: 100%;
+}
+
+.clock__rim {
+	fill: var(--bg-elevated);
+	stroke: var(--hairline);
+	stroke-width: 1;
+}
+
+.clock__tick {
+	stroke: var(--text-secondary);
+	stroke-width: 1.5;
+}
+
+.clock__hand {
+	stroke-linecap: round;
+}
+
+.clock__hand--hour {
+	stroke: var(--text);
+	stroke-width: 4;
+}
+
+.clock__hand--minute {
+	stroke: var(--text);
+	stroke-width: 3;
+}
+
+.clock__hand--second {
+	stroke: var(--accent);
+	stroke-width: 1.5;
+}
+
+.clock__center {
+	fill: var(--accent);
+}
+
+.clock__digital {
+	display: flex;
+	align-items: baseline;
+	gap: var(--space-2);
+}
+
+.clock__time {
+	font-size: 44px;
+	font-weight: var(--font-weight-semibold);
+	font-variant-numeric: tabular-nums;
+	letter-spacing: -0.02em;
+}
+
+.clock__seconds {
+	font-size: var(--text-xl);
+	color: var(--text-secondary);
+	font-variant-numeric: tabular-nums;
+}
+
+.clock__date {
+	font-size: var(--text-lg);
+	color: var(--text-secondary);
+}
+
+/* Calendario */
+.calendar {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+	background: var(--bg-elevated);
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-2xl);
+	padding: var(--space-4);
+	box-shadow: var(--shadow-soft);
+}
+
+.calendar__month {
+	font-size: var(--text-xl);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: var(--tracking-tight);
+	text-transform: capitalize;
+}
+
+.calendar__nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.calendar__arrow {
+	display: grid;
+	place-items: center;
+	width: var(--space-8);
+	height: var(--space-8);
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-md);
+	background: var(--bg-elevated);
+	color: var(--text-secondary);
+	font-size: var(--text-lg);
+	cursor: pointer;
+	transition:
+		background var(--duration-fast) var(--ease-out),
+		color var(--duration-fast) var(--ease-out);
+}
+
+.calendar__arrow:hover {
+	background: var(--bg-hover);
+	color: var(--text);
+}
+
+.calendar__weekdays,
+.calendar__grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 2px;
+}
+
+.calendar__weekday {
+	text-align: center;
+	font-size: var(--text-xs);
+	font-weight: var(--font-weight-semibold);
+	color: var(--text-secondary);
+	padding: var(--space-1) 0;
+}
+
+.calendar__weekday--weekend {
+	color: var(--accent);
+}
+
+.calendar__cell {
+	text-align: center;
+	padding: var(--space-2) 0;
+	border-radius: var(--radius-avatar);
+	font-size: var(--text-base);
+	color: var(--text);
+}
+
+.calendar__cell--weekend {
+	color: var(--text-secondary);
+}
+
+.calendar__cell--today {
+	background: var(--accent);
+	color: var(--accent-contrast);
+	font-weight: var(--font-weight-semibold);
+}
+
+.calendar__story {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	margin-top: var(--space-2);
+}
+
+.calendar__event {
+	display: flex;
+	align-items: baseline;
+	gap: var(--space-3);
+	padding: var(--space-2) var(--space-3);
+	background: var(--bg-elevated);
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-md);
+}
+
+.calendar__event--expo {
+	border-color: var(--accent);
+}
+
+.calendar__event-label {
+	flex-shrink: 0;
+	font-size: var(--text-xs);
+	font-weight: var(--font-weight-semibold);
+	text-transform: uppercase;
+	letter-spacing: var(--tracking-wide);
+	color: var(--accent);
+}
+
+.calendar__event-text {
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+}
+
+/* Notas */
+.notes {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+}
+
+.notes__tabs {
+	display: flex;
+	gap: var(--space-2);
+	padding: 4px;
+	background: var(--bg-inset);
+	border-radius: var(--radius-pill);
+}
+
+.notes__tab {
+	flex: 1;
+	padding: var(--space-2) var(--space-4);
+	border: none;
+	border-radius: var(--radius-pill);
+	background: transparent;
+	color: var(--text-secondary);
+	font-size: var(--text-sm);
+	font-weight: var(--font-weight-semibold);
+	cursor: pointer;
+	transition:
+		background var(--duration-fast) var(--ease-out),
+		color var(--duration-fast) var(--ease-out);
+}
+
+.notes__tab--active {
+	background: var(--bg-elevated);
+	color: var(--text);
+	box-shadow: var(--shadow-bubble);
+}
+
+/* Diario del protagonista */
+.diary {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+
+.diary__hint {
+	margin: 0;
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+}
+
+.diary__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.diary__entry {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: var(--space-3) var(--space-4);
+	background: var(--bg-elevated);
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-lg);
+	animation: message-in var(--duration-base) var(--ease-out) both;
+}
+
+.diary__entry--locked {
+	opacity: 0.55;
+	filter: saturate(0.4);
+}
+
+.diary__chapter {
+	font-size: var(--text-xs);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: var(--tracking-wide);
+	color: var(--accent);
+	text-transform: uppercase;
+}
+
+.diary__title {
+	font-size: var(--text-base);
+	font-weight: var(--font-weight-semibold);
+}
+
+.diary__text {
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+	line-height: var(--leading-relaxed);
+}
+
+.diary__locked {
+	font-size: var(--text-sm);
+	color: var(--text-tertiary);
+	font-style: italic;
+}
+
+/* Entrada rica del diario (recap + reflexión + nota + decisiones + frase) */
+.diary-card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+	margin-top: var(--space-2);
+	padding-top: var(--space-3);
+	border-top: 1px solid var(--hairline);
+	animation: message-in var(--duration-base) var(--ease-out) both;
+}
+
+.diary-card__block {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+}
+
+.diary-card__label {
+	font-size: var(--text-xs);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: var(--tracking-wide);
+	text-transform: uppercase;
+	color: var(--accent);
+}
+
+.diary-card__text {
+	margin: 0;
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+	line-height: var(--leading-relaxed);
+}
+
+.diary-card__choices {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+}
+
+.diary-card__choice {
+	padding: var(--space-2) var(--space-3);
+	background: var(--bg-surface);
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-md);
+	font-size: var(--text-sm);
+	color: var(--text);
+}
+
+.diary-card__quote {
+	margin: 0;
+	padding: var(--space-2) var(--space-3);
+	border-left: 3px solid var(--accent);
+	background: var(--bg-surface);
+	border-radius: 0 var(--radius-md) var(--radius-md) 0;
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+	font-style: italic;
+	line-height: var(--leading-relaxed);
+}
+
+/* Historia (capítulos + diario + decisiones) */
+.history {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+}
+
+.history__stats {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--space-2);
+}
+
+.history__stat {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+	padding: var(--space-3) var(--space-2);
+	background: var(--bg-elevated);
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-lg);
+}
+
+.history__stat-value {
+	font-size: var(--text-xl);
+	font-weight: var(--font-weight-semibold);
+	color: var(--accent);
+	font-variant-numeric: tabular-nums;
+}
+
+.history__stat-label {
+	font-size: var(--text-xs);
+	color: var(--text-secondary);
+}
+
+.history__section {
+	font-size: var(--text-xs);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: var(--tracking-wide);
+	text-transform: uppercase;
+	color: var(--text-tertiary);
+}
+
+.history__chapters,
+.history__choices {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.history__chapter {
+	background: var(--bg-elevated);
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+}
+
+.history__chapter--locked {
+	opacity: 0.55;
+	filter: saturate(0.4);
+}
+
+.history__chapter-head {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	width: 100%;
+	padding: var(--space-3) var(--space-4);
+	border: none;
+	background: transparent;
+	color: var(--text);
+	cursor: pointer;
+	text-align: left;
+}
+
+.history__chapter-head:disabled {
+	cursor: default;
+}
+
+.history__chapter-num {
+	font-size: var(--text-xs);
+	font-weight: var(--font-weight-semibold);
+	color: var(--accent);
+	font-variant-numeric: tabular-nums;
+}
+
+.history__chapter-title {
+	flex: 1;
+	font-weight: var(--font-weight-medium);
+}
+
+.history__chapter-status {
+	font-size: var(--text-xs);
+	color: var(--text-tertiary);
+}
+
+.history__entry {
+	padding: 0 var(--space-4) var(--space-3);
+	animation: message-in var(--duration-base) var(--ease-out) both;
+}
+
+.history__entry-text {
+	margin: 0;
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+	line-height: var(--leading-relaxed);
+}
+
+.history__choice {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: var(--space-2) var(--space-3);
+	background: var(--bg-elevated);
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-md);
+}
+
+.history__choice-chapter {
+	font-size: var(--text-xs);
+	font-weight: var(--font-weight-semibold);
+	color: var(--accent);
+}
+
+.history__choice-option {
+	font-size: var(--text-sm);
+	color: var(--text);
+}
+
+.history__choice-group {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	padding: var(--space-2) var(--space-3);
+	background: var(--bg-elevated);
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-md);
+}
+
+.history__choice-group-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+}
+
+/* Recopilado: cómo vamos (barras en tiempo real) */
+.recap {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+
+.recap__axes {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+
+.recap__axis {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+}
+
+.recap__axis-head {
+	display: flex;
+	align-items: baseline;
+	gap: var(--space-2);
+}
+
+.recap__axis-label {
+	font-size: var(--text-sm);
+	font-weight: var(--font-weight-medium);
+	color: var(--text);
+}
+
+.recap__axis-tier {
+	flex: 1;
+	font-size: var(--text-xs);
+	color: var(--text-tertiary);
+}
+
+.recap__axis-value {
+	font-size: var(--text-sm);
+	font-weight: var(--font-weight-semibold);
+	color: var(--accent);
+	font-variant-numeric: tabular-nums;
+}
+
+.recap__bar {
+	height: 8px;
+	border-radius: var(--radius-pill);
+	background: var(--bg-surface);
+	overflow: hidden;
+}
+
+.recap__bar-fill {
+	height: 100%;
+	border-radius: var(--radius-pill);
+	background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+	transition: width var(--duration-base) var(--ease-out);
+}
+
+.recap__status {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: var(--space-3) var(--space-4);
+	background: var(--bg-elevated);
+	border: 1px solid var(--hairline);
+	border-left: 3px solid var(--accent);
+	border-radius: var(--radius-md);
+}
+
+.recap__status-label {
+	font-size: var(--text-base);
+	font-weight: var(--font-weight-semibold);
+	color: var(--accent);
+}
+
+.recap__status-tip {
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+	line-height: var(--leading-relaxed);
+}
+
+.recap__summary {
+	margin: 0;
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+	line-height: var(--leading-relaxed);
+}
+
+.notes__composer {
+	display: flex;
+	gap: var(--space-2);
+}
+
+.notes__input {
+	flex: 1;
+	min-width: 0;
+	padding: var(--space-3) var(--space-4);
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-pill);
+	background: var(--bg-elevated);
+	color: var(--text);
+	font-size: var(--text-base);
+	outline: none;
+}
+
+.notes__input:focus {
+	border-color: var(--accent);
+}
+
+.notes__empty {
+	color: var(--text-tertiary);
+	text-align: center;
+	margin-top: var(--space-8);
+}
+
+.notes__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.note {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--space-3);
+	padding: var(--space-3) var(--space-4);
+	background: var(--bg-elevated);
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-lg);
+}
+
+.note__text {
+	flex: 1;
+	white-space: pre-wrap;
+	word-break: break-word;
+	color: var(--text);
+}
+
+.note__delete {
+	border: none;
+	background: transparent;
+	color: var(--text-tertiary);
+	cursor: pointer;
+	font-size: var(--text-sm);
+	padding: 2px 6px;
+	border-radius: var(--radius-sm);
+}
+
+.note__edit {
+	border: none;
+	background: transparent;
+	color: var(--text-tertiary);
+	cursor: pointer;
+	font-size: var(--text-sm);
+	padding: 2px 6px;
+	border-radius: var(--radius-sm);
+}
+
+.note__edit:hover {
+	color: var(--accent);
+}
+
+.note__delete:hover {
+	color: var(--accent);
+}
+
+/* Música */
+.music {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-5);
+}
+
+.music__now {
+	display: flex;
+	align-items: center;
+	gap: var(--space-4);
+}
+
+.music__art {
+	width: 72px;
+	height: 72px;
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-soft);
+	flex-shrink: 0;
+}
+
+.music__now-meta {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.music__track {
+	font-size: var(--text-lg);
+	font-weight: var(--font-weight-semibold);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.music__artist {
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+}
+
+.music__progress {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+}
+
+.music__bar {
+	height: 6px;
+	border-radius: var(--radius-pill);
+	background: var(--bg-inset);
+	overflow: hidden;
+}
+
+.music__fill {
+	display: block;
+	height: 100%;
+	border-radius: var(--radius-pill);
+	background: var(--accent);
+	transition: width 1s linear;
+}
+
+.music__times {
+	display: flex;
+	justify-content: space-between;
+	font-size: var(--text-xs);
+	color: var(--text-tertiary);
+	font-variant-numeric: tabular-nums;
+}
+
+.music__controls {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--space-6);
+}
+
+.music__control {
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	border: none;
+	border-radius: var(--radius-avatar);
+	background: var(--bg-elevated);
+	color: var(--text);
+	font-size: var(--text-lg);
+	cursor: pointer;
+}
+
+.music__control--play {
+	width: 60px;
+	height: 60px;
+	background: var(--accent);
+	color: var(--accent-contrast);
+	font-size: var(--text-xl);
+}
+
+.music__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.music__row {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	width: 100%;
+	padding: var(--space-2) var(--space-3);
+	border: 1px solid transparent;
+	border-radius: var(--radius-lg);
+	background: transparent;
+	color: var(--text);
+	cursor: pointer;
+	text-align: left;
+}
+
+.music__row--active {
+	background: var(--accent-soft);
+	border-color: var(--hairline);
+}
+
+.music__row-art {
+	width: 40px;
+	height: 40px;
+	border-radius: var(--radius-md);
+	flex-shrink: 0;
+}
+
+.music__row-meta {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-width: 0;
+}
+
+.music__row-title {
+	font-weight: var(--font-weight-medium);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.music__row-artist {
+	font-size: var(--text-xs);
+	color: var(--text-secondary);
+}
+
+.music__row-indicator {
+	color: var(--accent);
+	width: 16px;
+	text-align: center;
+}
+
+/* Ecualizador animado mientras suena */
+.music__eq {
+	display: flex;
+	align-items: flex-end;
+	gap: 3px;
+	height: 18px;
+	flex-shrink: 0;
+	margin-left: auto;
+}
+
+.music__eq span {
+	width: 3px;
+	height: 100%;
+	border-radius: 2px;
+	background: var(--accent);
+	transform-origin: bottom;
+	animation: eq-bounce 0.8s var(--ease-in-out) infinite;
+}
+
+.music__eq span:nth-child(2) {
+	animation-delay: 0.12s;
+}
+
+.music__eq span:nth-child(3) {
+	animation-delay: 0.24s;
+}
+
+.music__eq span:nth-child(4) {
+	animation-delay: 0.36s;
+}
+
+.music__eq span:nth-child(5) {
+	animation-delay: 0.48s;
+}
+
+/* Cámara */
+.camera {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+	align-items: center;
+}
+
+.camera__viewport {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 3 / 4;
+	max-width: 320px;
+	border-radius: var(--radius-xl);
+	background: linear-gradient(160deg, #2e2a26, #141210);
+	overflow: hidden;
+}
+
+.camera__grid {
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+	background-size: 33.33% 33.33%;
+}
+
+.camera__hint {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	color: rgba(255, 255, 255, 0.55);
+	font-size: var(--text-sm);
+}
+
+.camera__capture {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.camera__flash {
+	position: absolute;
+	inset: 0;
+	background: #fff;
+	animation: camera-flash 0.24s ease-out both;
+}
+
+.camera__controls {
+	display: flex;
+	justify-content: center;
+}
+
+.camera__shutter {
+	width: 64px;
+	height: 64px;
+	border: 4px solid var(--text-secondary);
+	border-radius: var(--radius-avatar);
+	background: #fff;
+	box-shadow: 0 0 0 4px var(--bg);
+	cursor: pointer;
+}
+
+.camera__shutter:active {
+	transform: scale(0.92);
+}
+
+.camera__actions {
+	display: flex;
+	gap: var(--space-3);
+}
+
+.camera__saved {
+	color: var(--accent);
+	font-weight: var(--font-weight-medium);
+	margin: 0;
 }
 
 /* Galería */
@@ -800,6 +2243,45 @@
 	pointer-events: none;
 }
 
+/* Mensajes de usabilidad (toasts) */
+.toast-stack {
+	position: fixed;
+	bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: var(--z-toast);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-2);
+	pointer-events: none;
+}
+
+.toast {
+	pointer-events: auto;
+	padding: var(--space-2) var(--space-4);
+	border: none;
+	border-radius: var(--radius-pill);
+	background: rgba(30, 28, 26, 0.88);
+	color: #f5f1ea;
+	font-size: var(--text-sm);
+	font-weight: var(--font-weight-medium);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+	cursor: pointer;
+	animation: toast-in var(--duration-base) var(--ease-out) both;
+}
+
+@keyframes toast-in {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 .notification {
 	pointer-events: auto;
 	display: flex;
@@ -816,6 +2298,7 @@
 	box-shadow: var(--shadow-soft);
 	color: var(--text);
 	cursor: pointer;
+	text-align: left;
 	animation: message-in var(--duration-slow) var(--ease-out) both;
 }
 
@@ -826,6 +2309,24 @@
 .notification__content {
 	display: flex;
 	flex-direction: column;
+	min-width: 0;
+}
+
+.notification__meta {
+	display: flex;
+	align-items: baseline;
+	gap: var(--space-2);
+}
+
+.notification__app {
+	font-size: var(--text-xs);
+	font-weight: var(--font-weight-semibold);
+	color: var(--text-secondary);
+}
+
+.notification__time {
+	font-size: var(--text-xs);
+	color: var(--text-tertiary);
 }
 
 .notification__title {
@@ -836,6 +2337,90 @@
 .notification__body {
 	font-size: var(--text-sm);
 	color: var(--text-secondary);
+}
+
+/* Banner macOS (escritorio): más compacto y arriba a la derecha */
+.notifications--laptop {
+	top: var(--space-3);
+}
+
+.notifications--laptop .notification {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	max-width: 320px;
+	padding: var(--space-2) var(--space-3);
+	border: 0.5px solid rgba(255, 255, 255, 0.12);
+	border-radius: var(--radius-lg);
+	background: rgba(30, 28, 26, 0.6);
+	color: #f5f1ea;
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.notifications--laptop .notification__avatar {
+	font-size: var(--text-lg);
+}
+
+.notifications--laptop .notification__app {
+	color: rgba(245, 241, 234, 0.7);
+}
+
+.notifications--laptop .notification__title {
+	color: #f5f1ea;
+}
+
+.notifications--laptop .notification__body {
+	color: rgba(245, 241, 234, 0.8);
+}
+
+/* Arranque del sistema */
+.boot {
+	position: fixed;
+	inset: 0;
+	z-index: var(--z-overlay);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-5);
+	background: radial-gradient(80% 60% at 50% 30%, var(--accent-soft), transparent 60%), #16130f;
+	color: #f5f1ea;
+	animation: fade-in var(--duration-base) var(--ease-out) both;
+}
+
+.boot__logo {
+	width: 92px;
+	height: 92px;
+	color: var(--accent);
+	animation: boot-pulse 1.2s var(--ease-in-out) infinite;
+}
+
+.boot__brand {
+	font-size: var(--text-xl);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: var(--tracking-tight);
+	opacity: 0.92;
+}
+
+.boot__progress {
+	width: min(260px, 60vw);
+	height: 4px;
+	border-radius: var(--radius-pill);
+	background: rgba(255, 255, 255, 0.12);
+	overflow: hidden;
+}
+
+.boot__bar {
+	display: block;
+	height: 100%;
+	border-radius: var(--radius-pill);
+	background: var(--accent);
+	transition: width 80ms linear;
+}
+
+.boot__line {
+	font-size: var(--text-sm);
+	color: rgba(245, 241, 234, 0.65);
 }
 
 /* Onboarding */
@@ -1011,4 +2596,52 @@
 	margin: 0;
 	font-size: var(--text-base);
 	color: var(--text);
+}
+
+/* ════════════ RESPONSIVO ════════════ */
+
+@media (max-width: 760px) {
+	.desktop {
+		padding: var(--space-4) var(--space-3);
+	}
+
+	.springboard {
+		padding: var(--space-4) var(--space-3);
+	}
+
+	.app-icon__glyph {
+		width: 52px;
+		height: 52px;
+		border-radius: 12px;
+	}
+
+	.desktop__dock {
+		gap: 6px;
+		padding: 12px 8px 6px;
+	}
+
+	.app-icon--dock .app-icon__glyph {
+		width: 38px;
+		height: 38px;
+		border-radius: 9px;
+	}
+
+	.dock-thumb {
+		width: 34px;
+		height: 34px;
+	}
+
+	.dock-thumb .app-icon__glyph {
+		width: 26px;
+		height: 26px;
+	}
+
+	.dock-trash {
+		width: 38px;
+		height: 38px;
+	}
+
+	.dock-divider {
+		height: 34px;
+	}
 }

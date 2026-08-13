@@ -155,6 +155,7 @@ export function ChatScreen() {
 							className="input-pill__text"
 							aria-label="Mensaje"
 							readOnly
+							value=""
 							placeholder="Mensaje"
 						/>
 					</div>

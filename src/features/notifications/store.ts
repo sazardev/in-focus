@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { sendSystemNotification } from "@/shared/notify";
 import { playNotification } from "@/shared/sound";
 
 export interface PushNotification {
@@ -32,6 +33,9 @@ export const useNotificationsStore = create<NotificationsState>((set, get) => ({
 			read: false,
 		};
 		playNotification();
+		// Notificación nativa del SO (Tauri): llega aunque la ventana esté
+		// oculta o la app "cerrada" (sigue en la bandeja).
+		void sendSystemNotification(title, body);
 		set((state) => ({
 			notifications: [...state.notifications.slice(-4), notification],
 		}));

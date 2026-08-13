@@ -32,14 +32,21 @@ export default defineConfig(async () => ({
 
 	build: {
 		// Separa el vendor en chunks cacheables y carga en paralelo (el motor
-		// de Yarn y las librerías no se mezclan con el código de la app).
+		// de Yarn, React y las librerías no se mezclan con el código de la app).
 		rollupOptions: {
 			output: {
-				manualChunks: {
-					react: ["react", "react-dom"],
-					state: ["zustand"],
-					virtual: ["@tanstack/react-virtual"],
-					yarn: ["yarn-spinner-runner-ts"],
+				manualChunks(id) {
+					if (id.includes("node_modules/yarn-spinner")) return "yarn";
+					if (id.includes("node_modules/@tanstack/react-virtual")) return "virtual";
+					if (id.includes("node_modules/zustand")) return "state";
+					if (id.includes("node_modules/@tauri-apps")) return "tauri";
+					if (
+						id.includes("node_modules/react-dom") ||
+						id.includes("node_modules/react/") ||
+						id.includes("node_modules/scheduler")
+					) {
+						return "react";
+					}
 				},
 			},
 		},

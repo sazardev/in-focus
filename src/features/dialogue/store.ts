@@ -24,6 +24,34 @@ interface PendingOption {
 	text: string;
 }
 
+/** Decisión registrada para el panel "Historia" (opciones elegidas). */
+export interface DialogueChoice {
+	id: string;
+	chapter: number;
+	option: string;
+}
+
+const CHOICES_KEY = "in-focus:choices";
+let choiceSeq = 0;
+
+function loadChoices(): DialogueChoice[] {
+	if (typeof window === "undefined") return [];
+	try {
+		const raw = localStorage.getItem(CHOICES_KEY);
+		return raw ? (JSON.parse(raw) as DialogueChoice[]) : [];
+	} catch {
+		return [];
+	}
+}
+
+function saveChoices(choices: DialogueChoice[]): void {
+	try {
+		localStorage.setItem(CHOICES_KEY, JSON.stringify(choices));
+	} catch {
+		// almacenamiento no disponible: el diario de decisiones se pierde
+	}
+}
+
 interface DialogueState {
 	started: boolean;
 	finished: boolean;
@@ -38,6 +66,8 @@ interface DialogueState {
 	 * silencio hasta el punto exacto (resume determinista).
 	 */
 	choiceHistory: number[];
+	/** Decisiones con texto, para el panel "Historia" (persistido en local). */
+	choiceLog: DialogueChoice[];
 	start: () => void;
 	chooseOption: (index: number) => void;
 	confirmSend: () => void;
@@ -175,6 +205,7 @@ export const useDialogueStore = create<DialogueState>((set, get) => ({
 	currentNode: "Start",
 	scriptVariables: {},
 	choiceHistory: [],
+	choiceLog: loadChoices(),
 
 	start: () => {
 		if (engine) {
@@ -346,7 +377,18 @@ export const useDialogueStore = create<DialogueState>((set, get) => ({
 		useFakeTypingStore.getState().reset();
 		playSend();
 		const choiceHistory = [...get().choiceHistory, pending.index];
-		set({ pendingOption: null, choiceHistory });
+		const chapterMatch = /^Cap(\d+)/.exec(get().currentNode);
+		choiceSeq += 1;
+		const choiceLog = [
+			...get().choiceLog,
+			{
+				id: `c-${Date.now()}-${choiceSeq}`,
+				chapter: chapterMatch ? Number(chapterMatch[1]) : 0,
+				option: pending.text,
+			},
+		];
+		saveChoices(choiceLog);
+		set({ pendingOption: null, choiceHistory, choiceLog });
 
 		const next = engine.advance(pending.index);
 		if (engine) {
@@ -375,6 +417,7 @@ export const useDialogueStore = create<DialogueState>((set, get) => ({
 		});
 		useFakeTypingStore.getState().reset();
 		useGameClockStore.getState().reset();
+		saveChoices([]);
 		set({
 			started: false,
 			finished: false,
@@ -383,6 +426,7 @@ export const useDialogueStore = create<DialogueState>((set, get) => ({
 			currentNode: "Start",
 			scriptVariables: {},
 			choiceHistory: [],
+			choiceLog: [],
 		});
 	},
 }));

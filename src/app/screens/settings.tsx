@@ -1,7 +1,8 @@
 import { useNavigationStore } from "@/app/navigation";
 import { useProfileStore } from "@/features/profile";
 import { playNotification, useSoundStore } from "@/shared/sound";
-import { BASE_TONES, useThemeStore } from "@/shared/theme";
+import { BASE_TONES, FONT_SCALES, useThemeStore } from "@/shared/theme";
+import { useToastStore } from "@/shared/toast/store";
 import { BackIcon, Button } from "@/shared/ui";
 
 export function SettingsScreen() {
@@ -10,8 +11,10 @@ export function SettingsScreen() {
 	const resetProfile = useProfileStore((state) => state.reset);
 	const theme = useThemeStore((state) => state.theme);
 	const tone = useThemeStore((state) => state.tone);
+	const font = useThemeStore((state) => state.font);
 	const setTheme = useThemeStore((state) => state.setTheme);
 	const setTone = useThemeStore((state) => state.setTone);
+	const setFont = useThemeStore((state) => state.setFont);
 	const soundEnabled = useSoundStore((state) => state.enabled);
 	const toggleSound = useSoundStore((state) => state.toggleSound);
 
@@ -49,6 +52,13 @@ export function SettingsScreen() {
 						<div className="showcase-panel__row">
 							<Button
 								type="button"
+								variant={theme === "system" ? "primary" : "default"}
+								onClick={() => setTheme("system")}
+							>
+								Sistema
+							</Button>
+							<Button
+								type="button"
 								variant={theme === "light" ? "primary" : "default"}
 								onClick={() => setTheme("light")}
 							>
@@ -81,12 +91,37 @@ export function SettingsScreen() {
 					</div>
 
 					<div className="settings__group">
+						<span className="showcase-panel__label">Tamaño de texto</span>
+						<div className="showcase-panel__row">
+							{FONT_SCALES.map((option) => (
+								<Button
+									key={option.value}
+									type="button"
+									variant={font === option.value ? "primary" : "default"}
+									onClick={() => {
+										setFont(option.value);
+										useToastStore.getState().push(`Texto ${option.label.toLowerCase()}`);
+									}}
+								>
+									{option.label}
+								</Button>
+							))}
+						</div>
+						<p className="showcase-panel__note">Ajusta el tamaño del texto en toda la app.</p>
+					</div>
+
+					<div className="settings__group">
 						<span className="showcase-panel__label">Sonido</span>
 						<div className="showcase-panel__row">
 							<Button
 								type="button"
 								variant={soundEnabled ? "primary" : "default"}
-								onClick={toggleSound}
+								onClick={() => {
+									toggleSound();
+									useToastStore
+										.getState()
+										.push(soundEnabled ? "Sonido desactivado" : "Sonido activado");
+								}}
 							>
 								{soundEnabled ? "Sonido activado" : "Sonido desactivado"}
 							</Button>

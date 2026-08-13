@@ -74,6 +74,88 @@
 	}
 }
 
+/* Destello del visor de la cámara */
+@keyframes camera-flash {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+/* Entrada de pantalla estilo iOS (zoom de app desde el springboard) */
+@keyframes ios-screen-in {
+	from {
+		opacity: 0;
+		transform: scale(0.85);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* Apertura de ventana macOS */
+@keyframes mac-window-in {
+	from {
+		opacity: 0;
+		transform: scale(0.92) translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+/* Cierre de ventana macOS */
+@keyframes mac-window-out {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.9) translateY(8px);
+	}
+}
+
+/* Minimizar ventana hacia el dock */
+@keyframes mac-window-min {
+	from {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.3) translateY(140px);
+	}
+}
+
+/* Barras del ecualizador de Música */
+@keyframes eq-bounce {
+	0%,
+	100% {
+		transform: scaleY(0.35);
+	}
+	50% {
+		transform: scaleY(1);
+	}
+}
+
+/* Pulso del logo en el arranque */
+@keyframes boot-pulse {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(1.06);
+		opacity: 0.85;
+	}
+}
+
 /* Resplandor sutil para fotos en galería al tocar */
 @keyframes fade-in {
 	from {
@@ -85,21 +167,6 @@
 }
 
 /* ════════════ UTILIDADES ════════════ */
-
-@media (prefers-reduced-motion: reduce) {
-	*,
-	*::before,
-	*::after {
-		/* biome-ignore lint/complexity/noImportantStyles: necesario para anular estilos animados en prefers-reduced-motion */
-		animation-duration: 0.01ms !important;
-		/* biome-ignore lint/complexity/noImportantStyles: necesario para anular estilos animados en prefers-reduced-motion */
-		animation-iteration-count: 1 !important;
-		/* biome-ignore lint/complexity/noImportantStyles: necesario para anular estilos animados en prefers-reduced-motion */
-		transition-duration: 0.01ms !important;
-		/* biome-ignore lint/complexity/noImportantStyles: necesario para anular el scroll suave en prefers-reduced-motion */
-		scroll-behavior: auto !important;
-	}
-}
 
 .anim-message-in {
 	animation: message-in var(--duration-base) var(--ease-out) both;
