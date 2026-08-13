@@ -80,3 +80,77 @@ jobs:
 
       - name: cargo test
         run: cargo test
+
+  build-linux-deb:
+    name: Build Linux (deb + AppImage)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Dependencias de sistema (Tauri Linux)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            libayatana-appindicator3-dev \
+            librsvg2-dev \
+            libxdo-dev \
+            libssl-dev \
+            libfuse2 \
+            build-essential \
+            curl \
+            wget \
+            file
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Build Tauri (deb + AppImage)
+        env:
+          APPIMAGE_EXTRACT_AND_RUN: 1
+        run: npm run tauri build -- --bundles deb,appimage
+
+      - name: Subir artefactos
+        uses: actions/upload-artifact@v4
+        with:
+          name: in-focus-linux
+          path: |
+            src-tauri/target/release/bundle/deb/*.deb
+            src-tauri/target/release/bundle/appimage/*.AppImage
+
+  build-linux-arch:
+    name: Build Arch Linux (.pkg.tar.zst)
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:base-devel
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Instalar dependencias de compilación
+        run: |
+          pacman -Syu --noconfirm --needed \
+            nodejs npm rust cargo git file curl wget \
+            webkit2gtk-4.1 gtk3 libayatana-appindicator-gtk3 librsvg libsoup3 openssl
+
+      - name: Empaquetar fuente
+        run: |
+          git config --global safe.directory "$GITHUB_WORKSPACE"
+          git archive --format=tar.gz --prefix=in-focus-0.1.0/ -o packaging/arch/in-focus-0.1.0.tar.gz HEAD
+
+      - name: Construir con makepkg
+        run: |
+          useradd -m builder
+          chown -R builder:builder "$GITHUB_WORKSPACE/packaging"
+          cd packaging/arch
+          su builder -c "cd '$GITHUB_WORKSPACE/packaging/arch' && makepkg -f"
+
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: in-focus-arch
+          path: packaging/arch/*.pkg.tar.zst

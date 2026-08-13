@@ -1,0 +1,29 @@
+# Maintainer: In Focus <https://github.com/sazardev/in-focus>
+pkgname=in-focus
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Novela visual de mensajería estilo iOS/macOS"
+arch=('x86_64')
+url="https://github.com/sazardev/in-focus"
+license=('custom')
+depends=('webkit2gtk-4.1' 'gtk3' 'libayatana-appindicator-gtk3' 'librsvg' 'openssl')
+makedepends=('nodejs' 'npm' 'rust' 'cargo')
+source=("$pkgname-$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+	cd "$srcdir/$pkgname-$pkgver"
+	npm ci
+	npm run build
+	cd src-tauri
+	cargo build --release
+}
+
+package() {
+	cd "$srcdir/$pkgname-$pkgver"
+	install -Dm755 src-tauri/target/release/in-focus "$pkgdir/usr/bin/in-focus"
+	install -Dm644 src-tauri/icons/32x32.png "$pkgdir/usr/share/icons/hicolor/32x32/apps/in-focus.png"
+	install -Dm644 src-tauri/icons/128x128.png "$pkgdir/usr/share/icons/hicolor/128x128/apps/in-focus.png"
+	install -Dm644 src-tauri/icons/128x128@2x.png "$pkgdir/usr/share/icons/hicolor/256x256/apps/in-focus.png"
+	install -Dm644 packaging/in-focus.desktop "$pkgdir/usr/share/applications/in-focus.desktop"
+}

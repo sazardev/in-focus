@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=In Focus
+Name[es]=In Focus
+Comment=Novela visual de mensajería estilo iOS/macOS
+Comment[es]=Novela visual de mensajería estilo iOS/macOS
+Exec=in-focus
+Icon=in-focus
+Terminal=false
+Categories=Game;Utility;
+StartupNotify=true
