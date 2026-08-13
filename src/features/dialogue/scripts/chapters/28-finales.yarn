@@ -3,98 +3,75 @@ tags: #acto5 #finales
 ---
 <<chapter "Finales">>
 <<presence online>>
-Maya: {player_name}, quiero que sepas una última cosa
-Maya: Hace un mes, mi vida era una caja de cartón cerrada
+Maya: {player_name}, quiero que sepas una última cosa Hace un mes, mi vida era una caja de cartón cerrada
 <<typing true>>
-Maya: Tú la abriste, y dentro no había lo que yo temía
-Maya: Había una historia esperando a empezar
+Maya: Tú la abriste, y dentro no había lo que yo temía Había una historia esperando a empezar
 <<if $romance >= 70 && $trust >= 70>>
     <<chapter "Brindis a medianoche">>
-    Maya: Y esa historia terminó como las mejores
-    Maya: Nosotros, de frente, sin miedo
+    Maya: Y esa historia terminó como las mejores Nosotros, de frente, sin miedo
     Maya: La exposición fue un éxito, y yo, entre toda la gente, solo te buscaba a ti
     <<photo enmarcada>>
-    Maya: La foto del amanecer ahora cuelga en nuestra casa
-    Maya: Y el rollo, enmarcado, en la pared del cuarto
+    Maya: La foto del amanecer ahora cuelga en nuestra casa Y el rollo, enmarcado, en la pared del cuarto
     Maya: Como recordatorio de que lo que empieza como un adiós a veces es un hola
     <<typing true>>
-    Maya: Te quiero, {player_name}
-    Maya: Y no fue un rollo de fotos lo que te encontró
-    Maya: Fue el destino con buen ojo
+    Maya: Te quiero, {player_name} Y no fue un rollo de fotos lo que te encontró Fue el destino con buen ojo
     <<presence offline>>
     Maya: Buenas noches, mi historia favorita
     <<fin>>
 <<elseif $romance >= 50 && $trust < 30>>
     <<chapter "Reencuentro">>
-    Maya: Nos perdimos. El tiempo pasó y cada quien siguió su rumbo
-    Maya: Pero hay números que nunca se apagan del todo
+    Maya: Nos perdimos. El tiempo pasó y cada quien siguió su rumbo Pero hay números que nunca se apagan del todo
     <<typing true>>
-    Maya: Años después, un día cualquiera, me llega un mensaje de un número viejo
-    Maya: "¿Todavía existe la chica del neón?"
+    Maya: Años después, un día cualquiera, me llega un mensaje de un número viejo "¿Todavía existe la chica del neón?"
     Maya: Y yo, entre lágrimas y risas, te respondo:
     <<presence online>>
     Maya: "Sí. Y sigue con el rollo enmarcado en la pared"
     <<photo mercadillo>>
-    Maya: Algunas historias solo necesitan tiempo para reencontrarse
-    Maya: Tú y yo somos una de ellas
+    Maya: Algunas historias solo necesitan tiempo para reencontrarse Tú y yo somos una de ellas
     <<typing true>>
-    Maya: Bienvenido de vuelta, {player_name}
-    Maya: Esta vez no hay borde del que huir
+    Maya: Bienvenido de vuelta, {player_name} Esta vez no hay borde del que huir
     <<fin>>
 <<elseif $affinity >= 70 && $romance < 60 && $trust >= 60>>
     <<chapter "Mi mejor amiga">>
-    Maya: Nos vimos, hubo chispa... pero de las que quedan en amistad
-    Maya: Y sabes qué, {player_name}? No me arrepiento
+    Maya: Nos vimos, hubo chispa... pero de las que quedan en amistad Y sabes qué, {player_name}? No me arrepiento
     Maya: Porque lo que construimos es más raro de encontrar que el amor: una amistad real
     <<photo cuarto>>
-    Maya: Me mudé a otra ciudad para perseguir mis fotos
-    Maya: Pero esta conversación no se va a apagar
+    Maya: Me mudé a otra ciudad para perseguir mis fotos Pero esta conversación no se va a apagar
     Maya: "No dejaría de escribirte ni de pedo", te lo prometí y lo cumplo
     <<typing true>>
-    Maya: Gracias por quedarte en mi vida, aunque sea a kilómetros
-    Maya: Eres de las personas que la hacen valer la pena
+    Maya: Gracias por quedarte en mi vida, aunque sea a kilómetros Eres de las personas que la hacen valer la pena
     <<presence offline>>
     Maya: Escríbeme mañana. O esta noche. Siempre habrá espacio para ti
     <<fin>>
 <<elseif $romance >= 40 && $romance < 70 && $trust < 60>>
     <<chapter "La que casi fue">>
-    Maya: Nos vimos, y hubo algo
-    Maya: Pero el timing no era el nuestro
-    Maya: Y lo sabes, y yo lo sé
+    Maya: Nos vimos, y hubo algo Pero el timing no era el nuestro Y lo sabes, y yo lo sé
     <<typing true>>
     Maya: No fue culpa de nadie. Fue que la vida nos puso en el borde justo cuando cada uno necesitaba otra cosa
     Maya: Quedamos en "algún día"... y ese algún día puede no llegar
     <<photo calle_vacia>>
-    Maya: Pero voy a recordarte con cariño
-    Maya: Como el desconocido que abrió una caja y me dio una historia que contar
+    Maya: Pero voy a recordarte con cariño Como el desconocido que abrió una caja y me dio una historia que contar
     <<presence offline>>
     Maya: Si alguna vez escuchas la canción del ámbar... piensa en mí
     <<fin>>
 <<elseif $affinity < 40 || $trust < 30>>
     <<chapter "Sin despedida">>
-    Maya: Las cosas entre nosotros se apagaron de a poco
-    Maya: No hubo pelea, no hubo adiós
+    Maya: Las cosas entre nosotros se apagaron de a poco No hubo pelea, no hubo adiós
     Maya: Solo silencios que se fueron haciendo más largos
     <<typing true>>
-    Maya: Y sé que esta conversación no va a tener un final bonito
-    Maya: Solo un último mensaje que quedará sin leer
+    Maya: Y sé que esta conversación no va a tener un final bonito Solo un último mensaje que quedará sin leer
     <<photo sombra>>
-    Maya: Te escribo esto para que sepas que no fue culpa tuya
-    Maya: Fue que dos desconocidos se encontraron antes de tiempo
+    Maya: Te escribo esto para que sepas que no fue culpa tuya Fue que dos desconocidos se encontraron antes de tiempo
     <<presence offline>>
-    Maya: Cuídate, {player_name}
-    Maya: Y cuando encuentres otra caja... ábrela
+    Maya: Cuídate, {player_name} Y cuando encuentres otra caja... ábrela
     <<fin>>
 <<else>>
     <<chapter "El destino con buen ojo">>
-    Maya: {player_name}, todo lo que pasó nos llevó hasta aquí
-    Maya: Y aunque no sé cómo nombrarlo, sé que quiero seguir escribiéndote
+    Maya: {player_name}, todo lo que pasó nos llevó hasta aquí Y aunque no sé cómo nombrarlo, sé que quiero seguir escribiéndote
     <<photo brindis>>
     Maya: Porque contigo, hasta los amaneceres lentos valen la pena
     <<typing true>>
-    Maya: Gracias por abrir la caja
-    Maya: Gracias por quedarte
-    Maya: Gracias por ser mi historia
+    Maya: Gracias por abrir la caja Gracias por quedarte Gracias por ser mi historia
     <<presence offline>>
     Maya: Hasta mañana, mi desconocido favorito
     <<fin>>

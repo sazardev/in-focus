@@ -1,59 +1,106 @@
 title: Cap25_Intro
 tags: #acto5 #capitulo25
 ---
-<<chapter "La invitación">>
+<<notify "Maya: Mañana es la exposición 📸">>
 <<presence online>>
-Maya: {player_name}, la exposición es mañana
-Maya: Y sigo sin creer que vas a estar ahí
+<<chapter "La invitación">>
+Maya: {player_name}, la exposición es mañana Y sigo sin creer que vas a estar ahí
 <<typing true>>
 Maya: Te quiero dar algo antes. Una invitación, pero no la del cartel
 -> Una invitación especial, ¿eh?
-    <<romance +3>>
-    Maya: La más importante que he escrito
-    Maya: Aunque no sé si debería decirlo así de pronto
+    <<affinity +2>>
+    Maya: La más importante que he escrito Aunque no sé si debería decirlo así de pronto
 -> Dímela, Maya
-    <<romance +2>>
+    <<romance +3>>
     <<trust +3>>
+    <<affinity +2>>
     Maya: Aquí va. Es la invitación a mi futuro, si quieres ser parte
 -> Mañana te veo y eso ya es la invitación
     <<romance +3>>
+    <<affinity +2>>
     <<trust +2>>
     Maya: Tienes razón. El que estés ahí ya lo es todo
-Maya: Quiero que mañana, cuando nos veamos
-Maya: No seamos "el del rollo" y "la del neón"
+Maya: Quiero que mañana, cuando nos veamos No seamos "el del rollo" y "la del neón"
 <<typing true>>
 Maya: Quiero que seamos Maya y {player_name}
 -> Me gusta cómo suena eso
-    <<romance +4>>
+    <<affinity +2>>
     Maya: A mí también. Mucho
 -> Eso es lo que quiero también
     <<romance +3>>
     <<trust +3>>
+    <<affinity +2>>
     Maya: Entonces quedamos en eso
 -> Somos nosotros, sin etiquetas raras
-    <<affinity +3>>
-    <<romance +2>>
+    <<affinity +5>>
     Maya: Exactamente. Nosotros. Y listo
-Maya: Mañana te espero
-Maya: En la galería, entre mis fotos, con los nervios de mil demonios
+Maya: ¿Sabes qué hice hoy, entre los nervios? Revisé las fotos que te envié desde el primer día
+<<typing true>>
+Maya: Y vi cómo cambió mi mirada. Al principio fotos de la calle... y ahora fotos para ti
+-> Y yo guardé todas las que me mandaste
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ¿Las guardaste? Eso me hace feliz y me da vértigo a la vez Mañana quiero ver esa colección, aunque sea mental
+-> Las tuyas cambiaron porque cambiaste tú
+    <<romance +3>>
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: ¿Cambié yo? Creo que sí. Y me gusta la versión que estoy siendo Gracias por acompañar ese cambio
+-> Las fotos para mí son mi favoritas
+    <<affinity +2>>
+    Maya: ...Tu favoritas. Qué ganas de que mañana veas las que te esperan Hay una que no le he enseñado a nadie. Es para ti
+Maya: ¿Sabes qué hago para calmarme los nervios? Te lo cuento porque me da vergüenza
+Maya: Escribo una frase en mi mano. Algo que quiero recordar cuando mire a la gente
+<<typing true>>
+Maya: Hoy me escribí: "él va a estar ahí". Y se me olvidan los nervios por un rato
+-> ¿Y qué te gustaría que yo me escribiera mañana?
+    <<affinity +2>>
+    Maya: Escríbete... "ella es real". Porque a veces parece un sueño Y cuando la veas sonreír, sabrás que es de verdad
+-> Quiero que mañana me reconozcas sin mirarme las manos
+    <<romance +3>>
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: Te reconozco por lo que me has contado: tu voz, tu forma de escribir
+    Maya: Y por cómo me tiemblan los dedos cuando te escribo. Eso no falla
+-> Mañana, cuando nos veamos, te cuento una frase que me escribí a mí
+    <<trust +2>>
+    <<romance +1>>
+    Maya: Me gusta ese misterio. Tendremos la primera frase de nuestra historia de frente
+    Maya: Y las que vengan después, también las escribimos juntos
+Maya: Mañana te espero En la galería, entre mis fotos, con los nervios de mil demonios
 <<typing true>>
 Maya: Pero con la certeza de que, pase lo que pase, valió la pena haberte conocido
 -> Y yo a ti, Maya
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
-    Maya: ...Nos vemos mañana, {player_name}
-    Maya: Nos vemos de verdad
+    Maya: ...Nos vemos mañana, {player_name} Nos vemos de verdad
 -> Mañana te espero entre tus fotos
     <<romance +3>>
     <<trust +3>>
+    <<affinity +3>>
     Maya: Y yo a ti, de frente, sin emojis que me escondan
 -> Estoy más nervioso que tú, y eso que no expongo
-    <<affinity +3>>
-    <<romance +2>>
+    <<affinity +5>>
     Maya: Jaja, entonces seremos dos nervios en la misma galería. Me gusta
+Maya: Y una última cosa antes de mañana... porque me desbordo
+<<typing true>>
+Maya: Si todo sale bien, y nos queda un momento a solas en la galería
+Maya: No sé si voy a poder evitar besarte. Te lo advierto para que lo decidas tú también
+-> Entonces no lo evites. Yo tampoco voy a poder
+    <<romance +3>>
+    <<trust +2>>
+    Maya: ...Está decidido entonces. Mañana, a solas, sin promesas Que el momento decida. Yo ya sé lo que quiere
+-> Me gusta que me lo adviertas. Y acepto el riesgo
+    <<romance +3>>
+    Maya: ¿El riesgo? Con vos, hasta los riesgos suenan a casa Mañana lo corremos juntos, entre mis fotos
+-> Lo que sea que pase mañana, quiero que sea porque lo sentimos los dos
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Eso es exactamente. Sin apuro, sin expectativas raras Solo vos, yo, y lo que sienta el momento
 <<photo exposicion>>
-Maya: Te mando la foto principal de la expo
-Maya: La que cuelga en la entrada
+Maya: Te mando la foto principal de la expo La que cuelga en la entrada
 Maya: Es de un amanecer. El que me recordó que se puede volver a empezar
 <<set $cap_25_done = true>>
 <<jump Cap26_Intro>>

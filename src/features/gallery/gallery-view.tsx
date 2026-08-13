@@ -43,7 +43,7 @@ export function GalleryView() {
 						onClick={() => setOpenIndex(index)}
 						aria-label={`Ver foto ${photo.id}`}
 					>
-						<img src={photo.sourcePath} alt={`Foto ${photo.id}`} loading="lazy" />
+						<img src={photo.sourcePath} alt={`Foto ${photo.id}`} loading="lazy" decoding="async" />
 						<span className="gallery__date">{formatDate(photo.takenAt)}</span>
 					</button>
 				))}
@@ -55,6 +55,7 @@ export function GalleryView() {
 						src={photos[openIndex].sourcePath}
 						alt={`Foto ${photos[openIndex].id}`}
 						className="gallery__lightbox-img"
+						decoding="async"
 					/>
 					<button
 						type="button"

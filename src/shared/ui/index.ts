@@ -5,11 +5,9 @@ export {
 	BackIcon,
 	CameraIcon,
 	ChatIcon,
-	DeleteIcon,
 	GalleryIcon,
 	InfoIcon,
 	SendIcon,
-	ShiftIcon,
 } from "./icons";
 export { ReactionMenu } from "./reaction-menu";
 export { TypingIndicator } from "./typing-indicator";

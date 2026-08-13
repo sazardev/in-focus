@@ -29,9 +29,25 @@ export default defineConfig(async () => ({
 	//
 	// 1. prevent Vite from obscuring rust errors
 	clearScreen: false,
+
+	build: {
+		// Separa el vendor en chunks cacheables y carga en paralelo (el motor
+		// de Yarn y las librerías no se mezclan con el código de la app).
+		rollupOptions: {
+			output: {
+				manualChunks: {
+					react: ["react", "react-dom"],
+					state: ["zustand"],
+					virtual: ["@tanstack/react-virtual"],
+					yarn: ["yarn-spinner-runner-ts"],
+				},
+			},
+		},
+	},
+
 	// 2. tauri expects a fixed port, fail if that port is not available
 	server: {
-		port: 1420,
+		port: 5174,
 		strictPort: true,
 		host: host || false,
 		hmr: host

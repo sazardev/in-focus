@@ -277,6 +277,30 @@
 	font-variant-numeric: tabular-nums;
 }
 
+/* Contador a la exposición */
+.expo-countdown {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-2);
+	padding: var(--space-2) var(--space-3);
+	background: var(--accent-soft);
+	color: var(--accent);
+	font-size: var(--text-sm);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: var(--tracking-wide);
+	border-bottom: 1px solid var(--hairline);
+	animation: message-in var(--duration-base) var(--ease-out) both;
+}
+
+.expo-countdown__dot {
+	width: 8px;
+	height: 8px;
+	border-radius: var(--radius-avatar);
+	background: var(--accent);
+	animation: expo-pulse 1.6s var(--ease-in-out) infinite;
+}
+
 .nav-bar {
 	position: sticky;
 	top: 0;
@@ -486,52 +510,6 @@
 	animation: none;
 }
 
-/* Teclado falso (Fake Typing View) */
-.keyboard {
-	width: 100%;
-	background: var(--key-bg);
-	padding: var(--space-2) var(--space-1);
-	animation: keyboard-up var(--duration-slow) var(--ease-out) both;
-	border-top: 1px solid var(--hairline);
-	flex-shrink: 0;
-}
-
-.keyboard__row {
-	display: flex;
-	justify-content: center;
-	gap: var(--space-1);
-	margin-bottom: var(--space-1);
-}
-
-.keyboard__row:last-child {
-	margin-bottom: 0;
-}
-
-.key {
-	flex: 1;
-	max-width: 40px;
-	height: 42px;
-	border: none;
-	border-radius: var(--radius-md);
-	background: var(--bg-elevated);
-	box-shadow: var(--shadow-bubble);
-	color: var(--key-text);
-	font-size: var(--text-lg);
-	font-weight: var(--font-weight-medium);
-	cursor: pointer;
-	display: grid;
-	place-items: center;
-	user-select: none;
-	transition:
-		background var(--duration-fast) var(--ease-out),
-		transform var(--duration-fast) var(--ease-out);
-}
-
-.key:active {
-	background: var(--key-bg-pressed);
-	animation: key-press var(--duration-base) var(--ease-out);
-}
-
 /* Menú de opciones de respuesta */
 .option-menu {
 	display: flex;
@@ -584,32 +562,6 @@
 
 .message-row + .message-row {
 	margin-top: 2px;
-}
-
-/* Variantes de tecla del teclado falso */
-.key--wide {
-	flex: 1.4;
-}
-
-.key--space {
-	flex: 6;
-	max-width: none;
-	background: transparent;
-	box-shadow: none;
-}
-
-.key--utility {
-	flex: 1.6;
-	font-size: var(--text-sm);
-	color: var(--text-secondary);
-}
-
-.key--return {
-	flex: 2;
-	font-size: var(--text-sm);
-	font-weight: var(--font-weight-semibold);
-	color: var(--accent);
-	background: var(--bg-elevated);
 }
 
 .reaction-menu {

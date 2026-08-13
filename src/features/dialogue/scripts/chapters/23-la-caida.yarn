@@ -3,77 +3,119 @@ tags: #acto4 #capitulo23
 ---
 <<chapter "La caída">>
 <<presence offline>>
-Maya: {player_name}...
-Maya: Necesito decirte algo y no sé por dónde empezar
+Maya: {player_name}... Necesito decirte algo y no sé por dónde empezar
 <<typing true>>
-Maya: Acabo de recordar algo de la chica del neón
-Maya: Y de cómo terminó el rollo en ese mercadillo
+Maya: Acabo de recordar algo de la chica del neón Y de cómo terminó el rollo en ese mercadillo
 -> Dímelo, Maya. Sin importar qué sea
     <<trust +3>>
     <<romance +1>>
-    Maya: Gracias por quedarte
-    Maya: Aquí va
+    Maya: Gracias por quedarte Aquí va
 -> ¿Qué pasó con el rollo?
+    <<romance +3>>
     <<trust +2>>
     Maya: Te lo digo. Es de esas verdades que pesan
-Maya: La verdad es que no lo perdí
-Maya: Lo tiré a propósito. Lo dejé en el mercadillo para que alguien lo llevara lejos
+-> No me asustes antes de contarlo
+    <<affinity +2>>
+    Maya: Perdón. Es que me da miedo lo que va a cambiar
+Maya: La verdad es que no lo perdí Lo tiré a propósito. Lo dejé en el mercadillo para que alguien lo llevara lejos
 <<typing true>>
-Maya: La chica del neón me lo regaló cuando terminamos
-Maya: Y yo, para no verlo, lo dejé ahí, para que se fuera con todo lo demás
+Maya: La chica del neón me lo regaló cuando terminamos Y yo, para no verlo, lo dejé ahí, para que se fuera con todo lo demás
 -> ¿Y por qué no me lo habías dicho antes?
     <<trust +2>>
     <<romance -1>>
-    Maya: Porque me dio vergüenza
-    Maya: No quería que supieras que el rollo que te trajo fue un "te dejo" disfrazado
+    Maya: Porque me dio vergüenza No quería que supieras que el rollo que te trajo fue un "te dejo" disfrazado
 -> Eso no cambia nada de lo nuestro
     <<trust +3>>
-    <<romance +2>>
+    <<romance +1>>
     Maya: ...¿De verdad? Quiero creerte
 -> Ahora entiendo por qué te dolía
     <<trust +4>>
     <<romance +1>>
     Maya: Gracias por entenderlo sin juzgarme
-Maya: Pero eso no es lo peor
-Maya: Lo peor es que estuve a punto de no decírtelo
+-> Y yo me quedo porque quiero, no porque debo
+    <<affinity +2>>
+    Maya: ...Porque quieres. Qué diferencia tan enorme hacen esas palabras Me quedo contigo también, con esta verdad pesando y todo
+Maya: Pero eso no es lo peor Lo peor es que estuve a punto de no decírtelo
 <<typing true>>
 Maya: Estuve a punto de dejarte creer que era un misterio bonito
 -> No me digas que ibas a ocultármelo
     <<trust -2>>
     <<romance -1>>
-    Maya: ...Iba a hacerlo
-    Maya: Pero entonces pensé en ti y en nuestro trato de honestidad
+    Maya: ...Iba a hacerlo Pero entonces pensé en ti y en nuestro trato de honestidad
 -> Gracias por ser honesta
     <<trust +4>>
-    <<romance +2>>
+    <<romance +1>>
     Maya: Gracias por quedarte después de escucharlo
 -> La verdad siempre gana, Maya
     <<trust +3>>
     <<romance +1>>
     Maya: La verdad siempre gana... espero que también esta vez
-Maya: Sé que esto cambia lo que sentías por el rollo
-Maya: Ya no es un misterio, es un recuerdo de alguien que me dejó
+Maya: Mientras te escribo esto, me está doliendo el pecho
+Maya: No por el recuerdo. Por el miedo de que esto te cambie la idea que tienes de mí
+<<typing true>>
+Maya: Dime la verdad: ¿esto cambia algo entre nosotros?
+-> Esto me hace quererte más, no menos
+    <<trust +3>>
+    <<romance +1>>
+    Maya: ...¿En serio? Esa es la respuesta que no me atrevía a esperar Gracias. De verdad, gracias
+-> Necesito un momento para procesarlo
+    <<romance +3>>
+    <<trust +1>>
+    <<affinity +2>>
+    Maya: Está bien. Tómate el tiempo que necesites Yo te espero. Ya aprendí a esperarte
+-> El pasado no define lo que siento por ti
+    <<romance +3>>
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: "No define"... qué frase tan grande y tan cierta Y que me hace sentir que puedo contarte todo
+-> Y yo, después de escucharte, te quiero igual de fuerte
+    <<affinity +2>>
+    Maya: ...¿Igual de fuerte? Dijiste la palabra y no temblaste Quédate conmigo en esto, que me da miedo y me encanta
+Maya: Sé que esto cambia lo que sentías por el rollo Ya no es un misterio, es un recuerdo de alguien que me dejó
 <<typing true>>
 Maya: Y yo, en mi torpeza, te lo metí en tu historia sin querer
 -> No fue torpeza, fue destino
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
-    Maya: ...¿Destino? Qué palabra tan valiente para usar ahora
-    Maya: Pero me gusta cómo suena en tu voz
+    Maya: ...¿Destino? Qué palabra tan valiente para usar ahora Pero me gusta cómo suena en tu voz
 -> Esto no me hace quererte menos
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +4>>
-    Maya: ...Esa es la frase que necesitaba
-    Maya: La voy a repetir toda la noche
+    Maya: ...Esa es la frase que necesitaba La voy a repetir toda la noche
 -> Ahora lo entiendo todo mejor
+    <<romance +3>>
     <<affinity +3>>
     <<trust +3>>
     Maya: Gracias por escuchar hasta el final
-Maya: El sábado, en la expo, quiero contarte el resto
-Maya: Todo lo que no cabe en los mensajes
+-> Y yo te elijo a ti, con tu pasado y tu rollo incluidos
+    <<affinity +2>>
+    Maya: ...Me eliges a mí. Con todo. Esa frase me va a sostener mucho tiempo
+    Maya: Y yo te elijo a ti, {player_name}, con tu paciencia y tu buena luz
+Maya: El sábado, en la expo, quiero contarte el resto Todo lo que no cabe en los mensajes
 <<presence offline>>
 Maya: Pero por ahora, necesito que sepas una cosa
 Maya: Aunque todo empezó como un adiós a alguien más... terminó como un hola hacia ti
+Maya: Y con toda esa verdad pesándonos, te digo algo que me da miedo
+<<typing true>>
+Maya: Aun sabiendo de dónde viene el rollo... quiero estar cerca de ti
+Maya: Quiero abrazarte el sábado y que ese abrazo valga por todo el silencio
+-> Y yo quiero ese abrazo, con toda tu historia incluida
+    <<romance +3>>
+    <<trust +2>>
+    Maya: ...Con toda mi historia. Nadie me había abrazado así, ni siquiera en palabras
+    Maya: El sábado, ese abrazo va a ser el más largo de mi vida
+-> A mí la verdad no me quitó las ganas de tenerte cerca
+    <<romance +3>>
+    Maya: ¿Las ganas? Qué palabra tan honesta para un día tan pesado
+    Maya: Y yo tengo ganas de ti también, {player_name}. Qué miedo y qué bien se siente
+-> Lo que importa es lo que viene, no de dónde venimos
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Lo que viene... tú y yo, de frente, sin rollos que pesen Mañana empieza eso, y quiero que empiece con tu abrazo
+<<photo ventana>>
+Maya: Te mando la ventana de esta noche, con la ciudad a oscuras Es la ventana desde la que decidí que quería estar cerca de ti
 <<set $cap_23_done = true>>
 <<jump Cap24_Intro>>
 ===

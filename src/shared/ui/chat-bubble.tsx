@@ -1,3 +1,4 @@
+import { memo } from "react";
 import type { MessageContent, MessageStatus, PhotoReaction } from "@/entities";
 
 interface ChatBubbleProps {
@@ -68,7 +69,7 @@ function ReactionBadge({ reaction }: { reaction: PhotoReaction }) {
 	);
 }
 
-export function ChatBubble({
+export const ChatBubble = memo(function ChatBubble({
 	content,
 	isOwn,
 	hasTail = false,
@@ -91,7 +92,7 @@ export function ChatBubble({
 	if (content.kind === "photo") {
 		return (
 			<div className={className}>
-				<img src={content.photoId} alt="Foto compartida" />
+				<img src={content.photoId} alt="Foto compartida" loading="lazy" decoding="async" />
 				{reaction ? <ReactionBadge reaction={reaction} /> : null}
 				<span className="bubble-meta">
 					{meta}
@@ -110,4 +111,4 @@ export function ChatBubble({
 			</span>
 		</div>
 	);
-}
+});

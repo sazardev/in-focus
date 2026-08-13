@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { useNavigationStore } from "@/app/navigation";
 import { VirtualMessageList } from "@/features/chat/virtual-message-list";
 import { useDialogue } from "@/features/dialogue";
-import { Keyboard, useFakeTyping } from "@/features/fake-typing";
+import { useFakeTyping } from "@/features/fake-typing";
 import { useGameClockStore } from "@/features/game-clock";
+import { ExpoCountdown } from "@/features/game-clock/expo-countdown";
 import { Avatar, BackIcon, CameraIcon, GalleryIcon, SendIcon } from "@/shared/ui";
 
 const PRESENCE_LABEL = {
@@ -30,7 +31,9 @@ export function ChatScreen() {
 		markAllRead,
 		reactToMessage,
 	} = useDialogue();
-	useFakeTyping(() => {});
+
+	// Al elegir una opción, el auto-fill simula el tecleo y envía solo.
+	useFakeTyping(confirmSend);
 
 	useEffect(() => {
 		markAllRead();
@@ -95,6 +98,8 @@ export function ChatScreen() {
 				</div>
 			</header>
 
+			<ExpoCountdown />
+
 			<VirtualMessageList
 				messages={messages}
 				isMayaTyping={isMayaTyping}
@@ -117,32 +122,29 @@ export function ChatScreen() {
 					))}
 				</div>
 			) : pendingOption ? (
-				<>
-					<footer className="input-bar">
-						<div className="input-pill">
-							<button type="button" className="icon-btn" aria-label="Cámara" disabled>
-								<CameraIcon label="Cámara" width={20} height={20} />
-							</button>
-							<input
-								className="input-pill__text"
-								aria-label="Mensaje"
-								readOnly
-								value={typing.filledText}
-								placeholder="Escribe un mensaje..."
-							/>
-						</div>
-						<button
-							type="button"
-							className="send-btn"
-							aria-label="Enviar"
-							disabled={!canSend}
-							onClick={confirmSend}
-						>
-							<SendIcon label="Enviar" width={18} height={18} />
+				<footer className="input-bar">
+					<div className="input-pill">
+						<button type="button" className="icon-btn" aria-label="Cámara" disabled>
+							<CameraIcon label="Cámara" width={20} height={20} />
 						</button>
-					</footer>
-					<Keyboard />
-				</>
+						<input
+							className="input-pill__text"
+							aria-label="Mensaje"
+							readOnly
+							value={typing.filledText}
+							placeholder="Escribe un mensaje..."
+						/>
+					</div>
+					<button
+						type="button"
+						className="send-btn"
+						aria-label="Enviar"
+						disabled={!canSend}
+						onClick={confirmSend}
+					>
+						<SendIcon label="Enviar" width={18} height={18} />
+					</button>
+				</footer>
 			) : (
 				<footer className="input-bar">
 					<div className="input-pill">

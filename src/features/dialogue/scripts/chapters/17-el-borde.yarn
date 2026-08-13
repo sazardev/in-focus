@@ -1,65 +1,101 @@
 title: Cap17_Intro
 tags: #acto3 #capitulo17
 ---
-<<chapter "El borde">>
 <<presence online>>
-Maya: No sé cómo empezar esto, así que voy a ser honesta
-Maya: Esta semana sentí algo que me asustó
+<<chapter "El borde">>
+Maya: No sé cómo empezar esto, así que voy a ser honesta Esta semana sentí algo que me asustó
 <<typing true>>
 Maya: Contigo... casi. Casi dije algo que no sabía si debía decir
 -> ¿Y qué fue lo que casi dijiste?
-    <<romance +3>>
-    Maya: ...No sé si estoy lista para decirlo
-    Maya: Pero fue de esos pensamientos que no se van
+    <<romance +1>>
+    Maya: ...No sé si estoy lista para decirlo Pero fue de esos pensamientos que no se van
 -> ¿Algo sobre nosotros?
-    <<romance +3>>
+    <<romance +1>>
     <<trust +2>>
     Maya: Quizá. Y me da miedo porque contigo las cosas se sienten reales
 -> Tómate tu tiempo, no hay prisa
     <<trust +3>>
     <<affinity +2>>
     Maya: Gracias por no presionarme. Eso lo valoro muchísimo
-Maya: Quiero decirte lo que pasa sin decirte todo
-Maya: Cuando hablo contigo, a veces olvido que somos desconocidos
+Maya: Quiero decirte lo que pasa sin decirte todo Cuando hablo contigo, a veces olvido que somos desconocidos
 Maya: Olvido que esto empezó por un rollo de fotos
 <<typing true>>
 Maya: Y eso... me asusta. Porque siento que te conozco más que a gente de años
 -> Quizá no somos tan desconocidos ya
-    <<romance +4>>
+    <<romance +1>>
     <<trust +2>>
-    Maya: ...Es cierto. Tienes razón
-    Maya: Y eso es justo lo que me da tanto miedo como me gusta
+    Maya: ...Es cierto. Tienes razón Y eso es justo lo que me da tanto miedo como me gusta
 -> Esa conexión es rara, pero es bonita
-    <<romance +3>>
+    <<romance +1>>
     <<trust +3>>
     Maya: ¿Bonita? Sí... cuando dejo de asustarme, es bonita
 -> Yo también siento que te conozco
-    <<romance +3>>
+    <<romance +1>>
     <<trust +3>>
-    Maya: ¿En serio? No me lo habías dicho
-    Maya: Eso me hace sentir menos sola en esto
+    Maya: ¿En serio? No me lo habías dicho Eso me hace sentir menos sola en esto
+-> Y te conozco más de lo que te imaginas, y me gusta
+    <<romance +1>>
+    Maya: ...¿Te gusta conocerme? Qué frase tan peligrosa en el mejor sentido
+    Maya: Porque yo siento lo mismo, y eso me aterra y me encanta
 Maya: Oye, te voy a decir una verdad aunque me tiemblen los dedos
 Maya: Eres lo primero que reviso en el día. Y lo último antes de dormir
 <<typing true>>
 Maya: No sé qué nombre ponerle a eso, pero es verdad
 -> A mí me pasa lo mismo
-    <<romance +4>>
+    <<romance +1>>
     <<trust +3>>
-    Maya: ...{player_name}
-    Maya: Esa frase me va a dar fuerzas para ser honesta contigo
+    Maya: ...{player_name} Esa frase me va a dar fuerzas para ser honesta contigo
 -> Me alegra que lo digas
-    <<romance +2>>
+    <<romance +1>>
     <<affinity +2>>
     Maya: Me alegra a mí también poder decírtelo
 -> Quizá le debemos un nombre a esto
-    <<romance +3>>
+    <<romance +1>>
     <<trust +2>>
     Maya: Un nombre... me da vértigo, pero quizá ya es hora
+Maya: Antes de que me dé más vértigo, cuéntame algo de ti que no sepa Algo que nadie más sepa, para emparejar el miedo
+<<typing true>>
+Maya: Yo ya te di mi pared, mi caos y mis miedos. Ahora te toca a ti
+-> A veces hablo solo en voz alta para ordenar mi cabeza
+    <<trust +2>>
+    Maya: ...Qué bonito. Yo hago lo mismo con las fotos Nos tocó la misma forma de estar perdidos
+-> Guardo las cartas de gente que quise, aunque ya no me escriban
+    <<trust +2>>
+    <<romance +1>>
+    Maya: ¿Las guardas? Yo también. Las tengo en una caja que no abro
+    Maya: Quizá algún día las abrimos juntos, y las reemplazamos por otras
+-> Me da miedo la idea de querer demasiado a alguien
+    <<romance +1>>
+    <<trust +2>>
+    Maya: ...Dijiste exactamente lo que me pasa Y mira, decirlo entre los dos hace que el miedo se achique
+-> Y aun así, contigo quiero intentarlo de frente
+    <<romance +1>>
+    Maya: ...De frente. Sin esconderme. Contigo quiero eso
+    Maya: Guarda esta frase también, que el borde me está dando miedo y a la vez ganas
 Maya: Pero ahora no. No hoy
 Maya: Hoy me da miedo el borde. Ese lugar donde esto deja de ser "amistad que se siente rara"
 <<presence offline>>
-Maya: Lo siento. Necesito un día para pensar
-Maya: No te vayas, {player_name}. Solo... espérame en el borde
+Maya: Lo siento. Necesito un día para pensar No te vayas, {player_name}. Solo... espérame en el borde
+<<notify "Maya está pensando en ti">>
+<<presence online>>
+Maya: Oye, no te escribí para desaparecer. Te escribí para decirte el miedo
+Maya: Porque contigo ya no quiero jugar a estar bien cuando no lo estoy
+<<typing true>>
+Maya: Mañana, cuando me levante, voy a estar en el borde otra vez Pero esta vez, con ganas de cruzar en lugar de correr
+-> Entonces yo voy a estar en el borde contigo, del lado tuyo
+    <<romance +1>>
+    <<trust +2>>
+    Maya: ...¿Del lado mío? Eso es justo donde quería escucharte El borde, de a dos, ya no da tanto miedo
+-> Tómate el día, que yo no me muevo
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: "No me muevo"... qué frase tan simple y tan firme Esa es la que voy a repetir mañana cuando me tiemblen los dedos
+-> Y si el borde te da miedo, lo cruzamos juntos mañana
+    <<romance +1>>
+    <<trust +2>>
+    Maya: Cruzarlo juntos... qué ganas y qué miedo me da al mismo tiempo Pero contigo, el vértigo se siente como un plan
+<<presence offline>>
+Maya: Espérame. Mañana te escribo desde el otro lado del borde
 <<set $cap_17_done = true>>
 <<jump Cap18_Intro>>
 ===

@@ -35,6 +35,7 @@ tags: #acto1 #capitulo1
 <<declare $cap_27_done = false>>
 <<declare $cap_28_done = false>>
 <<declare $supo_la_verdad = false>>
+<<notify "Alguien escribió al número de la nota...">>
 <<chapter "El número en la nota">>
 <<availability "Conectándose...">>
 <<presence online>>
@@ -45,16 +46,13 @@ Maya: Dato curioso: una vez me escribió un tipo que decía ser de mi pasado y r
 -> Es lo que hay, encontré tu número
     <<affinity +5>>
     <<trust +2>>
-    Maya: ¿Y dónde lo "encontraste"? que suena muy sospechoso con comillas y todo
-    Maya: Porque el universo no suelta números así porque sí
+    Maya: ¿Y dónde lo "encontraste"? que suena muy sospechoso con comillas y todo Porque el universo no suelta números así porque sí
 -> Soy {player_name}, un desconocido con curiosidad
     <<affinity +3>>
-    Maya: {player_name}... me suena a nombre de persona que podría caerme bien
-    Maya: O mal. TBD. Veremos
+    Maya: {player_name}... me suena a nombre de persona que podría caerme bien O mal. TBD. Veremos
 -> Perdón, quizá te escribí por error
     <<trust +4>>
-    Maya: Ah, ¿"por error"? Mmm, los errores siempre me han traído historias buenas
-    Maya: Cuéntame cuál fue tu error entonces
+    Maya: Ah, ¿"por error"? Mmm, los errores siempre me han traído historias buenas Cuéntame cuál fue tu error entonces
 Maya: De todas formas, ya que te tomaste la molestia... ¿qué haces despierto a esta hora?
 <<typing false>>
 -> Estaba leyendo y mi mente no me dejaba dormir
@@ -63,29 +61,47 @@ Maya: De todas formas, ya que te tomaste la molestia... ¿qué haces despierto a
     Maya: ¿Y qué leías? que aquí las respuestas genéricas se cobran caras
 -> Insomnio crónico, no me preguntes por qué
     <<affinity +2>>
-    Maya: El insomnio y yo somos viejos amigos también
-    Maya: Mi cuarto parece un laboratorio de cafeína de 2 a.m.
+    Maya: El insomnio y yo somos viejos amigos también Mi cuarto parece un laboratorio de cafeína de 2 a.m.
 -> La verdad, no tengo idea de por qué estoy despierto
     <<trust +3>>
     Maya: Al menos eres honesto, eso se nota y se agradece
-Maya: Mira, antes de seguir con el interrogatorio...
-Maya: Hay algo que me da mucha curiosidad. ¿Cómo conseguiste mi número de verdad?
+Maya: Mira, antes de seguir con el interrogatorio... Hay algo que me da mucha curiosidad. ¿Cómo conseguiste mi número de verdad?
 Maya: Porque no me lo das a mí de extraña, déjame ser la juez de eso
 -> Fue en un mercadillo, dentro de una caja de fotos
     <<affinity +5>>
     <<trust +4>>
-    Maya: ¿...Qué?
-    Maya: Espera. ¿Una caja de fotos? ¿Cuál mercadillo? ¿Qué fotos?
-    Maya: Ahora sí me tienes toda. Procede
+    Maya: ¿...Qué? Espera. ¿Una caja de fotos? ¿Cuál mercadillo? ¿Qué fotos? Ahora sí me tienes toda. Procede
 -> Encontré una nota con tu número pegada a un rollo de película
     <<affinity +4>>
     <<trust +3>>
-    Maya: Un rollo de película...
-    Maya: Eso es demasiado específico para inventarlo, {player_name}
+    Maya: Un rollo de película... Eso es demasiado específico para inventarlo, {player_name}
     Maya: Necesito que me cuentes todo, pero TODO, desde el principio
 -> Mejor te lo cuento otro día, es una historia larga
     <<trust +1>>
     Maya: Oye, no me dejes con la curiosidad a medias que eso es de mal amigo
+-> Y si te cuento algo sobre mí, ¿me cuentas algo de ti?
+    <<romance +1>>
+    Maya: Uy, negociando con caramelos de misterio... me gusta tu estrategia Acepto. Pero eliges tú cuál pregunta respondo primero
+Maya: ¿Y cómo es tu ciudad a estas horas? Porque si es como la mía, está llena de sombras con buen ojo
+Maya: A mí el silencio de la madrugada me inspira, pero también me da escalofríos
+<<typing true>>
+Maya: ¿Tú de qué lado estás: de los que aman la noche o de los que le tienen miedo?
+-> Soy de los que caminan la noche sin miedo
+    <<romance +1>>
+    Maya: ¿Sin miedo? Uy, qué peligroso y qué interesante a la vez Los que caminan de noche guardan historias que no cuentan
+-> La noche me da paz, es cuando pienso mejor
+    <<affinity +2>>
+    Maya: La paz de la madrugada... esa la conozco bien Es la única hora en que la ciudad es nuestra
+-> Le tengo miedo a las sombras, lo confieso
+    <<trust +2>>
+    Maya: ¿Miedo? Qué sincero. Y qué raro, porque yo les tomo fotos Quizá debería enseñarte a mirarlas distinto
+<<if $pronouns == "he">>
+    Maya: Y qué atrevido, para ser un desconocido con número ajeno
+<<elseif $pronouns == "she">>
+    Maya: Y qué atrevida, para ser una desconocida con número ajeno
+<<else>>
+    Maya: Y qué atrevide, para ser une desconocide con número ajeno
+<<endif>>
 Maya: Está bien, te voy a dar un voto de confianza
 Maya: Pero con una condición: mañana me cuentas la historia del mercadillo con lujo de detalles
 <<typing true>>
@@ -97,14 +113,14 @@ Maya: Y si no, bloqueo. Ya sé cómo se bloquea a la gente
 -> ¿Y si te cuento ahora mismo?
     <<affinity +3>>
     <<romance +1>>
-    Maya: ...¿Ahora? Son las 2 de la mañana
-    Maya: Aunque... un misterio de madrugada suena a mi tipo de plan
+    Maya: ...¿Ahora? Son las 2 de la mañana Aunque... un misterio de madrugada suena a mi tipo de plan
 -> Eso depende, ¿eres de fiar?
     <<trust +3>>
-    Maya: Jaja, eso te lo tengo que preguntar yo a ti, desconocido
-    Maya: Pero me caes bien, eso ya es mucho
-Maya: Buenas noches, desconocido del mercadillo
-Maya: Dormiré pensando en qué fotos podrían estar en esa caja
+    Maya: Jaja, eso te lo tengo que preguntar yo a ti, desconocido Pero me caes bien, eso ya es mucho
+Maya: Buenas noches, desconocido del mercadillo Dormiré pensando en qué fotos podrían estar en esa caja
+<<photo noche>>
+Maya: Y para que no te duermas pensando en sombras, te dejo la noche de mi ventana
+Maya: Es fea de noche, pero de día tiene una luz que no cambio por nada
 <<presence offline>>
 Maya: ...Y no me desaparezcas, que al que se apaga sin avisar le va mal en mi libreta
 <<set $cap_01_done = true>>

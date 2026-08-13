@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import type { Message } from "@/entities";
 import { useLongPress } from "@/shared/hooks/useLongPress";
 import { ChatBubble, ReactionMenu } from "@/shared/ui";
@@ -13,7 +13,12 @@ interface PhotoBubbleProps {
 /**
  * Burbuja de foto con presión larga para reaccionar (Me gusta / Me encanta).
  */
-export function PhotoBubble({ message, isBlockEnd, timestamp, onReact }: PhotoBubbleProps) {
+export const PhotoBubble = memo(function PhotoBubble({
+	message,
+	isBlockEnd,
+	timestamp,
+	onReact,
+}: PhotoBubbleProps) {
 	const [open, setOpen] = useState(false);
 	const longPress = useLongPress<HTMLDivElement>({
 		onLongPress: () => setOpen(true),
@@ -42,4 +47,4 @@ export function PhotoBubble({ message, isBlockEnd, timestamp, onReact }: PhotoBu
 			/>
 		</div>
 	);
-}
+});

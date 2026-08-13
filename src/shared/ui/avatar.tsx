@@ -37,7 +37,7 @@ export function Avatar({ name, src, size = "md", presence }: AvatarProps) {
 			className={`avatar ${presence ? "avatar--status" : ""}`}
 			style={style}
 		>
-			{src ? <img src={src} alt={name} /> : initial}
+			{src ? <img src={src} alt={name} decoding="async" /> : initial}
 		</span>
 	);
 }

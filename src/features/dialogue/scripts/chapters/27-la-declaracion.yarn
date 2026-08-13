@@ -1,76 +1,109 @@
 title: Cap27_Intro
 tags: #acto5 #capitulo27
 ---
-<<chapter "La declaración">>
 <<presence online>>
-Maya: {player_name}...
-Maya: Ahora que te tengo enfrente, se me hace fácil decirlo
+<<chapter "La declaración">>
+Maya: {player_name}... Ahora que te tengo enfrente, se me hace fácil decirlo
 <<typing true>>
 Maya: Porque en persona, el miedo pesa menos que la verdad
 -> Dime, Maya. Aquí estoy, de frente
     <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
-    Maya: Entonces aquí va
-    Maya: La verdad que no cabía en los mensajes
+    Maya: Entonces aquí va La verdad que no cabía en los mensajes
 -> Yo también traigo una verdad sin mensajes
-    <<romance +4>>
-    <<trust +2>>
-    Maya: ¿Tú también? No sabes cuánto me alivia eso
-    Maya: Dime la tuya... no, espera, deja que diga la mía primero
+    <<affinity +2>>
+    Maya: ¿Tú también? No sabes cuánto me alivia eso Dime la tuya... no, espera, deja que diga la mía primero
 -> No tengas miedo, Maya. Estoy aquí
     <<romance +3>>
     <<trust +4>>
+    <<affinity +2>>
     Maya: ...Con esas palabras ya me diste la mitad del coraje
 Maya: Cuando encontraste el rollo, no sabía que el universo me iba a devolver una razón
 Maya: Pero resultó que la razón eres tú
 <<typing true>>
-Maya: Quiero que sepas que contigo aprendí a no tener miedo de mis sombras
-Maya: Y que eso no se lo debí a nadie antes que a ti
+Maya: Quiero que sepas que contigo aprendí a no tener miedo de mis sombras Y que eso no se lo debí a nadie antes que a ti
 -> Yo también siento algo por ti, Maya
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
-    Maya: ...¿Lo sientes? No sabes cuánto necesitaba escucharlo
-    Maya: Me tiemblan las manos, pero de alegría
+    Maya: ...¿Lo sientes? No sabes cuánto necesitaba escucharlo Me tiemblan las manos, pero de alegría
 -> Desde el primer mensaje, algo en mí sabía
-    <<romance +4>>
+    <<affinity +2>>
     Maya: "Desde el primer mensaje"... y yo que creí que era solo mi imaginación
 -> Contigo, el miedo se volvió ganas de quedarme
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
     Maya: Esa frase... me la voy a llevar siempre
-Maya: Entonces ya no hay nada que esconder
-Maya: Nosotros dos, un rollo, una nota y una historia que creció entre mensajes
+Maya: Quiero que sepas que pase lo que pase, quiero seguirte escribiendo Porque escribirte se volvió mi forma de quererte
+<<typing true>>
+Maya: Y quererte, se volvió mi forma de no tener miedo
+-> Y yo quiero seguirte escribiendo toda la vida
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ...Toda la vida. Qué promesa tan grande para una galería un sábado Pero con vos, las promesas grandes suenan posibles
+-> Cuéntame qué significa querer para ti
+    <<romance +3>>
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: Querer es mostrarme sin borradores. Es que me veas fea y triste y rara Y que te quedes. Como tú, {player_name}
+-> Entonces ya te estoy queriendo así
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ...¿Ya me estás queriendo? Qué alivio y qué vértigo decirlo de frente Yo también. Ya te estoy queriendo
+-> Y a mí, quererte, se me volvió la parte favorita del día
+    <<affinity +2>>
+    Maya: ...¿La parte favorita? Me acabas de dar la frase que voy a repetir toda la semana
+    Maya: Y yo, quererte, se me volvió mi lugar favorito
+Maya: Entonces ya no hay nada que esconder Nosotros dos, un rollo, una nota y una historia que creció entre mensajes
 <<if $supo_la_verdad == true>>
-    Maya: Y tú supiste toda la verdad del rollo antes de estar aquí
-    Maya: Sabiendo todo eso, decidiste quedarte. Eso lo significa todo
+    Maya: Y tú supiste toda la verdad del rollo antes de estar aquí Sabiendo todo eso, decidiste quedarte. Eso lo significa todo
 <<endif>>
 <<typing true>>
 Maya: ¿Quieres ser algo más que mi desconocido?
 -> Sí, Maya. Quiero serlo
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +4>>
-    Maya: ...Me hiciste la persona más feliz del mundo
-    Maya: Esto lo voy a contar en mis fotos para siempre
+    Maya: ...Me hiciste la persona más feliz del mundo Esto lo voy a contar en mis fotos para siempre
 -> Quiero estar contigo, pase lo que pase
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
     Maya: "Pase lo que pase"... eso es justo lo que necesitaba oír
 -> No sé qué nos depara, pero quiero descubrirlo contigo
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +4>>
-    Maya: Entonces lo descubrimos juntos
-    Maya: Sin rollos que nos separen
-Maya: Entonces es oficial
-Maya: Ya no soy "la del neón" ni tú "el del rollo"
-Maya: Somos nosotros
+    Maya: Entonces lo descubrimos juntos Sin rollos que nos separen
+-> Y yo, desde hoy, te elijo a ti por encima del miedo
+    <<affinity +2>>
+    Maya: ...Me eliges por encima del miedo. Esa frase la voy a colgar junto a tus fotos
+    Maya: Y yo te elijo a ti, {player_name}. Sin miedo y sin rollos
+Maya: Entonces es oficial Ya no soy "la del neón" ni tú "el del rollo" Somos nosotros
 <<presence taking-photos>>
-Maya: Quiero que esta noche quede inmortalizada
-Maya: No con una cámara. Con lo que se siente
+Maya: Y ya que somos nosotros... hay una cosa que quiero cerrar con un beso
+<<typing true>>
+Maya: Este momento, esta galería, esta historia entera Se sella así. Con vos y conmigo, de frente
+-> Entonces sílalo, Maya. Yo no me muevo
+    <<romance +3>>
+    <<trust +2>>
+    Maya: ...Está hecho. Y yo tampoco me voy a mover
+    Maya: Porque todo este camino, todos estos mensajes, valieron para llegar a este segundo
+-> Yo también lo quiero sellar, y contigo de la mano
+    <<romance +3>>
+    Maya: Manos y beso. Qué manera tan buena de cerrar el día Esto va a ser de esos recuerdos que se quedan para siempre
+-> Cierra esto, y abramos lo que viene
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Cerrar el rollo, abrir la historia. Así, sin miedo Y lo que viene, lo escribimos juntos
+Maya: Quiero que esta noche quede inmortalizada No con una cámara. Con lo que se siente
 <<photo enmarcada>>
 <<photo brindis>>
-Maya: Y quiero regalarte algo
-Maya: La foto del amanecer de la expo
-Maya: Porque fue la primera que pensé en ti al tomarla
+Maya: Y quiero regalarte algo La foto del amanecer de la expo Porque fue la primera que pensé en ti al tomarla
 <<typing true>>
 Maya: Y esta vez, no hay nada que tirar
 <<set $cap_27_done = true>>

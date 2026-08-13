@@ -1,67 +1,114 @@
 title: Cap21_Intro
 tags: #acto4 #capitulo21
 ---
-<<chapter "El plan">>
+<<notify "Maya: La exposición es el sábado. Te espero. 📍">>
 <<presence online>>
+<<chapter "El plan">>
 Maya: {player_name}, tengo que decirte algo y me tiemblan los dedos
 Maya: La exposición es el sábado. Y quiero que estés ahí. De verdad, en persona
 <<typing true>>
 Maya: Sé que hablamos de esto, pero ahora es real: tengo la fecha, la hora y el lugar
 -> Claro que iré, Maya
-    <<romance +4>>
-    <<trust +3>>
-    Maya: ...¿De verdad? ¿En persona? No es una broma
-    Maya: Porque si es broma, te bloqueo
+    <<affinity +2>>
+    Maya: ...¿De verdad? ¿En persona? No es una broma Porque si es broma, te bloqueo
 -> ¿Estás segura de que quieres que vaya?
-    <<romance +2>>
-    <<trust +3>>
-    Maya: Más segura que de nada en mucho tiempo
-    Maya: Te quiero ahí
--> Dime dónde y ahí estaré
     <<romance +3>>
     <<trust +3>>
+    <<affinity +2>>
+    Maya: Más segura que de nada en mucho tiempo Te quiero ahí
+-> Dime dónde y ahí estaré
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +3>>
     Maya: Aquí va la dirección. Y mi corazón, para que no te pierdas
-Maya: Pero quiero que sepas una cosa antes
-Maya: Cuando nos veamos en persona, no sé si voy a saber qué decir
+Maya: Pero quiero que sepas una cosa antes Cuando nos veamos en persona, no sé si voy a saber qué decir
 <<typing true>>
 Maya: En el chat me escondo detrás de los emojis. En persona no tengo eso
 -> Entonces serás tú, sin filtros. Y eso me encanta
-    <<romance +4>>
-    <<trust +3>>
+    <<affinity +2>>
     Maya: ...Esas palabras me van a acompañar el día de la expo
 -> Yo tampoco soy muy bueno en persona, haremos equipo
+    <<romance +3>>
     <<affinity +3>>
-    <<romance +2>>
+    <<trust +2>>
     Maya: ¿Equipo de torpes en persona? Me gusta ese plan
 -> No tienes que decir nada, solo estar
     <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
     Maya: "Solo estar"... qué bonito suena eso
-Maya: ¿Sabes qué pienso mientras tanto?
-Maya: Que ya no quiero conocerte solo por mensajes
+Maya: ¿Sabes qué pienso mientras tanto? Que ya no quiero conocerte solo por mensajes
 Maya: Quiero ver cómo sonríes cuando lees algo gracioso
 <<typing true>>
 Maya: Quiero saber si hablas con las manos
 -> Y yo quiero ver cómo iluminas un cuarto
-    <<romance +4>>
-    Maya: ...Me hiciste suspirar, {player_name}
-    Maya: No sabes lo que me hace eso
+    <<affinity +2>>
+    Maya: ...Me hiciste suspirar, {player_name} No sabes lo que me hace eso
 -> Yo también quiero conocerte de verdad
     <<romance +3>>
     <<trust +3>>
+    <<affinity +2>>
     Maya: Entonces el sábado es el día
 -> Las fotos ya no van a bastar
-    <<romance +4>>
-    <<trust +2>>
+    <<affinity +2>>
     Maya: No van a bastar... y esa frase me encanta y me asusta
-Maya: Entonces es oficial
-Maya: El sábado, en la galería, nos vemos por primera vez
-Maya: Y ya no seré una desconocida con un rollo de fotos
+Maya: Antes del sábado, necesito que me ayudes con algo
+Maya: Quiero que la expo cuente nuestra historia, pero no sé cómo sin regalar tu intimidad
+<<typing true>>
+Maya: ¿Tú qué opinas? ¿Cuánto de nosotros se muestra en mis fotos?
+-> Cuenta lo que quieras, yo confío en tu ojo
+    <<romance +3>>
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: ¿Que confías en mi ojo? Esa es la declaración más bonita que me han hecho
+    Maya: Entonces mostraré lo que sentimos sin nombrar lo que somos
+-> Que sea un misterio, como nuestra historia
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Un misterio... me gusta. Que la gente imagine Y los que sepan, que sepan. Los demás, que sueñen
+-> Muéstrame lo que te nazca, sin pensarlo
+    <<affinity +2>>
+    Maya: ¿Sin pensarlo? Uy, ese es mi modo favorito Y contigo, todo me sale sin pensarlo
+Maya: Entonces es oficial El sábado, en la galería, nos vemos por primera vez Y ya no seré una desconocida con un rollo de fotos
 <<typing true>>
 Maya: Seré Maya. Tu Maya, si me dejas serlo
 <<photo exposicion>>
-Maya: Te mando el cartel de la exposición. Fíjate bien en una cosa
-Maya: La foto principal soy yo. Pero la historia es nuestra
+Maya: Te mando el cartel de la exposición. Fíjate bien en una cosa La foto principal soy yo. Pero la historia es nuestra
+Maya: ¿Sabes qué voy a hacer justo antes de que abras la puerta?
+Maya: Voy a tomarme cinco minutos en la entrada, respirando, pensando en ti
+<<typing true>>
+Maya: Para que cuando te vea, ya haya ensayado sonreír
+-> Y yo voy a ensayar en el espejo la frase con la que te salude
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ...No me digas eso, que voy a ensayar diez frases yo también Y aun así se me van a olvidar todas cuando te vea
+-> Ensaya sonreír, que yo ya la conozco de memoria
+    <<affinity +2>>
+    Maya: ¿De memoria? Y yo que pensé que solo la conocía por fotos Mañana te la enseño en vivo, y quiero que me digas si es igual
+-> Y yo voy a llevar un recuerdo tuyo para la entrada
+    <<romance +3>>
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: ¿Un recuerdo? Esa palabra me llega más que cualquier flor
+    Maya: Entonces los dos llegamos con algo: tú un recuerdo, yo una sonrisa ensayada
+Maya: Y antes de que el sábado llegue, te digo el plan completo
+<<typing true>>
+Maya: Cuando te vea, lo primero que voy a querer hacer es abrazarte Y no sé si voy a saber soltarte. Quería que lo supieras
+-> Entonces abrázame todo lo que necesites
+    <<romance +3>>
+    <<trust +2>>
+    Maya: ...¿Todo lo que necesite? Esa frase ya es un abrazo Y mañana, el de verdad, va a ser largo. Lo prometo
+-> Y yo lo primero que voy a querer es tomarte de la mano
+    <<romance +3>>
+    Maya: ...¿Tu mano en la mía? Me tiembla solo de pensarlo Manos que se encuentran, y después vemos qué más se encuentra
+-> Vamos a tomarlo con calma, pero con ganas
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Con calma... pero con ganas. Las dos cosas se pueden Mañana lo descubrimos juntos
+<<photo noche>>
+Maya: Te dejo la noche antes del gran día Para que sueñes con la expo, conmigo... y con ese abrazo
 <<set $cap_21_done = true>>
 <<jump Cap22_Intro>>
 ===

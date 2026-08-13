@@ -1,67 +1,78 @@
 title: Cap5_Intro
 tags: #acto1 #capitulo5
 ---
+<<notify "Maya volvió a conectarse">>
+<<absence>>
 <<presence taking-photos>>
 <<chapter "Aparece y desaparece">>
-Maya: Perdón, sé que desaparecí dos días
-Maya: La vida me comió y no mastiqué bien
+Maya: Perdón, sé que desaparecí dos días La vida me comió y no mastiqué bien
 <<typing true>>
 Maya: Estuve en una sesión agotadora, no salió nada bueno, y me escondí del mundo
 Maya: No te debía una explicación, pero quería darte una
 -> No tienes que disculparte, la vida pasa
     <<trust +4>>
     <<affinity +2>>
-    Maya: Qué raro que lo entiendas tan bien
-    Maya: ...Gracias, de verdad
+    Maya: Qué raro que lo entiendas tan bien ...Gracias, de verdad
 -> Dos días es mucho, Maya
     <<trust +2>>
-    Maya: Lo sé. Es que cuando me hundo, me hundo bien
-    Maya: No es excusa, pero es la verdad
+    Maya: Lo sé. Es que cuando me hundo, me hundo bien No es excusa, pero es la verdad
 -> Mientras estés bien, no importa el tiempo
-    <<romance +3>>
+    <<romance +1>>
     <<trust +3>>
-    Maya: ¿Mientras esté bien? ...Esa frase me llegó, {player_name}
-    Maya: Nadie me había dicho eso antes
+    Maya: ¿Mientras esté bien? ...Esa frase me llegó, {player_name} Nadie me había dicho eso antes
+-> ¿Y si en vez de explicarte, te mando una foto de cómo me siento?
+    <<romance +1>>
+    Maya: Me gusta eso. Las fotos no se equivocan ni se arrepienten Espera a que salga del baño, esta me quedó para ti
 Maya: La verdad, me metí en modo fantasmal porque no sabía cómo decirte algo
 <<typing true>>
-Maya: Me pasa algo con esta conversación contigo que no me había pasado antes
-Maya: Y no sé si es amistad, o curiosidad, o qué
+Maya: Me pasa algo con esta conversación contigo que no me había pasado antes Y no sé si es amistad, o curiosidad, o qué
 Maya: Pero me dio miedo y me escapé
 -> Es normal sentir miedo cuando algo se siente real
     <<trust +4>>
-    <<romance +3>>
-    Maya: ¿Real? Qué palabra tan grande
-    Maya: Pero... sí. Se siente real
+    <<romance +1>>
+    Maya: ¿Real? Qué palabra tan grande Pero... sí. Se siente real
 -> Yo también tengo miedo de escribirte
     <<trust +5>>
-    Maya: ¿Tú también? Eso me hace sentir menos rara
-    Maya: Los dos asustados escribiéndonos, qué hermosa torpeza
+    Maya: ¿Tú también? Eso me hace sentir menos rara Los dos asustados escribiéndonos, qué hermosa torpeza
 -> Tómalo con calma, no tiene que tener nombre todavía
     <<affinity +3>>
     <<trust +2>>
-    Maya: "No tiene que tener nombre todavía"... me gusta eso
-    Maya: Puede ser solo esto. Dos personas hablando
+    Maya: "No tiene que tener nombre todavía"... me gusta eso Puede ser solo esto. Dos personas hablando
+-> A mí lo que me pasa contigo tampoco me había pasado antes
+    <<romance +1>>
+    Maya: ...¿A ti también? Que no seamos solo yo me da una paz enorme Entonces los dos estamos raros. Qué bien, así no estoy sola
+Maya: Oye, mientras me escondía del mundo, te saqué una foto desde lejos
+Maya: No, no es espeluznante. Es una foto de la calle donde vivo, con la luz de la tarde
+<<photo escalera>>
+<<photo mapa>>
+Maya: La escalera de mi edificio y un mapa que compré y nunca usé En mi defensa, los mapas bonitos se cuelgan, no se usan
+<<typing true>>
+Maya: ¿A ti qué te pasa cuando te asustas? ¿También desapareces o te quedas?
+-> Me quedo, prefiero enfrentarlo
+    <<trust +3>>
+    Maya: Ojalá yo aprenda a quedarme Quizá contigo, que no juzgas, se me haga menos difícil
+-> A veces me encierro a pensar
+    <<affinity +2>>
+    Maya: Encerrarse a pensar... eso también lo conozco Pero mira, tú volviste a escribirme igual
+-> Depende de a quién tenga al lado
+    <<romance +1>>
+    Maya: ...Y a mí me toca ser de las que se quedan, ¿no? Qué responsabilidad y qué bonito a la vez
 Maya: Quiero que sepas una cosa
 Maya: Cuando desaparecí, lo que me trajo de vuelta fue pensar en ti esperando mi mensaje
 <<typing true>>
-Maya: Y esa imagen fue más fuerte que el miedo
-Maya: No quiero que esto se apague, {player_name}
+Maya: Y esa imagen fue más fuerte que el miedo No quiero que esto se apague, {player_name}
 -> No se va a apagar, siempre estaré aquí para escribirte
-    <<romance +4>>
+    <<romance +1>>
     <<trust +4>>
-    Maya: ...Prométemelo
-    Maya: Porque yo soy de las que se quedan, pero también de las que se van por miedo
+    Maya: ...Prométemelo Porque yo soy de las que se quedan, pero también de las que se van por miedo
 -> Yo también quiero seguir hablando contigo
     <<affinity +3>>
-    <<romance +2>>
-    Maya: Entonces sigamos hablando
-    Maya: Y si me vuelvo a esconder, mándame una foto del mercadillo
+    <<romance +1>>
+    Maya: Entonces sigamos hablando Y si me vuelvo a esconder, mándame una foto del mercadillo
 -> No puedo prometer nada, pero quiero intentarlo
     <<trust +3>>
-    Maya: Eso es más honesto que un "para siempre" de cartón
-    Maya: Lo acepto
-Maya: Está bien. Aquí estoy de nuevo
-Maya: Y esta vez no pienso desaparecer sin avisar
+    Maya: Eso es más honesto que un "para siempre" de cartón Lo acepto
+Maya: Está bien. Aquí estoy de nuevo Y esta vez no pienso desaparecer sin avisar
 <<presence online>>
 Maya: Hablemos de algo ligero. ¿Qué estás leyendo ahora?
 <<photo noche>>

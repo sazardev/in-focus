@@ -1,23 +1,21 @@
 title: Cap2_Intro
 tags: #acto1 #capitulo2
 ---
+<<notify "Maya te escribió: Buenos días, desconocido 👋">>
 <<presence online>>
 <<chapter "36 fotos">>
-Maya: Buenos días, desconocido 👋
-Maya: Anoche no pude dormir pensando en tu caja de fotos del mercadillo
+Maya: Buenos días, desconocido 👋 Anoche no pude dormir pensando en tu caja de fotos del mercadillo
 Maya: Necesito la historia completa. Y un café. Los dos urgentes
 <<typing true>>
 Maya: Empieza por el principio: ¿qué viste exactamente?
 -> Una caja vieja de cartón, con un rollo de película y tu número
     <<affinity +4>>
     <<trust +2>>
-    Maya: Una caja de cartón... y dices que tenía mi número
-    Maya: Eso es tan raro que me hace creerte
+    Maya: Una caja de cartón... y dices que tenía mi número Eso es tan raro que me hace creerte
 -> Un rollo sin revelar con una nota que decía "pregúntame por la foto que va dentro"
     <<affinity +5>>
     <<romance +1>>
-    Maya: "Pregúntame por la foto que va dentro"...
-    Maya: Eso lo escribí yo, ¿sabes? Esa frase es mía
+    Maya: "Pregúntame por la foto que va dentro"... Eso lo escribí yo, ¿sabes? Esa frase es mía
 -> La verdad, no sé por qué la abrí. Solo sentí que debía
     <<trust +4>>
     Maya: Cuando algo te llama la atención, suele ser por algo
@@ -26,22 +24,18 @@ Maya: ¿Y revelaste el rollo?
     <<affinity +3>>
     <<trust +3>>
     <<set $rollo_revelado = true>>
-    Maya: ¿36? Esa es la cantidad exacta de un rollo completo
-    Maya: Alguien tomó TODAS las fotos de ese rollo
+    Maya: ¿36? Esa es la cantidad exacta de un rollo completo Alguien tomó TODAS las fotos de ese rollo
     Maya: Necesito verlas
 -> Aún no, guardé el rollo como está
     <<affinity +1>>
     <<set $rollo_revelado = false>>
-    Maya: Eres de los que disfrutan el suspenso, ¿eh?
-    Maya: Respeta
+    Maya: Eres de los que disfrutan el suspenso, ¿eh? Respeta
 -> No pude resistir, revelé el rollo en un cuarto oscuro improvisado
     <<affinity +5>>
-    <<romance +2>>
+    <<romance +1>>
     <<set $rollo_revelado = true>>
-    Maya: ¿Cuarto oscuro improvisado? Jaja, me encanta lo que eso implica
-    Maya: Que te importó lo suficiente para aprender
-Maya: Oye... {player_name}
-Maya: Tengo una idea que suena loca pero contigo ya suena menos loca
+    Maya: ¿Cuarto oscuro improvisado? Jaja, me encanta lo que eso implica Que te importó lo suficiente para aprender
+Maya: Oye... {player_name} Tengo una idea que suena loca pero contigo ya suena menos loca
 <<typing true>>
 Maya: ¿Me mandas fotos del rollo? Así veo qué es lo que estaba ahí dentro
 -> Te las mando, aunque no sé qué esperar
@@ -51,13 +45,17 @@ Maya: ¿Me mandas fotos del rollo? Así veo qué es lo que estaba ahí dentro
 -> Tengo miedo de que sea algo que no debas ver
     <<trust +2>>
     <<romance +1>>
-    Maya: Si algo de mi pasado está en ese rollo, prefiero saberlo
-    Maya: Las historias no se entierran, se revelan
+    Maya: Si algo de mi pasado está en ese rollo, prefiero saberlo Las historias no se entierran, se revelan
+-> Solo si me cuentas la tuya también
+    <<romance +1>>
+    Maya: Jaja, negociador. Me gusta esa actitud Trato hecho: fotos por historias
 Maya: Espera, antes de que las mandes...
 Maya: Cuando las veas, cuéntame qué sintió tu instinto. No me digas lo que "deberías" sentir
 Maya: Dime lo que sentiste
 <<photo pelicula>>
 <<photo mercadillo>>
+<<photo rollo>>
+Maya: El rollo, la caja y el misterio. Las tres piezas que te trajeron hasta acá
 <<presence taking-photos>>
 Maya: Y mientras tanto, te devuelvo el favor con las mías
 <<photo azotea>>
@@ -68,23 +66,31 @@ Maya: Esas son de ayer. La luz estaba perfecta y no había nadie a quien fotogra
 Maya: Ahora sí: la verdad, {player_name}. ¿Qué sentiste cuando revelaste ese rollo?
 -> Miedo, como si estuviera abriendo algo que no me pertenecía
     <<trust +4>>
-    Maya: Eso es exactamente lo que se siente al revelar por primera vez
-    Maya: Por eso amo esto. Ese miedo es respeto
+    Maya: Eso es exactamente lo que se siente al revelar por primera vez Por eso amo esto. Ese miedo es respeto
 -> Curiosidad pura, no podía parar
     <<affinity +3>>
     <<romance +1>>
-    Maya: La curiosidad pura es de las mejores cosas que existen
-    Maya: Y la tuya te trajo hasta mi número
+    Maya: La curiosidad pura es de las mejores cosas que existen Y la tuya te trajo hasta mi número
 -> Nada especial, solo unas fotos
     <<trust -1>>
     <<affinity -2>>
-    Maya: ...¿Solo unas fotos?
-    Maya: Bueno. Cada quien con su sensibilidad
-Maya: Está bien, me conformo con esa respuesta por hoy
-Maya: Pero esta historia no termina aquí, lo sé
+    Maya: ...¿Solo unas fotos? Bueno. Cada quien con su sensibilidad
+Maya: Hablando de sensibilidad... ¿qué haces cuando no estás descubriendo rollos?
+Maya: Trabajas, estudias, te aburres, coleccionas cosas raras? Aquí no se juzga
 <<typing true>>
-Maya: Tengo que ir a una sesión de fotos, pero me debes el resto de la historia
-Maya: Y esa foto que mencionaba la nota... la del neón
+Maya: Cuéntame algo que te apasione de verdad. Sin filtro
+-> Trabajo en lo mío y en mis ratos leo y camino sin rumbo
+    <<affinity +2>>
+    Maya: ¿Caminar sin rumbo? Eso es de gente con cabeza de fotógrafo El mundo se ve distinto cuando no vas a ningún lado
+-> Colecciono historias, como esta de tu rollo
+    <<romance +1>>
+    Maya: ¿Coleccionas historias? ...Cuidado, que te voy a salir con una grande Y me va a gustar que la guardes
+-> Nada emocionante, la verdad
+    <<trust +2>>
+    Maya: "Nada emocionante" dicen mientras revuelven una caja ajena Mmm, no te creo ni un poquito
+Maya: Está bien, me conformo con esa respuesta por hoy Pero esta historia no termina aquí, lo sé
+<<typing true>>
+Maya: Tengo que ir a una sesión de fotos, pero me debes el resto de la historia Y esa foto que mencionaba la nota... la del neón
 Maya: Cuéntame de ella mañana
 <<set $cap_02_done = true>>
 <<jump Cap3_Intro>>

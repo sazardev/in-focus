@@ -23,21 +23,24 @@ title: Start
 ---
 <<declare $affinity = 0>>
 <<declare $trust = 0>>
-Maya: Hola
+<<presence online>>
+<<typing true>>
+<<photo luz>>
+Maya: Hola, bienvenido a esta conversación tan larga y agradable entre nosotros dos
 -> Saludar
     <<affinity +5>>
     <<trust +2>>
-    Maya: Qué amable
+    Maya: Qué amable, no esperaba una respuesta tan cálida y sincera de tu parte
 -> Saludar frío
     <<affinity -3>>
-    Maya: Uy
-Maya: Adiós
+    Maya: Uy, vaya forma tan poco entusiasta de responder a un saludo tan amable
+Maya: Adiós, que tengas un día lleno de luz y de buenas noticias por donde vayas
 <<set $cap_01_done = true>>
 <<jump Cap2_Intro>>
 ===
 title: Cap2_Intro
 ---
-Maya: Llegaste
+Maya: Llegaste, qué bueno, me alegra mucho verte otra vez por aquí de nuevo
 <<fin>>
 ===
 `;

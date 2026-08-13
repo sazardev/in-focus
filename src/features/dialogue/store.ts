@@ -9,6 +9,7 @@ import { useGameClockStore } from "@/features/game-clock";
 import { useNotificationsStore } from "@/features/notifications";
 import { useProfileStore } from "@/features/profile/store";
 import { useRelationshipStore } from "@/features/relationship";
+import { playSend } from "@/shared/sound";
 import { DialogueEngine } from "./engine";
 import { resolvePhotoUrl } from "./photos";
 import { buildChapterScript } from "./scripts";
@@ -140,7 +141,7 @@ function processFrame(frame: DialogueFrame): void {
 
 	// Línea de texto: simula el tecleo de Maya antes de mostrarla.
 	chat.setMayaTyping(true);
-	const typingMs = calculateReadDelay(frame.text.length);
+	const typingMs = calculateReadDelay(frame.text.length, 1200, 10000, frame.text);
 
 	enqueue(() => {
 		chat.setMayaTyping(false);
@@ -150,16 +151,19 @@ function processFrame(frame: DialogueFrame): void {
 				: toIncomingMessage(frame.text);
 		chat.appendMessage(message);
 
-		enqueue(() => {
-			if (engine) {
-				const next = engine.advance();
+		enqueue(
+			() => {
 				if (engine) {
-					useDialogueStore.setState({ currentNode: engine.getCurrentNodeTitle() });
+					const next = engine.advance();
+					if (engine) {
+						useDialogueStore.setState({ currentNode: engine.getCurrentNodeTitle() });
+					}
+					syncVariables();
+					processFrame(next);
 				}
-				syncVariables();
-				processFrame(next);
-			}
-		}, 200);
+			},
+			600 + Math.random() * 700,
+		);
 	}, typingMs);
 }
 
@@ -233,6 +237,11 @@ export const useDialogueStore = create<DialogueState>((set, get) => ({
 					if (replaying) return;
 					chat.setChapterTitle(title);
 					useGameClockStore.getState().setDayTitle(title);
+					// "El plan" anuncia la exposición (el sábado): arranca el contador.
+					if (title === "El plan") {
+						const clock = useGameClockStore.getState();
+						if (clock.expoDay == null) clock.setExpoDay(clock.day + 3);
+					}
 				},
 				availability: (availability) => {
 					if (!replaying) chat.setMayaAvailability(availability);
@@ -335,6 +344,7 @@ export const useDialogueStore = create<DialogueState>((set, get) => ({
 		useChatStore.getState().appendMessage(toOutgoingMessage(pending.text));
 		useChatStore.getState().setMayaTyping(false);
 		useFakeTypingStore.getState().reset();
+		playSend();
 		const choiceHistory = [...get().choiceHistory, pending.index];
 		set({ pendingOption: null, choiceHistory });
 

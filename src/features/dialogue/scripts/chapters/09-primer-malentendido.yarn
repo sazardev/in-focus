@@ -3,49 +3,46 @@ tags: #acto2 #capitulo9
 ---
 <<presence online>>
 <<chapter "El primer malentendido">>
-Maya: Oye, algo me quedó dando vueltas
-Maya: Anoche dijiste algo sobre mi cuarto y no sé si me molestó o me hizo reír
+Maya: Oye, algo me quedó dando vueltas Anoche dijiste algo sobre mi cuarto y no sé si me molestó o me hizo reír
 <<typing true>>
-Maya: Dijiste que parecía "un laberinto de emociones y papeles"
-Maya: ¿Eso era un cumplido o una crítica?
+Maya: Dijiste que parecía "un laberinto de emociones y papeles" ¿Eso era un cumplido o una crítica?
 -> Era un cumplido, tu caos es hermoso
     <<affinity +2>>
     <<trust +2>>
-    Maya: ...¿En serio? Bueno, así lo tomo entonces
-    Maya: Perdón por tomármelo mal, es que a veces no sé leer
+    Maya: ...¿En serio? Bueno, así lo tomo entonces Perdón por tomármelo mal, es que a veces no sé leer
 -> Fue una broma, pero puedo explicarlo
     <<trust +3>>
     Maya: Explícame entonces, porque las bromas a medias me ponen nerviosa
 -> No debí decirlo así, perdón
     <<trust +4>>
     <<romance +1>>
-    Maya: Oye... eso de disculparte sin rodeos me llegó
-    Maya: No mucha gente lo hace. Gracias
+    Maya: Oye... eso de disculparte sin rodeos me llegó No mucha gente lo hace. Gracias
+-> Y qué bueno que te importe lo que digo de tu caos
+    <<romance +1>>
+    Maya: ¿Qué me importa? ...Claro que me importa, {player_name} Tus palabras llevan días en mi cabeza, unas más que otras
 Maya: La verdad es que me tomé tiempo para contestarte porque me puse rara
 Maya: Me pasa que cuando alguien me gusta, interpreto todo mal
 <<typing true>>
-Maya: ...Dije "cuando alguien me gusta"
-Maya: Quiero borrarlo. No lo voy a borrar. Ya pasó
+Maya: ...Dije "cuando alguien me gusta" Quiero borrarlo. No lo voy a borrar. Ya pasó
 -> Me gusta que seas honesta
-    <<romance +3>>
+    <<romance +1>>
     <<trust +3>>
     Maya: Gracias, aunque me tiembla un poco decir cosas así
 -> Guarda las palabras que no quieres borrar
-    <<romance +2>>
+    <<romance +1>>
     Maya: Eso fue raro y bonito a la vez
 -> No pasa nada, aquí nadie juzga
     <<affinity +2>>
     <<trust +2>>
     Maya: ¿Nadie juzga? Esa es la frase que necesitaba oír hoy
-Maya: Bueno, para enmendar el malentendido
-Maya: Te mando una foto real de mi caos, sin filtros
+Maya: Bueno, para enmendar el malentendido Te mando una foto real de mi caos, sin filtros
 <<photo caos>>
 Maya: Ahí está. Mis notas, mis rollos, mis miedos y un café frío
 Maya: Este soy yo. Sin laberintos, sin laberintos de emociones... bueno, con uno
 <<typing true>>
 Maya: ¿Sigues queriendo escribirle a alguien así?
 -> Sí, más que antes
-    <<romance +3>>
+    <<romance +1>>
     <<trust +2>>
     Maya: Eso me dio fuerza para seguir mostrándome
 -> Tu caos me encanta, es parte de ti
@@ -55,8 +52,37 @@ Maya: ¿Sigues queriendo escribirle a alguien así?
 -> El café frío es imperdonable, eso sí
     <<affinity +2>>
     Maya: Jaja, tú y tu humor. Ya me conoces
-Maya: Gracias por no haberte ido con el malentendido
-Maya: Los malentendidos que se arreglan con honestidad valen oro
+Maya: Oye, y ahora una pregunta seria entre tanta broma ¿Qué fue lo primero que pensaste al ver la foto de mi cuarto?
+<<typing true>>
+Maya: No vale decir "nada". Siempre piensas algo
+-> Que tu caos tiene orden propio, como una canción
+    <<romance +1>>
+    <<trust +2>>
+    Maya: "Orden propio"... eres la primera persona que lo describe así Todos dicen desorden. Tú dices música
+-> Que quiero conocer cada cosa de esa pared
+    <<affinity +3>>
+    <<trust +2>>
+    Maya: Cada cosa... son años de mí. Y dices que quieres conocerlos Qué rareza tan buena eres
+-> Que esa pared debería estar en una exposición
+    <<affinity +3>>
+    <<romance +1>>
+    Maya: ¿En una exposición? Me acabas de dar una idea que da miedo y gusta Quizá algún día. Si me acompañas a colgarla
+Maya: Gracias por no haberte ido con el malentendido Los malentendidos que se arreglan con honestidad valen oro
+Maya: Oye, se me ocurrió una regla nueva para nosotros Si algo me molesta, te lo digo antes de las 24 horas. Y tú lo mismo
+<<typing true>>
+Maya: Así no se nos acumulan los "estaba pensando en" sin decir
+-> Acepto la regla, y prometo cumplirla
+    <<trust +3>>
+    <<romance +1>>
+    Maya: Trato hecho entonces. Sin malentendidos acumulados Esta es de las reglas que hacen que una amistad dure de verdad
+-> Y yo te prometo preguntarte antes de interpretar mal
+    <<trust +2>>
+    <<affinity +2>>
+    Maya: Eso es exactamente lo que necesito. Que preguntes, no que asumas Contigo, hasta el desacuerdo se siente seguro
+-> Mmm, y si un día me molesta algo, ¿me dejas un recordatorio?
+    <<trust +2>>
+    Maya: Te dejo un recordatorio... y también te dejo un abrazo en el chat
+    Maya: Los dos, para que no se te olvide que aquí no se guarda rencor
 <<set $cap_09_done = true>>
 <<jump Cap10_Intro>>
 ===

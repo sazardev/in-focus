@@ -29,8 +29,64 @@ function buildState(): PersistedSaveState {
 }
 
 /**
+ * Firma ligera del progreso real: ignora cambios de UI (tecleo, presencia,
+ * disponibilidad) para no escribir a disco en cada toggle.
+ */
+function progressSignature(): string {
+	const relationship = useRelationshipStore.getState();
+	const chat = useChatStore.getState();
+	const dialogue = useDialogueStore.getState();
+	const gallery = useGalleryStore.getState();
+	return [
+		relationship.affinity,
+		relationship.romance,
+		relationship.trust,
+		chat.messages.length,
+		chat.chapterTitle ?? "",
+		dialogue.currentNode,
+		dialogue.choiceHistory.length,
+		Object.keys(dialogue.scriptVariables).length,
+		gallery.photos.length,
+	].join("|");
+}
+
+let saveTimer: ReturnType<typeof setTimeout> | null = null;
+let lastSignature = "";
+let initialized = false;
+let pending = false;
+
+/** Guarda con debounce (500 ms) y solo si hubo progreso real. */
+function scheduleSave(): void {
+	const sig = progressSignature();
+	if (!initialized) {
+		lastSignature = sig;
+		initialized = true;
+		return;
+	}
+	if (sig === lastSignature) return;
+	lastSignature = sig;
+	pending = true;
+	if (saveTimer) clearTimeout(saveTimer);
+	saveTimer = setTimeout(() => {
+		saveTimer = null;
+		pending = false;
+		void persistenceService.save(buildState());
+	}, 500);
+}
+
+/** Vacía el guardado pendiente (al ocultar la ventana o cerrar). */
+function flushSave(): void {
+	if (!pending) return;
+	if (saveTimer) clearTimeout(saveTimer);
+	saveTimer = null;
+	pending = false;
+	void persistenceService.save(buildState());
+}
+
+/**
  * Persistencia del progreso (STACK §2.2): hidrata los stores al montar y
- * guarda vía IPC de Rust (o localStorage) cada vez que cambia el estado.
+ * guarda vía IPC de Rust (o localStorage) con debounce y solo cuando hay
+ * progreso real (no por toggles de tecleo/presencia).
  */
 export function usePersistence() {
 	const hydrate = useCallback(async () => {
@@ -71,7 +127,7 @@ export function usePersistence() {
 	}, [hydrate]);
 
 	useEffect(() => {
-		const save = () => void persistenceService.save(buildState());
+		const save = () => scheduleSave();
 		const unsubscribeFns = [
 			useProfileStore.subscribe(save),
 			useRelationshipStore.subscribe(save),
@@ -79,10 +135,15 @@ export function usePersistence() {
 			useDialogueStore.subscribe(save),
 			useGalleryStore.subscribe(save),
 		];
+		const flush = () => flushSave();
+		window.addEventListener("beforeunload", flush);
+		document.addEventListener("visibilitychange", flush);
 		return () => {
 			for (const unsubscribe of unsubscribeFns) {
 				unsubscribe();
 			}
+			window.removeEventListener("beforeunload", flush);
+			document.removeEventListener("visibilitychange", flush);
 		};
 	}, []);
 }

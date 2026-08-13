@@ -1,67 +1,94 @@
 title: Cap3_Intro
 tags: #acto1 #capitulo3
 ---
+<<notify "Maya está escribiendo...">>
 <<presence online>>
 <<chapter "La chica del neón">>
-Maya: Listo, ya estoy aquí. No me mires así
-Maya: No dormí bien porque pensé toda la noche en esa foto del neón
+Maya: Listo, ya estoy aquí. No me mires así No dormí bien porque pensé toda la noche en esa foto del neón
 <<typing true>>
-Maya: ¿La viste? La del escaparate con una chica de espaldas
-Maya: Esa es la que estaba en el rollo, ¿verdad?
+Maya: ¿La viste? La del escaparate con una chica de espaldas Esa es la que estaba en el rollo, ¿verdad?
 <<if $rollo_revelado == true>>
     Maya: Entonces ya viste la única foto que no debía existir
 <<else>>
-    Maya: Aún no la revelaste, ¿cierto? Pero ya sabes que está ahí
-    Maya: Cuando la reveles, vas a entender por qué me tiembla la voz
+    Maya: Aún no la revelaste, ¿cierto? Pero ya sabes que está ahí Cuando la reveles, vas a entender por qué me tiembla la voz
 <<endif>>
 -> Sí, había una persona en una foto. Una chica frente a un neón
     <<affinity +3>>
     <<trust +3>>
-    Maya: ...Una chica
-    Maya: {player_name}, necesito que me digas qué más había en esa foto
+    Maya: ...Una chica {player_name}, necesito que me digas qué más había en esa foto
 -> Vi varias fotos, pero una tenía a alguien
     <<trust +2>>
     Maya: ¿Alguien? ¿De quién hablas?
+-> Prefiero no describirla, se sentía íntima
+    <<romance +1>>
+    Maya: ...¿Íntima? Qué raro y qué bonito que lo hayas sentido Eso ya me dice más de ti que de la foto
 Maya: Mira, te lo digo porque te tengo confianza: esa foto no tendría que existir
 Maya: La tomé hace mucho tiempo, en una noche que preferiría no recordar
 <<typing true>>
-Maya: Esa chica... era una relación que dejé atrás
-Maya: El rollo era de ella. Un regalo que nunca quise aceptar
+Maya: Esa chica... era una relación que dejé atrás El rollo era de ella. Un regalo que nunca quise aceptar
 -> ¿Por qué la regalarías si era tan importante?
     <<trust +4>>
     <<romance +1>>
-    Maya: Porque lo importante a veces pesa demasiado
-    Maya: Esa noche era de las que te rompen y yo estaba cansada de romperme
+    Maya: Porque lo importante a veces pesa demasiado Esa noche era de las que te rompen y yo estaba cansada de romperme
 -> Entiendo, a veces hay que soltar
     <<trust +3>>
-    Maya: ¿Tú entiendes de soltar? Qué raro, parece que también tienes pasado
-    Maya: Los que entienden de soltar suelen cargar con algo
+    Maya: ¿Tú entiendes de soltar? Qué raro, parece que también tienes pasado Los que entienden de soltar suelen cargar con algo
 -> No sé si deberías contarme esto
     <<trust +2>>
     <<romance -1>>
-    Maya: Y tienes razón... pero ya es tarde para eso
-    Maya: Tú viste la foto, mereces saber de dónde viene
-Maya: La cuestión es que ese rollo se perdió hace años
-Maya: Terminé tirándolo en una caja que no quería abrir
+    Maya: Y tienes razón... pero ya es tarde para eso Tú viste la foto, mereces saber de dónde viene
+-> Y yo a ti, que solo te escribí por una caja vieja... y aquí sigo
+    <<romance +1>>
+    Maya: ¿Aquí sigues? Es cierto. Y ni siquiera te he enseñado aún lo mejor de mí Qué miedo y qué ganas de que lo veas
+Maya: La cuestión es que ese rollo se perdió hace años Terminé tirándolo en una caja que no quería abrir
 Maya: Y el universo, en su humor retorcido, hizo que llegara a tus manos
 <<typing true>>
 Maya: ¿No te parece irónico? Tú, un desconocido, tienes la historia que yo enterré
 -> Es una coincidencia enorme
     <<affinity +2>>
     <<trust +2>>
-    Maya: Yo no creo en coincidencias, {player_name}
-    Maya: Creo en las cosas que pasan por algo
+    Maya: Yo no creo en coincidencias, {player_name} Creo en las cosas que pasan por algo
 -> A lo mejor es el destino
-    <<romance +3>>
-    Maya: ¿El destino? Cuidado con decir palabras tan grandes
-    Maya: ...Aunque, de todas las posibilidades, esta no es la peor
+    <<romance +1>>
+    Maya: ¿El destino? Cuidado con decir palabras tan grandes ...Aunque, de todas las posibilidades, esta no es la peor
 -> Yo solo encontré una caja en un mercadillo
     <<affinity +1>>
     Maya: Para ti fue una caja, para mí fue otra cosa
-Maya: Oye... ¿te puedo pedir un favor?
-Maya: Esa foto del neón... la quiero ver yo también
-Maya: Mándamela, y la miro a solas, en mi tiempo
-Maya: No quiero hablar de ella hoy
+Maya: Oye, ¿puedo hacerte una pregunta incómoda? Tengo fama de hacerlas
+Maya: ¿Tú crees que las cosas que evitamos vuelven a buscarnos?
+<<typing true>>
+Maya: Porque este rollo es exactamente eso: algo que quise olvidar y que me encontró
+-> Sí, y a veces vuelven con mejores intenciones
+    <<affinity +2>>
+    Maya: ¿Mejores intenciones? Ojalá tenga razón el universo esta vez Por ahora, el rollo al menos trajo una buena conversación
+-> No, creo que lo que evitamos se queda donde está
+    <<trust +2>>
+    Maya: Hmm, y entonces ¿qué haces tú aquí, tocándome el pasado? No me respondas. Me gusta el misterio
+-> Creo que vuelven para que las enfrenteremos
+    <<romance +1>>
+    <<trust +2>>
+    Maya: ...Enfrentarlas. Y mira, aquí estoy, enfrente de una Contigo de testigo. Qué suerte y qué vértigo
+Maya: Oye... ¿te puedo pedir un favor? Esa foto del neón... la quiero ver yo también Mándamela, y la miro a solas, en mi tiempo
+<<photo escaparate>>
+Maya: Mientras tanto, te dejo el escaparate tal y como lo recuerdo esa noche
+Maya: La luz verde, la calle vacía y esa chica de espaldas que ya no soy No quiero hablar de ella hoy
+Maya: Pero sí quiero que sepas una cosa antes de irme Contigo, por primera vez en mucho tiempo, siento que puedo no esconderme
+<<typing true>>
+Maya: Y eso, para alguien que hizo del silencio un oficio, es mucho decir
+-> Y yo quiero que sepas que no hace falta que te escondas
+    <<trust +3>>
+    <<romance +1>>
+    Maya: ...Guardar esa frase también, ¿eh? No tengo espacio para tantas Pero la hago un hueco. Las tuyas se merecen un lugar
+-> Contigo tampoco me escondo, Maya
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ¿No te escondes? Qué valiente. Yo llevo años aprendiendo Quizá, juntos, aprendamos a mirar de frente
+-> Mañana seguimos, y si no, aquí estaré
+    <<trust +2>>
+    <<romance +1>>
+    Maya: "Aquí estaré"... dos palabras que me van a acompañar toda la noche Y mañana te creo, ¿sabes? Por primera vez, te creo
+<<presence offline>>
+Maya: Pero mañana, si sigues ahí, te cuento quién era. Y por qué me dolió
 <<set $cap_03_done = true>>
 <<jump Cap4_Intro>>
 ===

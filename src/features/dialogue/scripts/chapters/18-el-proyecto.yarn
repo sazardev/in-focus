@@ -1,22 +1,23 @@
 title: Cap18_Intro
 tags: #acto3 #capitulo18
 ---
-<<chapter "El proyecto">>
+<<notify "Maya: ¡Me aceptaron en la exposición! 🎉">>
 <<presence online>>
-Maya: {player_name}!! Necesito tu ojo YA
-Maya: Me aceptaron en la exposición. La que no salió la vez pasada
+<<chapter "El proyecto">>
+Maya: {player_name}!! Necesito tu ojo YA Me aceptaron en la exposición. La que no salió la vez pasada
 <<typing true>>
 Maya: Y ahora sí, me tiemblan las manos de emoción y miedo
 -> ¡Felicidades, Maya! Sabía que podías
-    <<affinity +3>>
-    <<romance +2>>
+    <<affinity +5>>
     Maya: ¿Sabías? Yo no tanto, pero gracias por creer
 -> Esa es una noticia enorme. Cuéntame todo
+    <<romance +3>>
     <<affinity +3>>
     <<trust +2>>
     Maya: Te cuento TODO. Pero primero necesito tu opinión
 -> Estoy orgulloso de ti
     <<romance +3>>
+    <<affinity +2>>
     <<trust +2>>
     Maya: ...Gracias. De verdad. Eso me llega
 Maya: El tema de mi exposición es "Las que me dieron miedo"
@@ -24,10 +25,10 @@ Maya: Fotos de cosas que no quise ver: el neón, las sombras, los cuartos a oscu
 <<typing true>>
 Maya: Y quiero que me ayudes a elegir cuáles van
 -> Muéstrame las candidatas
-    <<affinity +3>>
-    <<romance +1>>
+    <<affinity +5>>
     Maya: Ahí van. Son las que más me dan miedo
 -> Claro, cuéntame el criterio y elijo contigo
+    <<romance +3>>
     <<affinity +3>>
     <<trust +2>>
     Maya: El criterio es simple: las que duelen. Pero me gusta que preguntes
@@ -40,40 +41,63 @@ Maya: Y quiero que me ayudes a elegir cuáles van
 Maya: Dime tu honesta opinión, la que le darías a un amigo
 -> Elige la del neón, esa es la que tiene historia
     <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
     Maya: La del neón... sí. Esa es la que duele y la que sana
 -> La sombra representa algo que no dices
-    <<affinity +3>>
-    <<romance +1>>
+    <<affinity +5>>
     Maya: ¿La ves así? Me alegra que la hayas entendido
 -> Todas merecen estar
+    <<romance +3>>
     <<affinity +2>>
     <<trust +2>>
     Maya: ¿Todas? Qué bonito decirlo, aunque sé que debo elegir
 Maya: Gracias por tu ojo, {player_name}
 <<if $mejores_fotos >= 2>>
-    Maya: Y no es la primera vez que aprecias lo que hago
-    Maya: Ese detalle no se me pasa por alto, aunque no lo diga
+    Maya: Y no es la primera vez que aprecias lo que hago Ese detalle no se me pasa por alto, aunque no lo diga
 <<endif>>
 Maya: Contigo esta exposición se siente posible
 <<typing true>>
-Maya: Y ahora la parte que me da más miedo
-Maya: Quiero que estés ahí el día de la inauguración
+Maya: Y ahora la parte que me da más miedo Quiero que estés ahí el día de la inauguración
 -> ¿En persona? Cuéntame cuándo y dónde
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
-    Maya: ¿En persona? ...No sé si estoy lista, pero quiero intentarlo
-    Maya: Primero la inauguración, y después vemos
+    Maya: ¿En persona? ...No sé si estoy lista, pero quiero intentarlo Primero la inauguración, y después vemos
 -> Me encantaría estar ahí
     <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
     Maya: Eso me da una fuerza que no sabía que tenía
 -> Solo si me prometes no esconderte de mí
     <<trust +3>>
-    <<romance +2>>
+    <<romance +1>>
     Maya: Te lo prometo. En persona también
-Maya: Entonces es oficial
-Maya: La exposición es el mes que viene, y tú vas a estar ahí
+-> Y si me ves ahí, no voy a poder dejar de mirarte
+    <<affinity +2>>
+    Maya: ...¿Mirarme? Ya me puse roja y estamos en chat, imagínate mañana Pero me gusta. Que me mires de verdad
+Maya: ¿Sabes qué me da más miedo de la inauguración? No el público Es que tú veas mis fotos y no te digan nada
+<<typing true>>
+Maya: Las fotos son yo. Y quiero que a ti te guste lo que ves
+-> Si son tuyas, me van a gustar
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ...Gracias. Eso me calma más que cualquier aplauso Saber que estás de mi lado, aunque no estés de acuerdo con todo
+-> Y si una no te dice nada, te digo yo lo que significa
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ¿Lo explicarías? Nadie me ha ofrecido eso antes Todos ven, nadie pregunta. Tú preguntas
+-> Quiero verlas contigo, una por una
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Una por una... eso es una cita muy fotográfica No sé si es cita, pero suena bien
+-> Y quiero que la mejor foto de la expo seas tú, Maya
+    <<affinity +2>>
+    Maya: ...¿La mejor foto? Qué frase tan tuya, {player_name} Guarda eso para la inauguración, que hoy me desbordo
+Maya: Entonces es oficial La exposición es el mes que viene, y tú vas a estar ahí
 <<presence taking-photos>>
 Maya: Necesito celebrar esto, y la mejor forma es con fotos
 <<photo exposicion>>

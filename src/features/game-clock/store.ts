@@ -20,10 +20,13 @@ export interface GameClockState {
 	running: boolean;
 	/** Título del día (p. ej. "Día 1 — El número en la nota"). */
 	dayTitle: string | null;
+	/** Día de juego de la exposición (null hasta que se anuncia en "El plan"). */
+	expoDay: number | null;
 
 	tick: (now?: number) => void;
 	start: () => void;
 	setDayTitle: (title: string) => void;
+	setExpoDay: (day: number) => void;
 	reset: () => void;
 }
 
@@ -43,6 +46,7 @@ export const useGameClockStore = create<GameClockState>((set, get) => ({
 	dayStartedAt: Date.now(),
 	running: false,
 	dayTitle: null,
+	expoDay: null,
 
 	tick: (now = Date.now()) => {
 		const { msPerGameDay, dayStartedAt } = get();
@@ -75,6 +79,8 @@ export const useGameClockStore = create<GameClockState>((set, get) => ({
 
 	setDayTitle: (title) => set({ dayTitle: title }),
 
+	setExpoDay: (day) => set({ expoDay: day }),
+
 	reset: () => {
 		const state = useGameClockStore as unknown as { __interval?: ReturnType<typeof setInterval> };
 		if (state.__interval) clearInterval(state.__interval);
@@ -84,6 +90,7 @@ export const useGameClockStore = create<GameClockState>((set, get) => ({
 			dayStartedAt: Date.now(),
 			running: false,
 			dayTitle: null,
+			expoDay: null,
 		});
 	},
 }));

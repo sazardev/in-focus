@@ -50,21 +50,32 @@ La vista de chat es el núcleo del juego y se divide en tres zonas estrictas, si
 - **Integración Multimedia:** Las fotografías enviadas por Maya ocupan el ancho máximo permitido para una burbuja, con bordes redondeados y sin marcos.
 - **Timestamps:** Visibles sutilmente entre bloques de conversación o al deslizar la pantalla hacia la izquierda (comportamiento oculto de iOS).
 
-### 4.3. Input Area y Teclado Falso
+### 4.3. Input Area y Respuesta Automática
 
 - **Caja de Texto (Pill-shape):** Una barra de entrada con forma de píldora en la parte inferior. Incluye un icono de cámara (desactivado/decorativo) a la izquierda y el botón de enviar (flecha hacia arriba dentro de un círculo de color acento) a la derecha.
 - **Menú de Opciones:** Cuando el jugador debe responder, el área del teclado asciende desde abajo, presentando las 2 o 3 opciones de respuesta como botones anchos, planos y minimalistas.
-- **Teclado Virtual (Fake Typing View):** Al seleccionar una opción, los botones desaparecen y el teclado virtual (una réplica limpia y minimalista del teclado de iOS sin caracteres visualmente recargados) sube a la pantalla. El texto predefinido comienza a llenarse en la caja de la píldora conforme el jugador presiona el teclado.
+- **Respuesta automática (auto-type):** Al elegir una opción, el texto predefinido se "escribe" solo en la píldora (auto-fill letra a letra, en ~1 segundo) y se **envía automáticamente** al terminar. No hay teclado virtual ni pulsaciones del jugador: basta elegir la opción, y el envío se percibe como si el propio jugador hubiera tecleado el mensaje. Esto mantiene la ilusión de mensajería sin fricción ni tecleo manual.
 
 ---
 
-## 5. Microinteracciones y Animaciones
+## 5. Simulación de Dispositivos (Device Mockup)
+
+Para dar más impacto y reforzar la ilusión de estar dentro de un mensajero real, la aplicación se presenta dentro de un **marco de dispositivo simulado** que se adapta al contexto del jugador:
+
+- **Móvil (portrait):** la app se ve como un teléfono real: ocupa el ancho del viewport, con barra de estado, notch/isla dinámica, esquinas redondeadas y la zona de respuesta anclada abajo.
+- **Escritorio / Web (landscape amplio):** la app se enmarca dentro de un **mockup de laptop**: la ventana simula la pantalla de un portátil (bezel sutil) y el chat se centra en el viewport, como si el mensajero corriera en el equipo.
+- **Tablet:** la app usa un **marco de tablet**: más ancho que el móvil (~768–1024px) con bezel redondeado; la columna de chat mantiene una proporción cómoda y deja espacio para posibles paneles secundarios.
+- **Reglas del marco:** el marco es decorativo y nunca corta contenido interactivo; el scroll y el overscroll se comportan como en el dispositivo real; el mockup escala con la ventana conservando la proporción del dispositivo simulado.
+
+---
+
+## 6. Microinteracciones y Animaciones
 
 El diseño plano cobra vida a través del movimiento fluido y las respuestas hápticas (donde el hardware lo permita):
 
 - **Animación de Escribir (Typing Indicator):** La burbuja con los tres puntos suspensivos que saltan rítmicamente. Aparece con un suave "pop" elástico.
 - **Entrada de Mensajes:** Los nuevos mensajes de Maya se deslizan desde la parte inferior con una ligera curva de aceleración (ease-out), empujando el historial hacia arriba de forma natural.
-- **Feedback del Teclado Falso:** Cada toque en el teclado virtual ilumina sutilmente la tecla presionada (estado _active_ de CSS) para dar una retroalimentación visual al jugador de que su acción se está registrando.
+- **Tecleo automático (Auto-type):** Al elegir una respuesta, el texto se rellena en la píldora letra a letra (ritmo de tecleo) y el botón de enviar se ilumina justo antes de que el mensaje se mande solo.
 - **Apertura de Fotografías:** Tocar una miniatura expande la foto a pantalla completa utilizando una transición compartida (Shared Element Transition), oscureciendo el fondo de manera progresiva.
 
 ---

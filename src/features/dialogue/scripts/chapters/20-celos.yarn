@@ -1,85 +1,114 @@
 title: Cap20_Intro
 tags: #acto4 #capitulo20
 ---
-<<chapter "Celos">>
 <<presence online>>
-Maya: Oye, una pregunta que me trae vueltas
-Maya: ¿Tú también piensas en alguien más cuando escuchas ciertas canciones?
+<<chapter "Celos">>
+Maya: Oye, una pregunta que me trae vueltas ¿Tú también piensas en alguien más cuando escuchas ciertas canciones?
 <<typing true>>
 Maya: No me malinterpretes, solo... quería saber
 -> Solo pienso en ti cuando escucho canciones
-    <<romance +4>>
-    Maya: ...{player_name}
-    Maya: Eso fue directo al corazón. Gracias
+    <<affinity +2>>
+    Maya: ...{player_name} Eso fue directo al corazón. Gracias
 -> A veces pienso en ti, otras en mi pasado
-    <<romance +1>>
+    <<romance +3>>
     <<trust +2>>
-    Maya: El pasado es complicado, lo sé
-    Maya: Pero me alegra que de momento, tu presente me incluya
+    <<affinity +2>>
+    Maya: El pasado es complicado, lo sé Pero me alegra que de momento, tu presente me incluya
 -> ¿Tú piensas en alguien más?
-    <<romance +2>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +2>>
     Maya: En alguien que dejé ir, a veces. Pero últimamente solo pienso en ti
-Maya: Hablando de pasados...
-Maya: Nunca me preguntaste por la chica del neón, la de la foto
+Maya: Hablando de pasados... Nunca me preguntaste por la chica del neón, la de la foto
 <<typing true>>
 Maya: Y no sé si me alegra que no me lo preguntes o me da curiosidad que no lo hagas
 -> Es tu pasado, no es asunto mío
     <<trust +3>>
-    <<romance +2>>
-    Maya: Oye, qué maduro. Me gusta eso
-    Maya: Pero aun así quiero contarte, porque confío en ti
+    <<romance +1>>
+    Maya: Oye, qué maduro. Me gusta eso Pero aun así quiero contarte, porque confío en ti
 -> Cuéntame, quiero entenderte
+    <<romance +3>>
     <<trust +3>>
-    <<romance +2>>
-    Maya: Gracias por preguntar sin juzgar
-    Maya: Aquí va
+    <<affinity +2>>
+    Maya: Gracias por preguntar sin juzgar Aquí va
 -> Mientras tanto, yo solo quiero estar contigo
-    <<romance +4>>
-    <<trust +2>>
-    Maya: ...Eso fue muy bonito
-    Maya: Pero déjame contarte igual, para que no haya secretos entre nosotros
-Maya: La chica del neón fue alguien que quise mucho
-Maya: Pero me dejó de maneras que me rompieron
+    <<affinity +2>>
+    Maya: ...Eso fue muy bonito Pero déjame contarte igual, para que no haya secretos entre nosotros
+Maya: La chica del neón fue alguien que quise mucho Pero me dejó de maneras que me rompieron
 <<typing true>>
 Maya: El rollo era nuestro. Cuando terminó, lo tiré con todo lo que me dolía
 Maya: Y ahora tú, un desconocido, lo tienes. El universo tiene un humor cruel
 -> Lo siento, Maya. Eso debió doler
     <<trust +4>>
-    <<romance +2>>
-    Maya: Gracias por sentirlo conmigo
-    Maya: Haberlo compartido contigo lo hizo más liviano
+    <<romance +1>>
+    Maya: Gracias por sentirlo conmigo Haberlo compartido contigo lo hizo más liviano
 -> Eso no define quién eres
+    <<romance +3>>
+    <<trust +3>>
     <<affinity +3>>
-    <<romance +2>>
     Maya: Gracias por decírmelo. A veces lo olvido
 -> A mí no me interesa tu pasado, me importa tu presente
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
-    Maya: ...{player_name}
-    Maya: Esa es de las cosas más bonitas que me han dicho
-Maya: Ya me siento celosa de la chica del neón
-Maya: Porque tiene una foto que yo no tengo contigo
+    Maya: ...{player_name} Esa es de las cosas más bonitas que me han dicho
+-> Y te digo algo: no me dan celos tus recuerdos, me dan celos los que te quieren
+    <<affinity +2>>
+    Maya: ...¿Los que me quieren? Ay, {player_name}, que me vas a hacer creer en cosas
+    Maya: Y me encanta que me lo digas así, sin medias palabras
+Maya: Ya me siento celosa de la chica del neón Porque tiene una foto que yo no tengo contigo
 <<typing true>>
 Maya: ¿Te parece tonto? Probablemente. Pero es lo que siento
 -> Nadie me ha hecho sentir lo que tú
-    <<romance +4>>
-    <<trust +3>>
+    <<affinity +2>>
     Maya: ¿De verdad? Eso es justo lo que necesitaba oír
 -> Celosa de un recuerdo, qué linda
+    <<affinity +4>>
+    Maya: Jaja, lo sé. Qué rara Pero contigo me sale lo rara sin filtro
+-> Y yo me siento celoso de todos los que han estado cerca de ti
     <<romance +3>>
     <<affinity +2>>
-    Maya: Jaja, lo sé. Qué rara
-    Maya: Pero contigo me sale lo rara sin filtro
--> Y yo me siento celoso de todos los que han estado cerca de ti
-    <<romance +4>>
     <<trust +2>>
-    Maya: ...¿Tú también? Qué alivio
-    Maya: Los dos celosos de fantasmas. Qué par
-Maya: Gracias por abrirte conmigo
-Maya: Y perdón por ser celosa de un recuerdo
+    Maya: ...¿Tú también? Qué alivio Los dos celosos de fantasmas. Qué par
+Maya: ¿Sabes qué he aprendido de todo esto de los celos? Que duele menos cuando confías en la persona que tienes al lado
+<<typing true>>
+Maya: Y contigo... aprendí a confiar sin que me lo pidas
+-> Y yo aprendí a quererte sin querer atrapar tu pasado
+    <<romance +3>>
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: Eso es justo lo que necesitaba oír Puedes quedarte en mi presente todo el tiempo que quieras
+-> Los celos se curan con tiempo juntos
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Entonces tenemos mucho tiempo, porque yo quiero juntar el mío contigo Qué frase. Ya la estoy tatuando
+-> Confiar en ti es fácil, Maya
+    <<trust +4>>
+    <<romance +1>>
+    Maya: ...Que me digan eso, después de contarte mis celos, es oro puro Gracias por no juzgar mis monstruos
+-> Y quererte me sale fácil, hasta en tus celos
+    <<affinity +2>>
+    Maya: ...En mis celos me quieres. Qué manera tan rara y tan buena de querer
+    Maya: Esta frase la guardo en el cajón de las que me salvan
+Maya: Gracias por abrirte conmigo Y perdón por ser celosa de un recuerdo
 <<photo selfie_timida>>
 Maya: Para que no me olvides: aquí una foto tonta, de las que solo mando cuando confío
+Maya: Oye, ya que estoy en modo celosa... te digo la verdad de las verdades
+<<typing true>>
+Maya: Me da celos pensar en quién va a estar a tu lado en la expo Quiero ser yo la que te haga sonreír así, de cerca
+-> Y vas a ser tú, Maya. En serio
+    <<romance +3>>
+    <<trust +2>>
+    Maya: ...En serio. Qué bien se siente oír eso Entonces mañana sonrío solo para ti, aunque haya cien personas
+-> Me da celos pensar en los que han estado cerca de ti
+    <<romance +3>>
+    Maya: ...¿Tú también? Y yo que creí que era la única celosa. Qué par
+    Maya: Mañana te lo arreglo con un beso en la mejilla. O en la otra, según el día
+-> Los celos se nos van a pasar cuando nos veamos
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Tienes razón. De frente, se me olvidan todos los fantasmas Porque vas a ser real, y no un recuerdo
 <<set $cap_20_done = true>>
 <<jump Cap21_Intro>>
 ===

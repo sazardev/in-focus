@@ -1,64 +1,115 @@
 title: Cap22_Intro
 tags: #acto4 #capitulo22
 ---
-<<chapter "El sueño">>
 <<presence online>>
-Maya: No puedo dormir de los nervios, {player_name}
-Maya: Y como no duermo, me puse a imaginar cosas
+<<chapter "El sueño">>
+Maya: No puedo dormir de los nervios, {player_name} Y como no duermo, me puse a imaginar cosas
 <<typing true>>
 Maya: Del día que nos veamos... y de después
 -> Cuéntame qué imaginaste
-    <<romance +3>>
-    Maya: Imaginé que la expo va bien, que nos tomamos un café
-    Maya: Y que no se acaba en un café
+    <<affinity +2>>
+    Maya: Imaginé que la expo va bien, que nos tomamos un café Y que no se acaba en un café
 -> Yo también sueño despierto con verte
-    <<romance +4>>
-    Maya: ...¿Tú también? Qué bueno saberlo
-    Maya: Porque yo ya hasta le puse música a esa escena
+    <<affinity +2>>
+    Maya: ...¿Tú también? Qué bueno saberlo Porque yo ya hasta le puse música a esa escena
 -> Vamos a hacerlo realidad
     <<romance +3>>
     <<trust +3>>
+    <<affinity +2>>
     Maya: Sí. Esta vez no es solo sueño
-Maya: ¿Sabes qué es lo que más quiero?
-Maya: Quiero que el día sea largo. Que no se acabe rápido
+Maya: ¿Sabes qué es lo que más quiero? Quiero que el día sea largo. Que no se acabe rápido
 <<typing true>>
 Maya: Que haya tiempo de contarte todo lo que no cabió en los mensajes
 -> El tiempo se estira cuando quieres
-    <<romance +3>>
-    <<affinity +2>>
+    <<affinity +4>>
     Maya: Ojalá. O lo hacemos largo a propósito
 -> Tengo tanto que contarte también
     <<romance +3>>
     <<trust +2>>
-    Maya: Entonces no va a alcanzar un día
-    Maya: Y eso me hace feliz
+    <<affinity +3>>
+    Maya: Entonces no va a alcanzar un día Y eso me hace feliz
 -> Cada momento contigo vale doble
-    <<romance +4>>
+    <<affinity +2>>
     Maya: "Vale doble"... me lo guardo
-Maya: También imaginé algo más, y me da un poco de vergüenza
-Maya: Que después del café, nos quedamos caminando por la ciudad
+Maya: También imaginé algo más, y me da un poco de vergüenza Que después del café, nos quedamos caminando por la ciudad
 Maya: Y que en algún momento, por accidente o a propósito, nuestras manos se tocan
 <<typing true>>
 Maya: Ahí está. Lo dije
 -> Me gusta esa escena, Maya
-    <<romance +4>>
-    <<trust +2>>
+    <<affinity +2>>
     Maya: ¿Te gusta? No sabes el alivio que me da decirlo y que no te asustes
 -> Yo ya la he imaginado también
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
-    Maya: ...¿Lo has imaginado? Ahora sí estoy nerviosa
-    Maya: Pero del bueno
+    Maya: ...¿Lo has imaginado? Ahora sí estoy nerviosa Pero del bueno
 -> Ese momento va a pasar, te lo prometo
-    <<romance +4>>
-    <<trust +3>>
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
     Maya: Prometido entonces. Manos que se tocan, pase lo que pase
-Maya: Oye, gracias por jugar a soñar conmigo
-Maya: No sabes cuánto hacía que no me permitía imaginar un futuro
+Maya: Oye, y si no se tocan las manos... no pasa nada, ¿verdad? Quiero decir, esto no depende de que sea perfecto
+<<typing true>>
+Maya: Contigo aprendí que lo imperfecto también es hermoso
+-> No depende de nada perfecto, depende de nosotros
+    <<romance +3>>
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: "De nosotros"... y de lo que construyamos Eso me da más paz que cualquier plan perfecto
+-> Lo bueno entre nosotros no se arruina con un momento
+    <<trust +3>>
+    <<romance +1>>
+    Maya: Qué cierto. Y qué bien se siente saberlo Podemos tomarnos el sábado con calma, sin presión
+-> Aunque pase algo raro, seguirás siendo mi persona favorita
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ...Tu persona favorita. Sin presión, pero con esas palabras Está bien, me quedo con eso
+-> Y contigo, hasta lo imperfecto me hace quererte más
+    <<affinity +2>>
+    Maya: ...¿Imperfecto y aún así me quieres? Qué frase tan valiente
+    Maya: Me la llevo para caminar por la ciudad imaginaria, contigo de la mano
+Maya: Oye, gracias por jugar a soñar conmigo No sabes cuánto hacía que no me permitía imaginar un futuro
 <<photo noche>>
 Maya: Te mando la ciudad de madrugada. Es donde sueño que caminamos
 <<presence offline>>
 Maya: Duerme bien. Mañana seguimos soñando, esta vez de día
+<<notify "Maya: ...te acuerdas de los sueños cuando despiertas">>
+<<presence online>>
+Maya: Oye, una última cosa antes de que duermas Dijiste que soñabas despierto conmigo... ¿soñás también de noche?
+<<typing true>>
+Maya: Porque yo sí. Y esta noche, si apareces en mi sueño, no te voy a dejar escapar
+-> Entonces esta noche voy a soñar contigo a propósito
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ...¿A propósito? Me encanta la idea de que elijas soñarme Que el universo te haga una escena conmigo, y que no la pierdas
+-> Si apareces, prometo no despertarme
+    <<affinity +2>>
+    Maya: Qué promesa tan bonita y tan imposible Pero la acepto. Los sueños también se quedan si los quieres de verdad
+-> Mañana te cuento con quién soñé, y tú me cuentas lo tuyo
+    <<romance +3>>
+    <<trust +2>>
+    <<affinity +2>>
+    Maya: Trato hecho. Los sueños son el único secreto que no se roban Y el tuyo, si me toca, me lo llevo puesto
+Maya: Oye, ya que hablamos de sueños... te digo el que tuve anoche
+<<typing true>>
+Maya: Soñé que nos veíamos en la galería, entre todas mis fotos
+Maya: Y que al final, sin que nadie nos viera, nos besábamos. Desperté con el corazón a mil
+-> Ese sueño me gusta mucho, Maya
+    <<romance +3>>
+    <<trust +2>>
+    Maya: ¿Te gusta? Entonces mañana lo hacemos realidad... o al menos lo intentamos
+    Maya: Y si no lo logramos, prometo no despertar de nuevo hasta conseguirlo
+-> Y yo soñé lo mismo, y también desperté agitado
+    <<romance +3>>
+    Maya: ...¿Lo mismo? Ahora sí que no voy a poder dormir Mañana, entre foto y foto, vemos si el sueño era profético
+-> Los sueños no siempre se cumplen, pero estos dan buena espina
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Buena espina... o buena señal. A mí me late que sí Y contigo, las señales nunca fallan
+<<presence offline>>
+Maya: Buenas noches de verdad. Que tus sueños tengan luz de neón
 <<set $cap_22_done = true>>
 <<jump Cap23_Intro>>
 ===

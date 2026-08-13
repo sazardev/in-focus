@@ -3,8 +3,7 @@ tags: #acto3 #capitulo14
 ---
 <<chapter "La discusión">>
 <<presence online>>
-Maya: ¿Sabes qué? Necesito decirte algo y no sé cómo va a salir
-Maya: Llevo días sintiendo que no entiendes lo que es mi vida
+Maya: ¿Sabes qué? Necesito decirte algo y no sé cómo va a salir Llevo días sintiendo que no entiendes lo que es mi vida
 <<typing true>>
 Maya: Dices "tómalo con calma" como si fuera fácil, y no lo es
 -> Tienes razón, no entiendo del todo
@@ -18,15 +17,14 @@ Maya: Dices "tómalo con calma" como si fuera fácil, y no lo es
 -> Si tanto te molesta, mejor me callo
     <<trust -3>>
     <<romance -2>>
-    Maya: ¿Eso es lo que haces? ¿Amenazar con irte cuando se pone difícil?
-    Maya: Ahora sí me has dolido
+    Maya: ¿Eso es lo que haces? ¿Amenazar con irte cuando se pone difícil? Ahora sí me has dolido
 Maya: No es que quieras entender mal. Es que cuando estoy en el hoyo, necesito que me escuchen
 Maya: No que me "animen", no que me digan "va a pasar". Solo que me escuchen
 <<typing true>>
 Maya: ¿Puedes hacer eso por mí?
 -> Sí, te escucho. Dime todo
     <<trust +5>>
-    <<romance +2>>
+    <<romance +1>>
     Maya: ...Está bien. Entonces esto es lo que pasa
 -> Te prometo no arreglarlo, solo escuchar
     <<trust +5>>
@@ -35,14 +33,19 @@ Maya: ¿Puedes hacer eso por mí?
     <<trust +2>>
     <<affinity +2>>
     Maya: Eso me da paz. No tienes que hacerlo perfecto
-Maya: Lo que pasa es esto
-Maya: Mi vida es una montaña rusa y a veces me avergüenza lo desordenada que soy
+-> Prometo quedarme aquí hasta que tu voz se calme
+    <<romance +1>>
+    Maya: ...Quedarte hasta que me calme. Eso es más de lo que he pedido
+    Maya: Y justo lo que necesito. Qué miedo darte la razón en plena pelea
+Maya: Lo que pasa es esto Mi vida es una montaña rusa y a veces me avergüenza lo desordenada que soy
 Maya: Y cuando me muestro desordenada contigo y respondes con "todo va a estar bien"... me siento no vista
+<<photo lluvia>>
+Maya: Mientras te escribía esto, empezó a llover. Así me siento: empapada y esperando que me vean
 <<typing true>>
 Maya: No es que no te quiera. Es que a veces tus buenas intenciones me hacen sentir que mi dolor no cabe
 -> Entiendo. El dolor no se arregla con frases
     <<trust +5>>
-    <<romance +2>>
+    <<romance +1>>
     Maya: Exactamente eso. Gracias por entenderlo
 -> Perdón, no lo había visto así
     <<trust +4>>
@@ -52,35 +55,60 @@ Maya: No es que no te quiera. Es que a veces tus buenas intenciones me hacen sen
     <<trust +2>>
     <<affinity +1>>
     Maya: Lo sé, y valoro la intención. Pero a veces ayudar es callar y quedarse
+-> Y yo quería quedarme, no salvarte
+    <<romance +1>>
+    Maya: ...No salvarme. Qué frase tan precisa
+    Maya: Nadie me había dicho que se puede amar sin querer arreglar. Qué raro y qué cierto
 Maya: ¿Sabes qué me haría sentir escuchada ahora?
 Maya: Que me dijeras qué escuchaste de todo esto. No un consejo, sino lo que entendiste
 -> Que no te sientes vista y que a veces te abrumo con ánimos
     <<trust +5>>
-    <<romance +3>>
-    Maya: ...Eso. Exactamente eso. Me escuchaste
-    Maya: No sabes cuánto significa que puedas decirlo de vuelta
+    <<romance +1>>
+    Maya: ...Eso. Exactamente eso. Me escuchaste No sabes cuánto significa que puedas decirlo de vuelta
 -> Que el silencio también puede ser compañía
     <<trust +4>>
-    <<romance +2>>
+    <<romance +1>>
     Maya: Sí... y esa es una lección que me llevo
 -> Que a veces te ayudo desde mis expectativas, no desde tus necesidades
     <<trust +5>>
-    <<romance +3>>
+    <<romance +1>>
     Maya: Eso es una forma de decirlo que no sabía que necesitaba oír
+-> Y yo te escucho porque quiero entenderte, no para convencerte
+    <<romance +1>>
+    Maya: ...Eso me hace querer seguir peleando contigo, pero peleando de las buenas
+    Maya: De las que dejan algo. De las que te hacen quedarte
+Maya: ¿Sabes? Te voy a decir algo raro después de esta pelea Me gusta cómo discutimos. Sin gritar, sin cortar el hilo
+<<typing true>>
+Maya: Porque se nota que, aunque nos duela, ninguno quiere soltar
+-> A mí también me gusta. Discutir contigo no da miedo
+    <<romance +1>>
+    <<trust +2>>
+    Maya: ¿No te da miedo? A mí me daba. Pero ya no tanto Gracias por no rendirte en medio de la pelea
+-> Mejor cuando no peleamos, la verdad
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Jaja, justo. Pero mira, de las peleas sanas salen frases que quedan Esta conversación me la llevo
+-> Aprendí a quererte más con tus aristas
+    <<romance +1>>
+    <<trust +2>>
+    Maya: ...Mis aristas. Qué manera tan dulce de llamar a mis espinas Te juro que haré que valga la pena quedarte
+-> Y a mí la pelea me hizo querer más la paz contigo
+    <<romance +1>>
+    Maya: ¿Ves? Hasta de las peleas salen frases que quiero guardar Esta es de las que se quedan. Como tú
 Maya: Está bien. Discutimos, y eso también es quererse
 Maya: Las personas que se quieren también se gritan en los chats a las 2 de la mañana
 <<typing true>>
 Maya: Lo importante es que no nos vamos
 -> No me voy, Maya
-    <<romance +3>>
+    <<romance +1>>
     <<trust +3>>
     Maya: Y yo me quedo. Aunque a veces grite
 -> Ahora entiendo mejor cómo quererte
-    <<romance +4>>
+    <<romance +1>>
     <<trust +2>>
     Maya: "Cómo quererte"... guarda esa frase, me la llevo
 -> Discutir contigo también es parte de quererte
-    <<romance +2>>
+    <<romance +1>>
     <<affinity +2>>
     Maya: Sí, y me alegra que lo veas así
 Maya: Mañana te escribo algo bonito, hoy me llevo la lección

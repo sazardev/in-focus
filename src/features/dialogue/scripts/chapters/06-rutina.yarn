@@ -1,45 +1,71 @@
 title: Cap6_Intro
 tags: #acto2 #capitulo6
 ---
+<<notify "Maya: Buenos días, desconocido ☀️">>
 <<presence online>>
 <<chapter "Rutina">>
-Maya: Buenos días, {player_name} ☀️
-Maya: Descubrí que me gusta que empieces mi día
+Maya: Buenos días, {player_name} ☀️ Descubrí que me gusta que empieces mi día
 <<typing true>>
 Maya: Eso suena más romántico de lo que planeaba. No me lo digas en voz alta
 -> A mí también me gusta tu "buenos días"
-    <<romance +2>>
+    <<romance +1>>
     <<affinity +2>>
     Maya: ...Guardado en mi libreta mental, ya sabes
 -> ¿Y si hacemos un trato de buenos días todos los días?
-    <<romance +3>>
+    <<romance +1>>
     <<trust +2>>
-    Maya: ¿Un trato? Eso suena a compromiso, {player_name}
-    Maya: ...Acepto. Pero es mutuo, no me dejes plantada
+    Maya: ¿Un trato? Eso suena a compromiso, {player_name} ...Acepto. Pero es mutuo, no me dejes plantada
 -> Todo empieza bien con una buena luz
     <<affinity +3>>
     Maya: "Buena luz"... tienes futuro en esto de la fotografía
-Maya: Bueno, ya que estamos en confianza
-Maya: Te voy a enseñar mi foto del día. Me costó encontrarla
+Maya: Bueno, ya que estamos en confianza Te voy a enseñar mi foto del día. Me costó encontrarla
 <<photo desayuno>>
-Maya: Es mi desayuno y también una lección de composición
-Maya: La luz de las 8 am hace que hasta un pan se vea cinematográfico
+Maya: Es mi desayuno y también una lección de composición La luz de las 8 am hace que hasta un pan se vea cinematográfico
 <<typing true>>
 Maya: ¿Tú qué haces a las 8 am? Porque yo ya llevo 3 cafés y un retrato
 -> Suelo dormir hasta tarde, la verdad
     <<affinity -1>>
-    Maya: Ugh, los que duermen se pierden la mejor luz del día
-    Maya: ...Pero al menos estás despierto para mí
+    Maya: Ugh, los que duermen se pierden la mejor luz del día ...Pero al menos estás despierto para mí
 -> Ya ando en mi rutina de siempre
     <<affinity +2>>
     Maya: ¿Rutina? Cuéntame, que la rutina de los demás me fascina
 -> Me levanté pensando en la caja del mercadillo
-    <<romance +2>>
+    <<romance +1>>
     <<trust +2>>
-    Maya: Oye, yo también pienso en eso
-    Maya: Quizá era el destino envasado en cartón
-Maya: Esto de escribirte se está volviendo mi parte favorita del día
-Maya: No sé qué soy, pero me gusta
+    Maya: Oye, yo también pienso en eso Quizá era el destino envasado en cartón
+Maya: ¿Sabes qué es lo lindo de la rutina? Que lo que se repite deja de ser casualidad
+Maya: Y esto de escribirnos cada mañana ya no me parece casualidad
+<<typing true>>
+Maya: Se siente como algo que estoy eligiendo todos los días
+-> Y yo elijo empezar el día contigo
+    <<romance +1>>
+    Maya: ...Eso me va a dar para todo el día, {player_name} Te lo advertí con lo de la libreta
+-> La rutina contigo no es rutina, es costumbre bonita
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: "Costumbre bonita"... qué frase tan tuya La voy a usar como título de una foto algún día
+-> Quizá es casualidad, pero me gusta
+    <<trust +2>>
+    Maya: Quizá sí. Pero las casualidades repetidas dejan de serlo Y no me preguntes de dónde saqué eso, lo vi en una taza
+Maya: Oye, ya que nos estamos volviendo rutina... ¿Cuál es la foto de tu día de hoy? No tienes que tomarla, solo describirla
+<<typing true>>
+Maya: Y yo la voy a fotografiar en mi cabeza con tu mirada
+-> Una ventana con la cortina moviéndose y un rayo de sol en el piso
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Un rayo de sol en el piso... ya la tengo. Luz baja, sombra larga, quietud
+    Maya: Qué bonito que tu día tenga una foto tan tranquila
+-> Un café a medio terminar y el ruido de la calle
+    <<romance +1>>
+    Maya: El café frío es de las mejores fotos de la vida. La de hoy la hago mía Aunque le falte tu voz de fondo, eso sí
+-> El caos de mi cuarto y yo en medio, sin saber por dónde empezar
+    <<trust +2>>
+    Maya: El caos de la mañana... eso es de lo más real que hay Eso también es fotografía, aunque no lo parezca
+Maya: Esto de escribirte se está volviendo mi parte favorita del día No sé qué soy, pero me gusta
+<<photo gato>>
+Maya: Toma, te presento al jefe de mi casa Se llama Luz. Porque duerme todo el día y solo se despierta para la luz
+<<typing true>>
+Maya: Y bueno... tú también eres de lo que se despierta para verme. Eso me gusta
 <<set $cap_06_done = true>>
 <<jump Cap7_Intro>>
 ===

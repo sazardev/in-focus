@@ -5,8 +5,7 @@ tags: #acto3 #capitulo12
 <<presence offline>>
 Maya: ...
 <<typing true>>
-Maya: {player_name}...
-Maya: No sé cómo empezar esto
+Maya: {player_name}... No sé cómo empezar esto
 -> Llevo tres días esperando tu mensaje
     <<trust -1>>
     Maya: Lo sé. Perdón. Me lo gané
@@ -14,65 +13,76 @@ Maya: No sé cómo empezar esto
     <<trust +3>>
     Maya: ¿Te preocupaste? Eso... eso me llega más de lo que quiero admitir
 -> Aquí estaba, esperándote
-    <<romance +2>>
+    <<romance +1>>
     <<trust +2>>
     Maya: Esperándome... tres días. Qué raro y qué bueno se siente
-Maya: Me pasó algo que no sé cómo procesar
-Maya: Perdí la oportunidad de exponer en la galería que tanto quería
+Maya: Me pasó algo que no sé cómo procesar Perdí la oportunidad de exponer en la galería que tanto quería
 <<typing true>>
 Maya: Y no es solo la oportunidad. Es que sentí que todo mi esfuerzo no fue suficiente
 Maya: Me hundí. Y cuando me hundo, me desconecto del mundo
 -> Eso duele, y tienes derecho a sentirlo
     <<trust +4>>
     <<romance +1>>
-    Maya: ...Gracias por no decirme "todo pasa por algo"
-    Maya: Necesitaba que me dijeran que está bien sentir esto
+    Maya: ...Gracias por no decirme "todo pasa por algo" Necesitaba que me dijeran que está bien sentir esto
 -> Una oportunidad no define tu talento
     <<affinity +2>>
-    Maya: Suena lindo, pero en la noche se siente como que sí me define
-    Maya: Esa frase la necesito decir más en voz alta
+    Maya: Suena lindo, pero en la noche se siente como que sí me define Esa frase la necesito decir más en voz alta
 -> ¿Y si me cuentas qué pasó con calma?
     <<trust +4>>
-    Maya: ¿Te puedo contar todo? Sin filtros y sin que me juzgues
-    Maya: Porque te voy a contar cosas feas que no le cuento a nadie
+    Maya: ¿Te puedo contar todo? Sin filtros y sin que me juzgues Porque te voy a contar cosas feas que no le cuento a nadie
 Maya: ¿Sabes lo que me dolió más? Pensar en escribirte y no saber si seguirías ahí
 Maya: Llevo tres días con miedo de que te cansaras de mí
 <<typing true>>
 Maya: Porque la gente se va, {player_name}. Siempre se van
 -> Yo no me voy a ir
-    <<romance +3>>
+    <<romance +1>>
     <<trust +4>>
-    Maya: ...¿Me lo prometes?
-    Maya: Porque necesito creer en algo
+    Maya: ...¿Me lo prometes? Porque necesito creer en algo
 -> Depende de ti también quedarte
     <<trust +2>>
     <<affinity +2>>
     Maya: Tienes razón. No es solo que tú te quedes, es que yo aprenda a quedarme
 -> El miedo no me va a alejar de ti
-    <<romance +4>>
+    <<romance +1>>
     <<trust +3>>
     Maya: "El miedo no me va a alejar de ti"... eso me lo voy a tatuar en la memoria
-Maya: Está bien. Vamos a hablar
-Maya: Pero primero, déjame mostrarte algo que me di cuenta estos días
+-> Cuando te fuiste, me di cuenta de lo mucho que te quiero cerca
+    <<romance +1>>
+    Maya: ...¿Mucho? ¿Lo mucho que me quieres cerca? No sabes lo que eso me hace Yo también. Por eso el silencio me pesó tanto
+Maya: Mientras estuve desconectada, hice una lista De todas las cosas que me dan miedo y de todas las que me dan fuerzas
+<<typing true>>
+Maya: Adivina en qué columna caíste tú
+-> ¿En la de las fuerzas, espero?
+    <<romance +1>>
+    <<trust +2>>
+    Maya: ...Sí. Y me da un poco de vergüenza decirlo tan pronto Pero esta lista es solo para mí, así que no hay filtro
+-> Si estoy en la de miedos, prometo cambiarla
+    <<trust +2>>
+    Maya: Estás en las dos. Y no es broma Me das fuerzas y me da miedo lo mucho que te necesito ya
+-> ¿Y yo qué pongo en tu lista?
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: En la de fuerzas, al lado de la luz de la mañana Qué poético. Perdón, no lo planeé
+-> Ojalá ser la primera línea de esa lista
+    <<romance +1>>
+    Maya: ...La primera línea. Qué atrevido para alguien que ni me ha visto en persona Y qué bien suena. Puede que te suba de línea
+Maya: Está bien. Vamos a hablar Pero primero, déjame mostrarte algo que me di cuenta estos días
 <<photo ventana>>
 <<photo lluvia>>
-Maya: Tomé estas fotos de mi ventana mientras lloraba
-Maya: Y me di cuenta de algo: extrañaba contarte esto
+Maya: Tomé estas fotos de mi ventana mientras lloraba Y me di cuenta de algo: extrañaba contarte esto
 <<typing true>>
 Maya: Eso es lo que el silencio me enseñó. Que sin ti, las fotos se sienten a medias
 -> Y sin ti, mis días se sienten grises
-    <<romance +4>>
+    <<romance +1>>
     <<trust +2>>
-    Maya: ...{player_name}
-    Maya: Me hiciste llorar. De los buenos
+    Maya: ...{player_name} Me hiciste llorar. De los buenos
 -> Las fotos a medias también son bonitas
     <<affinity +3>>
     Maya: Sabes qué, tienes razón. Y esa es la parte que me cuesta ver
 -> Me alegra que me hayas extrañado
-    <<romance +3>>
+    <<romance +1>>
     Maya: Me alegra a mí también decírtelo
-Maya: No quiero volver a esconderme así de ti
-Maya: No te prometo no volver a caer, pero te prometo avisarte
+Maya: No quiero volver a esconderme así de ti No te prometo no volver a caer, pero te prometo avisarte
 <<presence online>>
 Maya: Y te prometo algo más...
 <<photo flores_marchitas>>

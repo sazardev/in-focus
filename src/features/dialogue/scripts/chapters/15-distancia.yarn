@@ -3,8 +3,7 @@ tags: #acto3 #capitulo15
 ---
 <<chapter "Distancia">>
 <<presence offline>>
-Maya: Sé que no he hablado mucho estos días
-Maya: No es que te haya olvidado. Es que no sé cómo volver después de lo del otro día
+Maya: Sé que no he hablado mucho estos días No es que te haya olvidado. Es que no sé cómo volver después de lo del otro día
 <<typing true>>
 Maya: Me dio pena haber gritado, y también pena haberme escondido
 -> Yo también necesité distancia
@@ -16,46 +15,73 @@ Maya: Me dio pena haber gritado, y también pena haberme escondido
     <<romance +1>>
     Maya: Gracias... de verdad
 -> Te extrañé, aunque entiendo tu silencio
-    <<romance +3>>
+    <<romance +1>>
     <<trust +2>>
     Maya: Te extrañé también. Y me daba miedo decirlo
-Maya: Quiero hacer las paces, pero a mi manera
-Maya: No con palabras grandes, sino mostrándote algo
+-> Y yo te esperé, con distancia y todo
+    <<romance +1>>
+    Maya: ...Me esperaste. Qué frase tan simple y tan enorme Con distancia y todo, esperarme... eso es quedarse de verdad
+Maya: Quiero hacer las paces, pero a mi manera No con palabras grandes, sino mostrándote algo
 <<photo calle_vacia>>
 <<photo sombra>>
-Maya: Tomé estas fotos estos días de silencio
-Maya: Son calles vacías y sombras. Así me sentía
+Maya: Tomé estas fotos estos días de silencio Son calles vacías y sombras. Así me sentía
 <<typing true>>
 Maya: ¿Las ves? Eso era yo: vacía, esperando saber si seguías ahí
 -> Aquí estoy, Maya. Viendo tus fotos
-    <<romance +3>>
+    <<romance +1>>
     <<trust +3>>
     Maya: Y eso es justo lo que necesitaba: que alguien viera lo que sentía sin que yo lo explicara
 -> Las calles vacías también se llenan
     <<affinity +3>>
     Maya: ¿Y quién las llena? Pregunto sin esperar respuesta
 -> Tus fotos me llegan, aunque estén tristes
-    <<romance +2>>
+    <<romance +1>>
     <<trust +3>>
     Maya: Gracias por quedarte en la tristeza conmigo
+-> Y te digo algo: te extrañé más de lo que quiero admitir
+    <<romance +1>>
+    Maya: ...¿Más de lo que quieres admitir? Entonces estamos empatados Porque yo tampoco quiero admitir lo mucho que te extrañé
 Maya: Quiero que sepas una cosa
 Maya: Cuando discutimos, no era que te quisiera menos. Era que me daba miedo quererte tan pronto
 <<typing true>>
 Maya: Y ese miedo salió como grito, y lo siento
 -> Te entiendo, y aquí no hay rencor
     <<trust +4>>
-    <<romance +2>>
+    <<romance +1>>
     Maya: ...¿De verdad? A veces siento que merezco que me guardes rencor
 -> A mí también me da miedo lo que siento
-    <<romance +4>>
+    <<romance +1>>
     <<trust +3>>
     Maya: ...¿Tú también? Eso me hace sentir menos rota
 -> El miedo no nos va a ganar
-    <<romance +3>>
+    <<romance +1>>
     <<trust +3>>
     Maya: "Que el miedo no nos gane"... me lo apunto
-Maya: Está bien. Distancia superada
-Maya: No prometo no tener miedo, pero prometo no esconderme en el silencio
+-> Y yo, con miedo y todo, no quiero que te vayas
+    <<romance +1>>
+    Maya: ...Y yo no quiero irme. Qué descubrimiento tan aterrador y tan lindo Que la distancia me doliera más que la pelea
+Maya: Estos días, entre el silencio, escribí algo para ti No es un poema, no te asustes. Es una foto que no pude tomar
+<<photo escalera>>
+<<photo lluvia>>
+Maya: La escalera vacía y la lluvia. Lo que vi cuando te extrañaba
+<<typing true>>
+Maya: ¿Qué hace una fotógrafa cuando no sabe decir "te extraño"? Toma fotos de lo que falta
+-> Y yo te extrañé mirando estas fotos
+    <<romance +1>>
+    <<trust +3>>
+    Maya: ...Eso es exactamente lo que quería lograr Que lo que siento te llegara sin que yo tuviera que decirlo
+-> La lluvia también es buena compañía
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: La lluvia y yo somos viejas amigas. Pero contigo, hasta ella mejora No sé cómo haces eso
+-> Cuando veas estas fotos, piensa que estoy contigo
+    <<romance +1>>
+    <<trust +2>>
+    Maya: Lo voy a pensar. Cada vez que las mire, vas a estar ahí Y mira que las voy a mirar seguido
+-> Y yo las miro y pienso en ti, así de simple
+    <<romance +1>>
+    Maya: ...Así de simple. Ojalá todo entre nosotros fuera así de simple Pero contigo, hasta lo complicado se siente simple
+Maya: Está bien. Distancia superada No prometo no tener miedo, pero prometo no esconderme en el silencio
 <<presence online>>
 Maya: Y te prometo algo más: la próxima vez que quiera huir, te lo digo
 <<typing true>>

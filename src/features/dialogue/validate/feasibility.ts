@@ -9,9 +9,9 @@
  * ningún camino puede producir, es un `conditions:final-infeasible`.
  */
 
-import type { YarnDocument, Statement, Command } from "yarn-spinner-runner-ts";
+import type { Command, Statement, YarnDocument } from "yarn-spinner-runner-ts";
+import { type AxisBox, parseRegion } from "./conditions";
 import type { LexedFile } from "./lexer";
-import { parseRegion, type AxisBox } from "./conditions";
 import type { ValidationIssue } from "./types";
 
 export interface AxisVector {
@@ -162,7 +162,11 @@ export function computeReachableSet(
 				return { reachable: [...reachable.values()], overflow };
 			}
 		}
-		if (contribution.fixed.affinity !== 0 || contribution.fixed.romance !== 0 || contribution.fixed.trust !== 0) {
+		if (
+			contribution.fixed.affinity !== 0 ||
+			contribution.fixed.romance !== 0 ||
+			contribution.fixed.trust !== 0
+		) {
 			const ok = reachableAdd(reachable, [contribution.fixed], 1_000_000);
 			if (!ok) {
 				overflow = true;
@@ -235,7 +239,8 @@ export function lintFinalFeasibility(
 			file: fileByTitle.get(finalesNode.title) ?? "",
 			line: null,
 			node: finalesNode.title,
-			message: "El conjunto alcanzable se truncó por presupuesto: la factibilidad de los finales pudo no ser exacta.",
+			message:
+				"El conjunto alcanzable se truncó por presupuesto: la factibilidad de los finales pudo no ser exacta.",
 		});
 	}
 }

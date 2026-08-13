@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { playPhoto } from "@/shared/sound";
 
 export interface Photo {
 	id: string;
@@ -16,7 +17,10 @@ interface GalleryState {
 
 export const useGalleryStore = create<GalleryState>((set) => ({
 	photos: [],
-	addPhoto: (photo) => set((state) => ({ photos: [...state.photos, photo] })),
+	addPhoto: (photo) => {
+		playPhoto();
+		set((state) => ({ photos: [...state.photos, photo] }));
+	},
 	unlockPhoto: (photoId) =>
 		set((state) => ({
 			photos: state.photos.map((photo) =>

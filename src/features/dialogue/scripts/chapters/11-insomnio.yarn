@@ -1,14 +1,14 @@
 title: Cap11_Intro
 tags: #acto2 #capitulo11
 ---
+<<notify "Maya te escribió de madrugada 🌙">>
 <<presence online>>
 <<chapter "Insomnio">>
-Maya: ¿Despierto? Porque si estás durmiendo, despiértate
-Maya: Son las 3 de la mañana y no puedo dejar de pensar
+Maya: ¿Despierto? Porque si estás durmiendo, despiértate Son las 3 de la mañana y no puedo dejar de pensar
 <<typing true>>
 Maya: En lo que quiero ser cuando deje de tener miedo
 -> Despierto y listo para esta conversación
-    <<romance +2>>
+    <<romance +1>>
     <<affinity +2>>
     Maya: A las 3 am, sin dudar. Eres mi persona de las 3 am
 -> Dime qué quieres ser
@@ -18,45 +18,58 @@ Maya: En lo que quiero ser cuando deje de tener miedo
     <<trust +3>>
     <<romance +1>>
     Maya: ¿Lo ves? Los dos mirando la misma noche
-Maya: Te voy a decir algo que no le he dicho a nadie
-Maya: No quiero ser solo la fotógrafa que se esconde
+Maya: Te voy a decir algo que no le he dicho a nadie No quiero ser solo la fotógrafa que se esconde
 Maya: Quiero exponer, quiero que me vean, quiero dejar de tenerle miedo a mis propias fotos
 <<typing true>>
 Maya: Y a veces, cuando lo digo, siento que se me rompe la voz
 -> Yo creo en ti, Maya
-    <<romance +3>>
+    <<romance +1>>
     <<trust +3>>
-    Maya: ...¿De verdad?
-    Maya: Porque nadie me había dicho eso antes a las 3 de la mañana
+    Maya: ...¿De verdad? Porque nadie me había dicho eso antes a las 3 de la mañana
 -> Eso es un sueño hermoso
     <<affinity +3>>
     <<romance +1>>
     Maya: ¿Hermoso? Me da vértigo. Pero contigo suena menos lejano
 -> ¿Y qué te detiene?
     <<trust +4>>
-    Maya: El miedo a que sea suficiente y no me alcance
-    Maya: A que la gente vea lo que soy y se asuste
-Maya: Oye, te pregunto algo sincero
-Maya: ¿Tú qué quieres ser cuando dejes de tener miedo?
+    Maya: El miedo a que sea suficiente y no me alcance A que la gente vea lo que soy y se asuste
+Maya: Oye, te pregunto algo sincero ¿Tú qué quieres ser cuando dejes de tener miedo?
 -> Quiero ser alguien que no necesita explicarse
-    <<romance +3>>
+    <<romance +1>>
     <<trust +3>>
     Maya: Esa es de las respuestas más honestas que he oído
 -> Quiero ser alguien con quien valga la pena desvelarse
-    <<romance +3>>
-    Maya: ...Ya lo eres
-    Maya: Ya lo eres, {player_name}
+    <<romance +1>>
+    Maya: ...Ya lo eres Ya lo eres, {player_name}
 -> Todavía no lo sé, pero me alegra descubrirlo contigo
     <<affinity +3>>
-    <<romance +2>>
+    <<romance +1>>
     Maya: "Descubrirlo contigo"... que bonito suena eso
-Maya: Se está haciendo de día
-Maya: Y yo sigo aquí, escribiéndote, sin querer que esto acabe
+Maya: Te voy a confesar otra cosa de las 3 am A veces grabo audios y no los mando. Los dejo en borrador, como miedo
+<<photo audios>>
+Maya: Una captura de mi galería de audios. Fíjate cuántos empiezan con tu nombre y no salieron
 <<typing true>>
-Maya: Creo que por primera vez en mucho tiempo
-Maya: No quiero que un momento termine
+Maya: Hoy grabé uno y, por primera vez, quise que alguien lo escuchara
+-> Mándamelo, quiero escucharte
+    <<romance +1>>
+    <<trust +2>>
+    Maya: ...¿En serio? Qué miedo y qué ganas Esta noche te lo mando. Esta noche sí
+-> Tus borradores también son parte de ti
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Qué lindo que no me pidas "ser perfecta" para mostrarte Eso, en esta casa, se agradece mucho
+-> Yo también tengo audios sin mandar
+    <<romance +1>>
+    <<trust +2>>
+    Maya: ¿Tú también? Entonces hagamos un trato de valientes Tú mandas el tuyo y yo el mío. Sin borradores
+-> Y yo, a esta hora, no escucho a nadie más que a ti
+    <<romance +1>>
+    Maya: ...¿Nadie más? Qué frase tan peligrosa y tan dulce a la vez La voy a escuchar en loop mental
+Maya: Se está haciendo de día Y yo sigo aquí, escribiéndote, sin querer que esto acabe
+<<typing true>>
+Maya: Creo que por primera vez en mucho tiempo No quiero que un momento termine
 -> Entonces no lo dejemos terminar
-    <<romance +4>>
+    <<romance +1>>
     <<trust +2>>
     Maya: ...Esas cuatro palabras me van a durar toda la semana
 -> Todo momento bueno termina, pero hay más
@@ -64,11 +77,13 @@ Maya: No quiero que un momento termine
     <<trust +2>>
     Maya: Tienes razón. Y eso también me da paz
 -> Yo tampoco quiero que termine
-    <<romance +3>>
+    <<romance +1>>
     <<trust +3>>
     Maya: Entonces sigamos hasta que el sol nos encuentre
-Maya: Mira, el sol ya está saliendo
-Maya: Primera vez en meses que el amanecer no me da miedo
+-> Quédate un rato más, que el día puede esperar
+    <<romance +1>>
+    Maya: Que el día espere... tú y tus frases de película a las 5 am Me quedo. Contigo, se me olvida que hay mundo afuera
+Maya: Mira, el sol ya está saliendo Primera vez en meses que el amanecer no me da miedo
 <<photo ventana>>
 <<photo ciudad_3am>>
 Maya: Te dejo el amanecer de mi ventana. Es tuyo

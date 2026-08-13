@@ -3,67 +3,87 @@ tags: #acto2 #capitulo10
 ---
 <<presence online>>
 <<chapter "Su cuarto">>
-Maya: Te voy a mostrar algo que solo muestro cuando confío de verdad
-Maya: Mi cuarto a las 11 de la noche, sin arreglar
+Maya: Te voy a mostrar algo que solo muestro cuando confío de verdad Mi cuarto a las 11 de la noche, sin arreglar
 <<typing true>>
 Maya: El cuarto de una fotógrafa en plena crisis creativa
 <<photo cuarto>>
-Maya: ¿Ves la pared? Esa está llena de fotos que nunca llegué a exponer
-Maya: Algunas son malas, otras son miedos con forma de imagen
+Maya: ¿Ves la pared? Esa está llena de fotos que nunca llegué a exponer Algunas son malas, otras son miedos con forma de imagen
 -> Es hermoso, es como entrar a tu mente
-    <<romance +3>>
+    <<romance +1>>
     <<trust +3>>
-    Maya: ...Mi mente. Qué manera tan rara y bonita de decirlo
-    Maya: Nadie había querido entrar
+    Maya: ...Mi mente. Qué manera tan rara y bonita de decirlo Nadie había querido entrar
 -> Cuéntame sobre las fotos de la pared
     <<affinity +3>>
     <<trust +3>>
-    Maya: Cada una es un momento que no supe soltar
-    Maya: La del gato fue un regalo de la calle. La del mar es un viaje que no hice
+    Maya: Cada una es un momento que no supe soltar La del gato fue un regalo de la calle. La del mar es un viaje que no hice
 -> Guarda esas fotos, algún día serán tu mejor exposición
-    <<romance +2>>
+    <<romance +1>>
     <<affinity +2>>
-    Maya: ¿Tú crees? A veces no sé si son basura o tesoro
-    Maya: Hoy, con tu ojo, me inclino por tesoro
-Maya: Quiero contarte algo que casi no le cuento a nadie
-Maya: A veces pienso que no soy lo bastante buena
+    Maya: ¿Tú crees? A veces no sé si son basura o tesoro Hoy, con tu ojo, me inclino por tesoro
+Maya: Quiero contarte algo que casi no le cuento a nadie A veces pienso que no soy lo bastante buena
 Maya: Que mis fotos son suerte, que cualquier día el mundo lo descubre y se van todos
 <<typing true>>
 Maya: Ese pensamiento me acompaña incluso cuando sonrío
 -> Esos pensamientos mienten, Maya
     <<trust +4>>
-    <<romance +2>>
-    Maya: ¿Y cómo sabes que mienten?
-    Maya: ...Es que quiero creerte
+    <<romance +1>>
+    Maya: ¿Y cómo sabes que mienten? ...Es que quiero creerte
 -> Yo también he sentido eso
     <<trust +4>>
-    Maya: ¿Tú también? No me lo habías contado
-    Maya: Compartirlo contigo lo hace más liviano
+    Maya: ¿Tú también? No me lo habías contado Compartirlo contigo lo hace más liviano
 -> El talento no es suerte, es horas y amor
     <<affinity +3>>
-    <<romance +2>>
-    Maya: "Horas y amor"... eso lo voy a escribir en mi pared
-    Maya: Debajo de las fotos que me dan miedo
+    <<romance +1>>
+    Maya: "Horas y amor"... eso lo voy a escribir en mi pared Debajo de las fotos que me dan miedo
+Maya: ¿Sabes qué hago cuando ese pensamiento se vuelve muy fuerte?
+Maya: Salgo a la calle y fotografío la primera cosa que me parece viva
+<<typing true>>
+Maya: Hoy, mientras te escribo, fue un árbol que parecía estar aplaudiendo
+-> ¿Y qué le dirías a ese árbol si pudiera oírte?
+    <<romance +1>>
+    <<trust +2>>
+    Maya: Le diría: "sigue, que tu verde se nota desde lejos" ...Y bueno, te lo digo a ti también, por si aplica
+-> Fotografiar lo vivo es no rendirse
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Eso es exactamente. No rendirse. No dejar de buscar luz Gracias por entenderlo sin que te lo explique dos veces
+-> Quizá ese árbol piensa que tú también eres hermosa
+    <<romance +1>>
+    Maya: ...¿Un árbol enamorado de mí? Qué frase tan rara y tan bonita Hoy me la llevo, {player_name}
 Maya: No sé cómo lo haces
 Maya: Pero hablar contigo a las 11 de la noche se siente más seguro que la luz del día
 <<typing true>>
 Maya: No lo digo seguido, pero... gracias por quedarte
 -> Me quedo siempre que pueda
-    <<romance +3>>
+    <<romance +1>>
     <<trust +3>>
     Maya: "Siempre que pueda"... esa promesa con límites honestos me llega
 -> Tú también me das seguridad
-    <<romance +3>>
+    <<romance +1>>
     <<trust +2>>
-    Maya: ¿Yo? Qué bonito que lo digas
-    Maya: A veces me siento un caos andante
+    Maya: ¿Yo? Qué bonito que lo digas A veces me siento un caos andante
 -> Aquí estaré para recordarte lo buena que eres
-    <<romance +2>>
+    <<romance +1>>
     <<affinity +3>>
-    Maya: ...Eso me hizo querer llorar un poquito
-    Maya: De los buenos, eh. De los buenos
-Maya: Te dejo dormir ya, que mañana tengo sesión
-Maya: Pero esta conversación me la llevo a la pared de mis recuerdos
+    Maya: ...Eso me hizo querer llorar un poquito De los buenos, eh. De los buenos
+Maya: Te dejo dormir ya, que mañana tengo sesión Pero esta conversación me la llevo a la pared de mis recuerdos
+Maya: Y oye, una cosa más, porque contigo las despedidas se me hacen raras
+Maya: Nunca me agradecen que me muestre tal cual soy. Tú lo hiciste
+<<typing true>>
+Maya: Así que te lo devuelvo: gracias por mostrarte tú también, sin hacerte el fuerte
+-> Es fácil mostrarme cuando tú también te muestras
+    <<trust +2>>
+    <<affinity +2>>
+    Maya: Esa es la clave, ¿no? Que el valor se presta Y contigo, el valor se devuelve con intereses
+-> Contigo dejé de cuidar tanto la fachada
+    <<romance +1>>
+    <<trust +2>>
+    Maya: ...Dejar la fachada. Eso es de las cosas más íntimas que te pueden decir
+    Maya: Yo también, {player_name}. Contigo, la fachada pesa menos
+-> Y yo me quedo con lo real, no con lo perfecto
+    <<romance +1>>
+    <<trust +2>>
+    Maya: "Lo real, no lo perfecto"... esa frase la quiero enmarcar Y colgarla en mi pared, junto a lo que me da miedo
 <<presence offline>>
 Maya: Buenas noches, cuidador de miedos ajenos
 <<set $cap_10_done = true>>

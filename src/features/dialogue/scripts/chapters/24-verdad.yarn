@@ -1,71 +1,104 @@
 title: Cap24_Intro
 tags: #acto4 #capitulo24
 ---
-<<chapter "Verdad">>
 <<presence online>>
-Maya: {player_name}, vengo a terminar lo que empecé ayer
-Maya: La verdad completa. Sin editar
+<<chapter "Verdad">>
+Maya: {player_name}, vengo a terminar lo que empecé ayer La verdad completa. Sin editar
 <<typing true>>
-Maya: El rollo no era solo de la chica del neón. Era mío también
-Maya: Esas 36 fotos... las tomamos juntos, cuando éramos nosotros
+Maya: El rollo no era solo de la chica del neón. Era mío también Esas 36 fotos... las tomamos juntos, cuando éramos nosotros
 -> ¿Y la nota con tu número?
     <<trust +2>>
     <<romance +1>>
-    Maya: La puse yo. Como un mensaje al universo
-    Maya: "Si alguien encuentra esto, que sea lo que tenga que ser"
+    Maya: La puse yo. Como un mensaje al universo "Si alguien encuentra esto, que sea lo que tenga que ser"
 -> ¿Y yo fui el "lo que tenía que ser"?
     <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
-    Maya: ...Eso creo
-    Maya: Porque de todas las personas que pudieron encontrarlo, fuiste tú
+    Maya: ...Eso creo Porque de todas las personas que pudieron encontrarlo, fuiste tú
 -> ¿Por qué la dejaste si era tan tuya?
     <<trust +3>>
     <<romance +1>>
-    Maya: Porque cuando terminó, no sabía quién era sin él
-    Maya: Y necesitaba soltarlo para volver a ser yo
-Maya: La verdad es que esperaba que alguien lo encontrara
-Maya: Pero no esperaba que me escribiera
+    Maya: Porque cuando terminó, no sabía quién era sin él Y necesitaba soltarlo para volver a ser yo
+-> Y si es tuya, entonces también es un poco de nuestra historia
+    <<affinity +2>>
+    Maya: ...¿Nuestra historia? Que el rollo de mi pasado sea parte de lo nuestro... No sabes cuánto me alivia que lo veas así
+Maya: La verdad es que esperaba que alguien lo encontrara Pero no esperaba que me escribiera
 <<typing true>>
 Maya: Y mucho menos que me hiciera sentir lo que me haces sentir
 -> Y yo no esperaba encontrar a alguien así
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
     Maya: ...El universo sí que juega bien sus cartas
 -> Yo solo fui a un mercadillo
-    <<affinity +2>>
-    <<romance +2>>
-    Maya: Y cambiastes mi historia con una caja de cartón
+    <<affinity +4>>
+    Maya: Y cambiaste mi historia con una caja de cartón
 -> Esto era inevitable, ¿verdad?
     <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
-    Maya: Creo que sí
-    Maya: Por eso la nota decía "el universo tiene buen ojo"
-Maya: Quiero que sepas que si algo de esta historia te hizo dudar de mí, lo entiendo
-Maya: Puedes tomarte el tiempo que necesites
+    Maya: Creo que sí Por eso la nota decía "el universo tiene buen ojo"
+Maya: Quiero que sepas que si algo de esta historia te hizo dudar de mí, lo entiendo Puedes tomarte el tiempo que necesites
 <<typing true>>
 Maya: Pero si me dejas, quiero que sepas que no hay más secretos
 -> No quiero tiempo, quiero estar contigo
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +4>>
-    Maya: ...{player_name}
-    Maya: Esas palabras. Me las llevo para siempre
+    Maya: ...{player_name} Esas palabras. Me las llevo para siempre
 -> Gracias por confesarlo todo
     <<trust +4>>
-    <<romance +3>>
-    Maya: Gracias por escucharlo sin juzgarme
-    Maya: Me diste el coraje que no tenía
+    <<romance +1>>
+    Maya: Gracias por escucharlo sin juzgarme Me diste el coraje que no tenía
 -> Necesito un momento, pero no me voy
+    <<romance +3>>
     <<trust +3>>
     <<affinity +2>>
-    Maya: Está bien. Tómate el momento
-    Maya: Pero sabiendo que aquí te espero
-Maya: Entonces esto es lo que hay
-Maya: Todo lo que empezó con un rollo y un mercadillo
-Maya: Termina (o sigue) con nosotros dos
+    Maya: Está bien. Tómate el momento Pero sabiendo que aquí te espero
+-> Y yo, con todo y tu historia, quiero quedarme contigo
+    <<affinity +2>>
+    Maya: ...Con todo y mi historia. Eso es querer de verdad, ¿sabes? Y yo, con todo y la mía, quiero quedarme contigo también
+Maya: Te voy a decir lo que pensé toda la noche después de contarte lo del rollo
+Maya: Que ya no me importa de quién fue. Me importa en quién se convirtió
+<<typing true>>
+Maya: Se convirtió en la razón por la que te conocí. Y eso lo cambia todo
+-> Y yo me quedé por ti, no por el rollo
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ...Saber eso me quita un peso que no sabía que cargaba Gracias por quedarte por lo que soy, no por lo que encontré
+-> El rollo fue el inicio, pero tú eres la historia
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +3>>
+    Maya: "Tú eres la historia"... no me va a alcanzar la noche para pensarlo Qué suerte tenerte de testigo de mi verdad
+-> Nosotros escribimos el final, no el rollo
+    <<romance +3>>
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: Eso es lo que más me da miedo y lo que más quiero Que el final lo escribamos nosotros, con lo que somos
+-> Y yo quiero que ese final empiece contigo, desde hoy
+    <<affinity +2>>
+    Maya: ...Que empiece contigo. Qué ganas de que sea así Y qué suerte tenerte para escribir la página de hoy
+Maya: Entonces esto es lo que hay Todo lo que empezó con un rollo y un mercadillo
+Maya: Termina (o sigue) con nosotros dos Oye, y ya que estamos en verdad absoluta... una más
+<<typing true>>
+Maya: Contigo no quiero solo mensajes. Quiero verte de cerca, sentir tu presencia
+Maya: Quiero besarte, {player_name}. Y me da vergüenza y me da ganas a la vez
+-> Entonces mañana, cuando nos veamos, no dejes que me escape
+    <<romance +3>>
+    <<trust +2>>
+    Maya: ...No te vas a escapar. Te lo prometo Y si el miedo me gana, me besas igual. No me voy a quejar
+-> Y yo quiero besarte también, desde hace días
+    <<romance +3>>
+    Maya: ...¿Desde hace días? Qué alivio decirlo y que no me juzgues Mañana, ese beso va a llegar solito, sin buscarlo
+-> Primero te abrazo, y el beso llega cuando tenga que llegar
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Con calma y con ganas... eso eres tú en una frase Me gusta. Y mañana te lo demuestro
 <<photo mercadillo>>
 <<photo flor>>
-Maya: Te mando el mercadillo y una flor
-Maya: Una para recordar de dónde venimos, otra para lo que está por venir
+Maya: Te mando el mercadillo y una flor Una para recordar de dónde venimos, otra para lo que está por venir
 <<typing true>>
 Maya: El sábado te cuento el resto, si me dejas
 <<set $supo_la_verdad = true>>

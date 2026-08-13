@@ -214,7 +214,7 @@ function typeOf(value: string): "bool" | "number" | "string" | null {
 	if (trimmed === "true" || trimmed === "false") return "bool";
 	if (/^[+-]?\d+(\.\d+)?$/.test(trimmed)) return "number";
 	// Expresiones ($var, operadores, llamadas): no se puede saber el tipo sin ejecutar.
-	if (/[\$+\-*/()[\],]/.test(trimmed)) return null;
+	if (/[$+\-*/()[\],]/.test(trimmed)) return null;
 	return "string";
 }
 

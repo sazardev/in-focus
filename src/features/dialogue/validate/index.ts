@@ -11,9 +11,9 @@ import { loadChapterSources } from "@/features/dialogue/scripts";
 import { PHOTO_CATALOG } from "../photos";
 import { lintFinalFeasibility } from "./feasibility";
 import { lexFile, RUNTIME_VARS } from "./lexer";
-import { lintReachability, lintTermination, lintChapterFlags, lintDeadOptions } from "./runner";
 import { lintLexedFile } from "./rules";
-import { lintMechanics, lintLineRhythm, lintPronouns, lintUnusedPhotos } from "./story";
+import { lintChapterFlags, lintDeadOptions, lintReachability, lintTermination } from "./runner";
+import { lintLineRhythm, lintMechanics, lintPronouns, lintUnusedPhotos } from "./story";
 import { lintGlobal } from "./structure";
 import type { SourceFile, ValidationIssue, ValidationReport } from "./types";
 
@@ -50,6 +50,9 @@ export function validateSources(sources: SourceFile[]): ValidationReport {
 
 	// Programa global: estructura, condiciones, factibilidad, runner y narrativa.
 	const combined = sources.map((sourceFile) => sourceFile.source).join("\n");
+	// Las reglas narrativas de catálogo ($pronouns, fotos sin usar) solo tienen
+	// sentido sobre el conjunto real de capítulos, no sobre snippets sueltos.
+	const isFullStory = lexedFiles.length > 1 && lexedFiles.every((f) => /^\d{2}-/.test(f.file));
 	try {
 		const document = parseYarn(combined);
 		compile(document);
@@ -61,8 +64,10 @@ export function validateSources(sources: SourceFile[]): ValidationReport {
 		lintTermination(combined, issues);
 		lintMechanics(lexedFiles, issues);
 		lintLineRhythm(lexedFiles, issues);
-		lintPronouns(lexedFiles, issues);
-		lintUnusedPhotos(lexedFiles, knownPhotos, issues);
+		if (isFullStory) {
+			lintPronouns(lexedFiles, issues);
+			lintUnusedPhotos(lexedFiles, knownPhotos, issues);
+		}
 	} catch (error) {
 		// Si ya hay un error de parseo atribuido a un capítulo concreto, el
 		// error global es el mismo síntoma: no duplicar.

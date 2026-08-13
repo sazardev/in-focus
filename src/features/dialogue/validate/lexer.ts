@@ -43,6 +43,8 @@ export interface ReadToken {
 export interface JumpToken {
 	target: string;
 	line: number;
+	/** Nodo donde aparece el salto (para atribuir cada jump a su nodo). */
+	node: string;
 }
 
 export interface DeltaToken {
@@ -289,12 +291,14 @@ export function lexFile(sourceFile: SourceFile): LexedFile {
 				}
 				case "jump": {
 					const jump = /^jump\s+([A-Za-z_][\w.]*)/.exec(content);
-					if (jump) lexed.jumps.push({ target: jump[1], line: lineNumber });
+					if (jump)
+						lexed.jumps.push({ target: jump[1], line: lineNumber, node: currentNode ?? "" });
 					break;
 				}
 				case "detour": {
 					const detour = /^detour\s+([A-Za-z_][\w.]*)/.exec(content);
-					if (detour) lexed.jumps.push({ target: detour[1], line: lineNumber });
+					if (detour)
+						lexed.jumps.push({ target: detour[1], line: lineNumber, node: currentNode ?? "" });
 					break;
 				}
 				case "photo": {

@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import type { MayaPresence, Message, PhotoReaction } from "@/entities";
+import { playTyping } from "@/shared/sound";
 
 interface ChatState {
 	messages: Message[];
@@ -62,7 +63,11 @@ export const useChatStore = create<ChatState>((set) => ({
 			),
 		})),
 
-	setMayaTyping: (typing) => set({ isMayaTyping: typing }),
+	setMayaTyping: (typing) =>
+		set((state) => {
+			if (typing && !state.isMayaTyping) playTyping();
+			return { isMayaTyping: typing };
+		}),
 	setMayaPresence: (presence) => set({ mayaPresence: presence }),
 	setChapterTitle: (title) => set({ chapterTitle: title }),
 	setMayaAvailability: (availability) => set({ mayaAvailability: availability }),

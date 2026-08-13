@@ -76,24 +76,6 @@ export function InfoIcon(props: IconProps) {
 	);
 }
 
-export function ShiftIcon(props: IconProps) {
-	return (
-		<Icon {...props}>
-			<path d="m3 11 9-7 9 7" />
-			<path d="M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8" />
-		</Icon>
-	);
-}
-
-export function DeleteIcon(props: IconProps) {
-	return (
-		<Icon {...props}>
-			<path d="M3 12h16" />
-			<path d="m14 7 5 5-5 5" />
-		</Icon>
-	);
-}
-
 export function ChatIcon(props: IconProps) {
 	return (
 		<Icon {...props}>

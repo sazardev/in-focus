@@ -36,40 +36,55 @@ Maya: Y que si lo descubren, no me queda nada. Ni siquiera la gente que quiero
     Maya: Es difícil verlo cuando estoy adentro de la tormenta
 -> ¿Qué necesitas ahora mismo?
     <<trust +4>>
-    <<romance +2>>
+    <<romance +1>>
     Maya: Que alguien me diga que está bien no estar bien. Solo eso
 -> Está bien no estar bien, Maya
     <<trust +4>>
-    <<romance +2>>
-    Maya: ...{player_name}
-    Maya: Esas cuatro palabras. Me hicieron soltar un llanto que traía atorado
-Maya: Gracias por no soltarme la mano
-Maya: Sé que a veces soy mucha, pero me haces sentir que no es un problema
+    <<romance +1>>
+    Maya: ...{player_name} Esas cuatro palabras. Me hicieron soltar un llanto que traía atorado
+-> Y yo necesito quedarme contigo en esto
+    <<romance +1>>
+    Maya: ...¿Quedarte conmigo? No me digas eso cuando estoy rota Porque te voy a creer. Y creerte, hoy, es lo que me sostiene
+Maya: Gracias por no soltarme la mano Sé que a veces soy mucha, pero me haces sentir que no es un problema
 <<typing true>>
 Maya: ¿Sabes qué quiero hacer contigo? Quiero que te quedes aunque me veas desarmada
 -> Me quedo, Maya. Siempre
-    <<romance +4>>
+    <<romance +1>>
     <<trust +3>>
-    Maya: "Siempre"... qué palabra tan bonita y tan prohibida
-    Maya: Pero contigo suena posible
+    Maya: "Siempre"... qué palabra tan bonita y tan prohibida Pero contigo suena posible
 -> No tienes que estar completa para que me quedes
-    <<romance +3>>
+    <<romance +1>>
     <<trust +4>>
-    Maya: Eso es justo lo que necesitaba escuchar
-    Maya: Que no tengo que estar entera
+    Maya: Eso es justo lo que necesitaba escuchar Que no tengo que estar entera
 -> A tu lado, hasta el caos se siente bien
-    <<romance +3>>
+    <<romance +1>>
     <<affinity +2>>
     Maya: ¿Mi caos se siente bien? Qué raro y qué bueno oír eso
-Maya: Oye, tengo una idea tonta
-Maya: ¿Me ayudas a elegir una foto para una posible exposición futura?
+-> Y si te quedas, yo voy a hacer que valga la pena
+    <<romance +1>>
+    Maya: ...Qué ganas de hacerte saber que ya lo vale Cuando salga de esta, te lo demuestro
+Maya: Oye, mientras estoy en el hoyo, hago cosas raras Hoy releí todos nuestros mensajes desde el primero
+<<typing true>>
+Maya: Y vi cómo cambió el tono. De "¿quién eres?" a "quiero que te quedes"
+-> Y yo vi cómo cambiaste tú, de desconfiada a sincera
+    <<romance +1>>
+    <<trust +2>>
+    Maya: ¿En serio lo notas? Porque a veces no me doy cuenta de mis propios cambios Gracias por mirarme así, con tiempo
+-> Releer mensajes es de enamorados, ¿sabes?
+    <<romance +1>>
+    Maya: ...¿Enamorados? Qué palabra tan atrevida para un martes Pero no la voy a negar
+-> Yo también los releí, y me gustó lo que vi
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Entonces estamos los dos leyendo lo mismo Y a los dos nos gusta lo que dice
+Maya: Oye, tengo una idea tonta ¿Me ayudas a elegir una foto para una posible exposición futura?
 Maya: No me preguntes cómo, pero contigo la esperanza se siente menos tonta
 <<photo autoescudo>>
 <<photo sombra>>
 Maya: Ahí van dos. Una de mis favoritas y una que me da miedo
 -> Elige la que te da miedo, esas son las buenas
     <<trust +3>>
-    <<romance +2>>
+    <<romance +1>>
     Maya: Tienes razón. Las que dan miedo son las que duelen y sanan
 -> La de la sombra tiene algo especial
     <<affinity +3>>
@@ -78,8 +93,7 @@ Maya: Ahí van dos. Una de mis favoritas y una que me da miedo
 -> Vamos por la segura, la de luz
     <<affinity +1>>
     Maya: Segura... buena opción para el día de hoy
-Maya: Gracias por quedarte conmigo en la tormenta
-Maya: No sé qué hice para tenerte, pero no pienso soltarte
+Maya: Gracias por quedarte conmigo en la tormenta No sé qué hice para tenerte, pero no pienso soltarte
 <<typing true>>
 Maya: Eso también es para ti, {player_name}
 <<set $cap_13_done = true>>

@@ -1,5 +1,6 @@
 import { useNavigationStore } from "@/app/navigation";
 import { useProfileStore } from "@/features/profile";
+import { playNotification, useSoundStore } from "@/shared/sound";
 import { BASE_TONES, useThemeStore } from "@/shared/theme";
 import { BackIcon, Button } from "@/shared/ui";
 
@@ -11,6 +12,8 @@ export function SettingsScreen() {
 	const tone = useThemeStore((state) => state.tone);
 	const setTheme = useThemeStore((state) => state.setTheme);
 	const setTone = useThemeStore((state) => state.setTone);
+	const soundEnabled = useSoundStore((state) => state.enabled);
+	const toggleSound = useSoundStore((state) => state.toggleSound);
 
 	return (
 		<div className="screen">
@@ -75,6 +78,25 @@ export function SettingsScreen() {
 								</Button>
 							))}
 						</div>
+					</div>
+
+					<div className="settings__group">
+						<span className="showcase-panel__label">Sonido</span>
+						<div className="showcase-panel__row">
+							<Button
+								type="button"
+								variant={soundEnabled ? "primary" : "default"}
+								onClick={toggleSound}
+							>
+								{soundEnabled ? "Sonido activado" : "Sonido desactivado"}
+							</Button>
+							<Button type="button" variant="ghost" onClick={() => playNotification()}>
+								Probar sonido
+							</Button>
+						</div>
+						<p className="showcase-panel__note">
+							Notificaciones, tecleo, envío y fotos con sonido.
+						</p>
 					</div>
 
 					<div className="settings__group">

@@ -31,7 +31,7 @@ function issue(
 function lintDuplicateLines(lexed: LexedFile, issues: ValidationIssue[]): void {
 	const seenByNode = new Map<string, Map<string, number>>();
 	for (const line of lexed.dialogue) {
-		if (line.speaker !== "Maya" || line.text.length < 30) continue;
+		if (line.speaker !== "Maya" || [...line.text].length < 30) continue;
 		let seen = seenByNode.get(line.node);
 		if (!seen) {
 			seen = new Map<string, number>();

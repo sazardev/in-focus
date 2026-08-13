@@ -30,7 +30,9 @@ export function VirtualMessageList({ messages, isMayaTyping, onReact }: VirtualM
 	const virtualizer = useVirtualizer({
 		count: totalItems,
 		getScrollElement: () => parentRef.current,
-		estimateSize: () => 64,
+		// Las fotos son mucho más altas que el texto: estimar bien reduce el
+		// re-medido/reflow de la lista al hacer scroll.
+		estimateSize: (index) => (messages[index]?.content.kind === "photo" ? 340 : 64),
 		overscan: 8,
 		measureElement: (element) => element.getBoundingClientRect().height,
 	});

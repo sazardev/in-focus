@@ -1,73 +1,129 @@
 title: Cap19_Intro
 tags: #acto4 #capitulo19
 ---
-<<chapter "Casi">>
 <<presence online>>
-Maya: Estoy tomando fotos de la expo y no dejo de pensar en ti
-Maya: En cómo llegaste a mi vida sin avisar, con un rollo de fotos
+<<chapter "Casi">>
+Maya: Estoy tomando fotos de la expo y no dejo de pensar en ti En cómo llegaste a mi vida sin avisar, con un rollo de fotos
 <<typing true>>
 Maya: Y en cómo te convertiste en lo que espero cada día
 -> Y yo en cómo tu mundo se volvió el mío
-    <<romance +4>>
-    <<trust +2>>
-    Maya: ...Eso fue muy suave. Me dejaste sin palabras
+    <<affinity +2>>
+    Maya: ...Eso fue muy suave. Me dejaste sin palabras Y contigo, las palabras nunca me faltan. Te noto en la voz de los días
 -> Es raro que un rollo cambie todo, ¿no?
-    <<romance +3>>
+    <<affinity +2>>
     Maya: Lo raro es que sea justo tú
 -> Me alegra haberte encontrado
     <<romance +3>>
     <<trust +3>>
+    <<affinity +2>>
     Maya: Y a mí. No sabes cuánto
-Maya: Oye, quiero que sepas algo
-Maya: Contigo ya no me dan miedo las sombras. Les tomo fotos
+Maya: Oye, quiero que sepas algo Contigo ya no me dan miedo las sombras. Les tomo fotos
 <<typing true>>
 Maya: Porque me enseñaste que lo oscuro también merece luz
 -> Eso es lo más bonito que me has dicho
-    <<romance +4>>
+    <<affinity +2>>
     Maya: Es lo que siento. Y contigo se siente seguro sentirlo
 -> Tu valentía me enamora
-    <<romance +4>>
-    Maya: ¿Enamora? ...dijiste enamora
-    Maya: No lo borres. Quiero leerlo otra vez
+    <<affinity +2>>
+    Maya: ¿Enamora? ...dijiste enamora No lo borres. Quiero leerlo otra vez
 -> Y tú me enseñas a ver la luz
     <<romance +3>>
     <<trust +3>>
+    <<affinity +2>>
     Maya: Nos enseñamos, {player_name}
-Maya: Se me ocurrió algo mientras te escribo
-Maya: Si la exposición va bien, quiero celebrarlo contigo. En persona
+Maya: Se me ocurrió algo mientras te escribo Si la exposición va bien, quiero celebrarlo contigo. En persona
 <<typing true>>
 Maya: Y si va mal, también quiero celebrar contigo. En persona
 -> Está decidido, entonces
-    <<romance +4>>
+    <<affinity +2>>
     Maya: Está decidido. Nos vemos. Pase lo que pase
 -> Me encanta ese plan
     <<romance +3>>
     <<trust +3>>
+    <<affinity +2>>
     Maya: Entonces es un plan. Y esta vez no lo voy a esquivar
 -> Es lo que más espero
-    <<romance +3>>
-    <<trust +2>>
+    <<affinity +2>>
     Maya: Yo también. Y ya no me da tanto miedo decirlo
-Maya: No te lo dije antes, pero me daba miedo conocerte en persona
-Maya: Porque en el chat puedo esconderme. En persona no
+Maya: No te lo dije antes, pero me daba miedo conocerte en persona Porque en el chat puedo esconderme. En persona no
 <<typing true>>
 Maya: Pero contigo, ya no quiero esconderme
 -> Yo tampoco quiero esconderme de ti
-    <<romance +4>>
+    <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
     Maya: Entonces nos vemos de frente. Y se acaba el escondite
 -> Está bien sentir miedo y querer a la vez
     <<romance +3>>
+    <<affinity +2>>
     <<trust +3>>
     Maya: "Querer"... otra palabra que ya no me da miedo contigo
 -> Te veré de frente, Maya. Prometido
-    <<romance +4>>
-    <<trust +3>>
+    <<affinity +2>>
     Maya: Prometido. Esta es de esas promesas que no rompo
-Maya: Esta noche me voy a dormir pensando en verte
-Maya: Y ya no me da miedo el borde
+Maya: Y antes de que me preguntes, te adelanto una cosa de mi cabeza
+Maya: Pienso en ti como se piensa en la persona con la que quieres ver amanecer
+<<typing true>>
+Maya: No me pidas que te explique de dónde salió eso, ya no controlo mis frases contigo
+-> Y yo pienso en ti como la persona que quiero encontrar al despertar
+    <<affinity +2>>
+    Maya: ...Nos vamos a quedar sin palabras bonitas si seguimos así Y no quiero que se acaben nunca
+-> Cuéntame más de ese amanecer
+    <<romance +3>>
+    <<trust +2>>
+    <<affinity +2>>
+    Maya: Hay un amanecer que tomo desde mi ventana, donde la ciudad parece dormir
+    Maya: Ese es el que quiero compartir contigo. Sin cámara, solo vos y el cielo
+-> Esa frase me va a durar toda la semana
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ¿Toda la semana? Yo la voy a pensar hasta el día de la expo Y en la expo, te la voy a decir de frente
+Maya: Esta noche me voy a dormir pensando en verte Y ya no me da miedo el borde
 <<photo noche>>
-Maya: Te dejo la noche. Es la que se siente como nosotros
+<<photo atardecer>>
+Maya: Te dejo la noche y un atardecer. El que se parece a lo que siento por ti
+Maya: Ni noche ni día: ese instante en que todo se puede Oye, y quiero que sepas que lo de la expo no es solo la expo
+Maya: Es que después de tantos mensajes, tengo ganas de verte ocupar un lugar real en mi vida
+<<typing true>>
+Maya: No un lugar en la pantalla. Uno en la vida. Junto al mío
+-> Y yo quiero que ocupes un lugar real en la mía también
+    <<romance +3>>
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ...¿En la tuya también? Qué alivio y qué miedo decirlo de frente Entonces los dos tenemos espacio, y mañana lo llenamos
+-> El lugar real ya lo ocupas, solo falta vernos
+    <<affinity +4>>
+    Maya: ¿Ya lo ocupo? Esa frase me va a acompañar hasta la galería Y el día que la vea, voy a saber que es de verdad
+-> Vamos a hacer que ese lugar sea el mejor de nuestras vidas
+    <<trust +2>>
+    <<romance +1>>
+    Maya: "El mejor de nuestras vidas"... qué promesa tan enorme Pero con vos, las promesas enormes no me asustan. Las acepto
+Maya: Antes de dormir te cuento una cosa que me da vergüenza Hoy, entre foto y foto, me quedé mirando la luz y me imaginé algo
+<<typing true>>
+Maya: Que estábamos en la azotea, que el aire estaba quieto
+Maya: Y que yo estaba a punto de... mejor lo borro. No. Lo dejo, porque es verdad
+-> Y en ese casi, yo también te habría besado
+    <<romance +3>>
+    <<trust +2>>
+    Maya: ...¿También? No sabes lo que me hace oír eso Entonces mañana, en la galería, ese casi va a estar en el aire entre los dos
+-> Cuéntame más de ese casi, que me está gustando
+    <<romance +3>>
+    Maya: En mi cabeza te agarré de la mano y me quedé callada, mirándote
+    Maya: Y en ese silencio entendí que ya no quiero ser solo tu desconocida
+-> Ese casi me dice que esto es mucho más que amistad
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ...Mucho más. Y lo sabes, y lo sé Mañana te lo confirmo en persona, con la mano en la tuya
+<<notify "Maya: no pude dormir pensando en la galería">>
+Maya: Duermo pensando en verte, {player_name}. En persona Y en ese casi que mañana vamos a convertir en un de verdad
+<<if $pronouns == "he">>
+    Maya: Y mañana, cuando te vea... a ver si eres tan atrevido de frente
+<<elseif $pronouns == "she">>
+    Maya: Y mañana, cuando te vea... a ver si eres tan atrevida de frente
+<<else>>
+    Maya: Y mañana, cuando te vea... a ver si eres tan atrevide de frente
+<<endif>>
 <<set $cap_19_done = true>>
 <<jump Cap20_Intro>>
 ===

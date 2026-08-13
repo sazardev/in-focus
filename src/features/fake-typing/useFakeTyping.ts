@@ -1,32 +1,33 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useFakeTypingStore } from "./store";
 
+const AUTO_TYPING_MS = 80;
+
 /**
- * Une las pulsaciones (teclas físicas + teclas del teclado virtual) con el
- * auto-fill del teclado falso. Cualquier tecla avanza el texto predefinido
- * y dispara onComplete la primera vez que el mensaje queda completo.
+ * Simula el tecleo de la respuesta elegida: una vez que `chooseOption` activa
+ * el auto-fill (status "typing"), este hook avanza el texto solo, letra a
+ * letra, y llama a `onComplete` (enviar) cuando termina. El jugador solo
+ * elige la opción; no hay teclado virtual ni pulsaciones.
  */
 export function useFakeTyping(onComplete?: () => void) {
 	const status = useFakeTypingStore((state) => state.status);
-	const isComplete = useFakeTypingStore((state) => state.isComplete);
 	const pressKey = useFakeTypingStore((state) => state.pressKey);
 	const onCompleteRef = useRef(onComplete);
 	onCompleteRef.current = onComplete;
 
-	const press = useCallback(() => {
-		const completed = pressKey();
-		if (completed) onCompleteRef.current?.();
-	}, [pressKey]);
-
 	useEffect(() => {
 		if (status !== "typing") return;
-		const handler = (event: KeyboardEvent) => {
-			event.preventDefault();
-			press();
-		};
-		window.addEventListener("keydown", handler);
-		return () => window.removeEventListener("keydown", handler);
-	}, [status, press]);
 
-	return { status, isComplete, press };
+		const interval = setInterval(() => {
+			const completed = pressKey();
+			if (completed) {
+				clearInterval(interval);
+				onCompleteRef.current?.();
+			}
+		}, AUTO_TYPING_MS);
+
+		return () => clearInterval(interval);
+	}, [status, pressKey]);
+
+	return { status };
 }

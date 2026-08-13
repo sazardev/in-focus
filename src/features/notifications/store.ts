@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { playNotification } from "@/shared/sound";
 
 export interface PushNotification {
 	id: string;
@@ -30,6 +31,7 @@ export const useNotificationsStore = create<NotificationsState>((set, get) => ({
 			receivedAt: Date.now(),
 			read: false,
 		};
+		playNotification();
 		set((state) => ({
 			notifications: [...state.notifications.slice(-4), notification],
 		}));

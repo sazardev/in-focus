@@ -13,6 +13,11 @@ const MAX_LINE_LENGTH = 150;
 const AVG_MIN = 60;
 const AVG_MAX = 120;
 
+/** Longitud en "caracteres percibidos": code points, no unidades UTF-16 (los emojis cuentan como 1). */
+function codePointLength(text: string): number {
+	return [...text].length;
+}
+
 /** Cada capítulo debe usar al menos 3 mecánicas narrativas (STORY.md §6). */
 export function lintMechanics(lexed: LexedFile[], issues: ValidationIssue[]): void {
 	for (const file of lexed) {
@@ -37,22 +42,24 @@ export function lintMechanics(lexed: LexedFile[], issues: ValidationIssue[]): vo
 /** Ritmo de línea: máxima por línea y media por capítulo (STORY.md §6). */
 export function lintLineRhythm(lexed: LexedFile[], issues: ValidationIssue[]): void {
 	for (const file of lexed) {
-		const lines = file.dialogue.filter((line) => line.text.length > 0);
+		const lines = file.dialogue.filter((line) => codePointLength(line.text) > 0);
 		for (const line of lines) {
-			if (line.text.length > MAX_LINE_LENGTH) {
+			const length = codePointLength(line.text);
+			if (length > MAX_LINE_LENGTH) {
 				issues.push({
 					rule: "story:line-too-long",
 					severity: "warning",
 					file: file.file,
 					line: line.line,
 					node: line.node,
-					message: `Línea de ${line.text.length} caracteres (máx. ${MAX_LINE_LENGTH}) — un mensaje tan largo rompe el ritmo de chat.`,
+					message: `Línea de ${length} caracteres (máx. ${MAX_LINE_LENGTH}) — un mensaje tan largo rompe el ritmo de chat.`,
 				});
 			}
 		}
 
 		if (lines.length === 0) continue;
-		const average = lines.reduce((sum, line) => sum + line.text.length, 0) / lines.length;
+		const total = lines.reduce((sum, line) => sum + codePointLength(line.text), 0);
+		const average = total / lines.length;
 		if (average < AVG_MIN || average > AVG_MAX) {
 			issues.push({
 				rule: "story:average-line-length",
@@ -76,7 +83,8 @@ export function lintPronouns(lexed: LexedFile[], issues: ValidationIssue[]): voi
 			file: "scripts",
 			line: null,
 			node: null,
-			message: "$pronouns nunca se lee en una condición — Maya promete adaptar su lenguaje (STORY.md §2) pero ningún <<if $pronouns>> existe.",
+			message:
+				"$pronouns nunca se lee en una condición — Maya promete adaptar su lenguaje (STORY.md §2) pero ningún <<if $pronouns>> existe.",
 		});
 	}
 }

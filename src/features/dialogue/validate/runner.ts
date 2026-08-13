@@ -13,20 +13,33 @@
  *    factible.
  */
 
-import { compile, parseYarn, YarnRunner, type IRProgram, type YarnDocument } from "yarn-spinner-runner-ts";
+import {
+	compile,
+	type IRProgram,
+	parseYarn,
+	type YarnDocument,
+	YarnRunner,
+} from "yarn-spinner-runner-ts";
 import { parseRegion } from "./conditions";
 import type { LexedFile } from "./lexer";
 import type { ValidationIssue } from "./types";
 
 const TERMINATION_BUDGET = 20_000;
 
-/** Grafo nodo → destinos de salto. */
+/** Grafo nodo → destinos de salto, atribuyendo cada `<<jump>>` a su nodo.
+ *  Así los archivos con varios nodos (tests/escenarios) no mezclan saltos. */
 function buildGraph(lexed: LexedFile[]): Map<string, string[]> {
 	const graph = new Map<string, string[]>();
 	for (const file of lexed) {
-		const title = file.nodes[0]?.title;
-		if (!title) continue;
-		graph.set(title, file.jumps.map((jump) => jump.target));
+		const byNode = new Map<string, string[]>();
+		for (const jump of file.jumps) {
+			const list = byNode.get(jump.node) ?? [];
+			list.push(jump.target);
+			byNode.set(jump.node, list);
+		}
+		for (const node of file.nodes) {
+			graph.set(node.title, byNode.get(node.title) ?? []);
+		}
 	}
 	return graph;
 }
@@ -36,7 +49,8 @@ export function lintReachability(lexed: LexedFile[], issues: ValidationIssue[]):
 	const graph = buildGraph(lexed);
 	const fileByTitle = new Map<string, { file: string; line: number }>();
 	for (const file of lexed) {
-		for (const node of file.nodes) fileByTitle.set(node.title, { file: file.file, line: node.line });
+		for (const node of file.nodes)
+			fileByTitle.set(node.title, { file: file.file, line: node.line });
 	}
 
 	// BFS desde Start.
@@ -150,7 +164,11 @@ function isStoryEnd(result: unknown): boolean {
 }
 
 /** `$cap_NN_done` debe setearse en el cuerpo principal antes del `<<jump>>`. */
-export function lintChapterFlags(lexed: LexedFile[], document: YarnDocument, issues: ValidationIssue[]): void {
+export function lintChapterFlags(
+	lexed: LexedFile[],
+	document: YarnDocument,
+	issues: ValidationIssue[],
+): void {
 	const nodeByTitle = new Map(document.nodes.map((node) => [node.title, node]));
 
 	for (const file of lexed) {
@@ -210,7 +228,11 @@ function findLineInNode(file: LexedFile, content: string): number | null {
 }
 
 /** Opciones con condición `[if]` cuyo rango de ejes está vacío. */
-export function lintDeadOptions(lexed: LexedFile[], document: YarnDocument, issues: ValidationIssue[]): void {
+export function lintDeadOptions(
+	lexed: LexedFile[],
+	document: YarnDocument,
+	issues: ValidationIssue[],
+): void {
 	const fileByTitle = new Map<string, string>();
 	for (const file of lexed) {
 		for (const node of file.nodes) fileByTitle.set(node.title, file.file);
