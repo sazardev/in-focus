@@ -82,7 +82,7 @@ jobs:
         run: cargo test
 
   build-linux-deb:
-    name: Build Linux (deb + AppImage)
+    name: Build Linux (.deb)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -96,7 +96,6 @@ jobs:
             librsvg2-dev \
             libxdo-dev \
             libssl-dev \
-            libfuse2 \
             build-essential \
             curl \
             wget \
@@ -110,18 +109,14 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Build Tauri (deb + AppImage)
-        env:
-          APPIMAGE_EXTRACT_AND_RUN: 1
-        run: npm run tauri build -- --bundles deb,appimage
+      - name: Build Tauri (deb)
+        run: npm run tauri build -- --bundles deb
 
       - name: Subir artefactos
         uses: actions/upload-artifact@v4
         with:
           name: in-focus-linux
-          path: |
-            src-tauri/target/release/bundle/deb/*.deb
-            src-tauri/target/release/bundle/appimage/*.AppImage
+          path: src-tauri/target/release/bundle/deb/*.deb
 
   build-linux-arch:
     name: Build Arch Linux (.pkg.tar.zst)
@@ -135,7 +130,7 @@ jobs:
         run: |
           pacman -Syu --noconfirm --needed \
             nodejs npm rust cargo git file curl wget \
-            webkit2gtk-4.1 gtk3 libayatana-appindicator-gtk3 librsvg libsoup3 openssl
+            webkit2gtk-4.1 gtk3 libappindicator librsvg libsoup3 openssl
 
       - name: Empaquetar fuente
         run: |

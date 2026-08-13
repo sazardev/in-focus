@@ -1,0 +1,5 @@
+# Artefactos de makepkg (se generan en CI / local)
+*.pkg.tar.zst
+*.tar.gz
+/src/
+/pkg/
