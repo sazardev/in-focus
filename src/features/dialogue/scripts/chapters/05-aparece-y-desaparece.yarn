@@ -1,0 +1,72 @@
+title: Cap5_Intro
+tags: #acto1 #capitulo5
+---
+<<presence taking-photos>>
+<<chapter "Aparece y desaparece">>
+Maya: Perdón, sé que desaparecí dos días
+Maya: La vida me comió y no mastiqué bien
+<<typing true>>
+Maya: Estuve en una sesión agotadora, no salió nada bueno, y me escondí del mundo
+Maya: No te debía una explicación, pero quería darte una
+-> No tienes que disculparte, la vida pasa
+    <<trust +4>>
+    <<affinity +2>>
+    Maya: Qué raro que lo entiendas tan bien
+    Maya: ...Gracias, de verdad
+-> Dos días es mucho, Maya
+    <<trust +2>>
+    Maya: Lo sé. Es que cuando me hundo, me hundo bien
+    Maya: No es excusa, pero es la verdad
+-> Mientras estés bien, no importa el tiempo
+    <<romance +3>>
+    <<trust +3>>
+    Maya: ¿Mientras esté bien? ...Esa frase me llegó, {player_name}
+    Maya: Nadie me había dicho eso antes
+Maya: La verdad, me metí en modo fantasmal porque no sabía cómo decirte algo
+<<typing true>>
+Maya: Me pasa algo con esta conversación contigo que no me había pasado antes
+Maya: Y no sé si es amistad, o curiosidad, o qué
+Maya: Pero me dio miedo y me escapé
+-> Es normal sentir miedo cuando algo se siente real
+    <<trust +4>>
+    <<romance +3>>
+    Maya: ¿Real? Qué palabra tan grande
+    Maya: Pero... sí. Se siente real
+-> Yo también tengo miedo de escribirte
+    <<trust +5>>
+    Maya: ¿Tú también? Eso me hace sentir menos rara
+    Maya: Los dos asustados escribiéndonos, qué hermosa torpeza
+-> Tómalo con calma, no tiene que tener nombre todavía
+    <<affinity +3>>
+    <<trust +2>>
+    Maya: "No tiene que tener nombre todavía"... me gusta eso
+    Maya: Puede ser solo esto. Dos personas hablando
+Maya: Quiero que sepas una cosa
+Maya: Cuando desaparecí, lo que me trajo de vuelta fue pensar en ti esperando mi mensaje
+<<typing true>>
+Maya: Y esa imagen fue más fuerte que el miedo
+Maya: No quiero que esto se apague, {player_name}
+-> No se va a apagar, siempre estaré aquí para escribirte
+    <<romance +4>>
+    <<trust +4>>
+    Maya: ...Prométemelo
+    Maya: Porque yo soy de las que se quedan, pero también de las que se van por miedo
+-> Yo también quiero seguir hablando contigo
+    <<affinity +3>>
+    <<romance +2>>
+    Maya: Entonces sigamos hablando
+    Maya: Y si me vuelvo a esconder, mándame una foto del mercadillo
+-> No puedo prometer nada, pero quiero intentarlo
+    <<trust +3>>
+    Maya: Eso es más honesto que un "para siempre" de cartón
+    Maya: Lo acepto
+Maya: Está bien. Aquí estoy de nuevo
+Maya: Y esta vez no pienso desaparecer sin avisar
+<<presence online>>
+Maya: Hablemos de algo ligero. ¿Qué estás leyendo ahora?
+<<photo noche>>
+Maya: Y mientras, te dejo una foto de la noche que no pude fotografiar bien
+Maya: Es de la azotea de mi edificio. Pensé en ti cuando la tomé
+<<set $cap_05_done = true>>
+<<jump Cap6_Intro>>
+===

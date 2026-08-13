@@ -1,0 +1,79 @@
+title: Cap23_Intro
+tags: #acto4 #capitulo23
+---
+<<chapter "La caída">>
+<<presence offline>>
+Maya: {player_name}...
+Maya: Necesito decirte algo y no sé por dónde empezar
+<<typing true>>
+Maya: Acabo de recordar algo de la chica del neón
+Maya: Y de cómo terminó el rollo en ese mercadillo
+-> Dímelo, Maya. Sin importar qué sea
+    <<trust +3>>
+    <<romance +1>>
+    Maya: Gracias por quedarte
+    Maya: Aquí va
+-> ¿Qué pasó con el rollo?
+    <<trust +2>>
+    Maya: Te lo digo. Es de esas verdades que pesan
+Maya: La verdad es que no lo perdí
+Maya: Lo tiré a propósito. Lo dejé en el mercadillo para que alguien lo llevara lejos
+<<typing true>>
+Maya: La chica del neón me lo regaló cuando terminamos
+Maya: Y yo, para no verlo, lo dejé ahí, para que se fuera con todo lo demás
+-> ¿Y por qué no me lo habías dicho antes?
+    <<trust +2>>
+    <<romance -1>>
+    Maya: Porque me dio vergüenza
+    Maya: No quería que supieras que el rollo que te trajo fue un "te dejo" disfrazado
+-> Eso no cambia nada de lo nuestro
+    <<trust +3>>
+    <<romance +2>>
+    Maya: ...¿De verdad? Quiero creerte
+-> Ahora entiendo por qué te dolía
+    <<trust +4>>
+    <<romance +1>>
+    Maya: Gracias por entenderlo sin juzgarme
+Maya: Pero eso no es lo peor
+Maya: Lo peor es que estuve a punto de no decírtelo
+<<typing true>>
+Maya: Estuve a punto de dejarte creer que era un misterio bonito
+-> No me digas que ibas a ocultármelo
+    <<trust -2>>
+    <<romance -1>>
+    Maya: ...Iba a hacerlo
+    Maya: Pero entonces pensé en ti y en nuestro trato de honestidad
+-> Gracias por ser honesta
+    <<trust +4>>
+    <<romance +2>>
+    Maya: Gracias por quedarte después de escucharlo
+-> La verdad siempre gana, Maya
+    <<trust +3>>
+    <<romance +1>>
+    Maya: La verdad siempre gana... espero que también esta vez
+Maya: Sé que esto cambia lo que sentías por el rollo
+Maya: Ya no es un misterio, es un recuerdo de alguien que me dejó
+<<typing true>>
+Maya: Y yo, en mi torpeza, te lo metí en tu historia sin querer
+-> No fue torpeza, fue destino
+    <<romance +4>>
+    <<trust +3>>
+    Maya: ...¿Destino? Qué palabra tan valiente para usar ahora
+    Maya: Pero me gusta cómo suena en tu voz
+-> Esto no me hace quererte menos
+    <<romance +4>>
+    <<trust +4>>
+    Maya: ...Esa es la frase que necesitaba
+    Maya: La voy a repetir toda la noche
+-> Ahora lo entiendo todo mejor
+    <<affinity +3>>
+    <<trust +3>>
+    Maya: Gracias por escuchar hasta el final
+Maya: El sábado, en la expo, quiero contarte el resto
+Maya: Todo lo que no cabe en los mensajes
+<<presence offline>>
+Maya: Pero por ahora, necesito que sepas una cosa
+Maya: Aunque todo empezó como un adiós a alguien más... terminó como un hola hacia ti
+<<set $cap_23_done = true>>
+<<jump Cap24_Intro>>
+===

@@ -1,0 +1,90 @@
+title: Cap26_Intro
+tags: #acto5 #capitulo26
+---
+<<chapter "El encuentro">>
+<<presence online>>
+Maya: {player_name}...
+Maya: Estoy en la galería. Faltan dos horas para que abras la puerta
+<<typing true>>
+Maya: Y estoy más nerviosa que en mi primer revelado
+-> Yo también estoy a punto de llegar
+    <<romance +3>>
+    Maya: ...No me digas eso, se me acelera el corazón
+-> Dos horas, Maya. Vamos a lograrlo
+    <<affinity +2>>
+    <<romance +2>>
+    Maya: Vamos a lograrlo
+    Maya: Esa frase me da fuerza
+-> Te espero ahí, entre tus fotos
+    <<romance +3>>
+    <<trust +2>>
+    Maya: Entre mis fotos y mi corazón, que ya está en la entrada
+Maya: Quiero que sepas una cosa antes de que nos veamos
+Maya: Cuando te reconozca... voy a sonreír sin poder evitarlo
+<<typing true>>
+Maya: Y si me pongo torpe, es porque eres tú
+-> Yo voy a reconocerte por tu sonrisa
+    <<romance +4>>
+    Maya: ...¿Mi sonrisa? Me desarmaste, {player_name}
+-> Y yo también voy a sonreír sin poder evitarlo
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Entonces las dos sonrisas van a encontrarse en la entrada
+-> Pase lo que pase, este momento ya vale la pena
+    <<romance +3>>
+    <<affinity +2>>
+    Maya: Sí. Esto ya es nuestro
+Maya: Te cuento cómo llegar para que no te pierdas
+Maya: Es la galería de la esquina con luces cálidas
+<<typing true>>
+Maya: La que tiene mis fotos en la entrada... y un cartel que dice mi nombre
+-> Ya la veo. Ya estoy aquí, Maya
+    <<romance +4>>
+    <<trust +3>>
+    Maya: ...¿Ya estás?
+    Maya: Respira, Maya. Respira
+-> Voy entrando. Busco una foto de un amanecer
+    <<romance +3>>
+    <<trust +2>>
+    Maya: La del amanecer está en la pared principal
+    Maya: Espérame ahí, estoy llegando
+-> Estoy aquí. Y no puedo esperar a verte
+    <<romance +4>>
+    Maya: Yo también. Aquí voy
+    Maya: Dos desconocidos que se encuentran al fin
+<<presence taking-photos>>
+Maya: Ya te veo
+Maya: ...Eres más real de lo que imaginé
+<<typing true>>
+Maya: Y tienes la sonrisa que te dije. No me equivocaba
+-> Y tú eres exactamente como tus fotos
+    <<romance +4>>
+    Maya: ...¿Cómo mis fotos? Eso es lo más bonito que me han dicho
+-> Aquí estoy, Maya. De verdad
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Aquí estás. Y no sabes lo que significa que hayas venido
+-> Esta exposición es increíble, y tú más
+    <<romance +4>>
+    Maya: {player_name}... hoy me voy a sonrojar muchísimo contigo
+Maya: Bueno... ahora que estamos frente a frente
+Maya: Ya no tengo emojis para esconderme
+<<typing true>>
+Maya: Así que te voy a decir la verdad sin ellos
+-> Dime, Maya. Estoy aquí
+    <<romance +3>>
+    Maya: Es que hay algo que no cabe en los mensajes
+    Maya: Y lo quiero decir en persona
+-> Yo también tengo algo que no me cabía en el chat
+    <<romance +4>>
+    <<trust +2>>
+    Maya: ...¿Tú también? Entonces dime el tuyo primero
+    Maya: No. Espera. Mejor el mío, que ya no aguanto
+-> Frente a frente se dicen mejor las cosas, ¿no?
+    <<romance +3>>
+    <<trust +2>>
+    Maya: Eso creo... porque en el chat me da vértigo todo
+    Maya: Aquí, contigo de frente, el vértigo se siente distinto
+<<set $cap_26_done = true>>
+<<jump Cap27_Intro>>
+===

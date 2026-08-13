@@ -1,0 +1,112 @@
+title: Start
+tags: #acto1 #capitulo1
+---
+<<declare $affinity = 0>>
+<<declare $romance = 0>>
+<<declare $trust = 0>>
+<<declare $mejores_fotos = 0>>
+<<declare $rollo_revelado = false>>
+<<declare $cap_01_done = false>>
+<<declare $cap_02_done = false>>
+<<declare $cap_03_done = false>>
+<<declare $cap_04_done = false>>
+<<declare $cap_05_done = false>>
+<<declare $cap_06_done = false>>
+<<declare $cap_07_done = false>>
+<<declare $cap_08_done = false>>
+<<declare $cap_09_done = false>>
+<<declare $cap_10_done = false>>
+<<declare $cap_11_done = false>>
+<<declare $cap_12_done = false>>
+<<declare $cap_13_done = false>>
+<<declare $cap_14_done = false>>
+<<declare $cap_15_done = false>>
+<<declare $cap_16_done = false>>
+<<declare $cap_17_done = false>>
+<<declare $cap_18_done = false>>
+<<declare $cap_19_done = false>>
+<<declare $cap_20_done = false>>
+<<declare $cap_21_done = false>>
+<<declare $cap_22_done = false>>
+<<declare $cap_23_done = false>>
+<<declare $cap_24_done = false>>
+<<declare $cap_25_done = false>>
+<<declare $cap_26_done = false>>
+<<declare $cap_27_done = false>>
+<<declare $cap_28_done = false>>
+<<declare $supo_la_verdad = false>>
+<<chapter "El número en la nota">>
+<<availability "Conectándose...">>
+<<presence online>>
+Maya: ¿Aló? 🐦
+Maya: ¿Quién anda por ahí? porque yo no reconozco este número y mi radar de extraños anda fino
+<<typing true>>
+Maya: Dato curioso: una vez me escribió un tipo que decía ser de mi pasado y resultó ser mi tío. No repitas eso, por favor
+-> Es lo que hay, encontré tu número
+    <<affinity +5>>
+    <<trust +2>>
+    Maya: ¿Y dónde lo "encontraste"? que suena muy sospechoso con comillas y todo
+    Maya: Porque el universo no suelta números así porque sí
+-> Soy {player_name}, un desconocido con curiosidad
+    <<affinity +3>>
+    Maya: {player_name}... me suena a nombre de persona que podría caerme bien
+    Maya: O mal. TBD. Veremos
+-> Perdón, quizá te escribí por error
+    <<trust +4>>
+    Maya: Ah, ¿"por error"? Mmm, los errores siempre me han traído historias buenas
+    Maya: Cuéntame cuál fue tu error entonces
+Maya: De todas formas, ya que te tomaste la molestia... ¿qué haces despierto a esta hora?
+<<typing false>>
+-> Estaba leyendo y mi mente no me dejaba dormir
+    <<affinity +2>>
+    Maya: ¿Leyendo? Ay, un alma con cultura. Estás subiendo puntos en mi libreta mental
+    Maya: ¿Y qué leías? que aquí las respuestas genéricas se cobran caras
+-> Insomnio crónico, no me preguntes por qué
+    <<affinity +2>>
+    Maya: El insomnio y yo somos viejos amigos también
+    Maya: Mi cuarto parece un laboratorio de cafeína de 2 a.m.
+-> La verdad, no tengo idea de por qué estoy despierto
+    <<trust +3>>
+    Maya: Al menos eres honesto, eso se nota y se agradece
+Maya: Mira, antes de seguir con el interrogatorio...
+Maya: Hay algo que me da mucha curiosidad. ¿Cómo conseguiste mi número de verdad?
+Maya: Porque no me lo das a mí de extraña, déjame ser la juez de eso
+-> Fue en un mercadillo, dentro de una caja de fotos
+    <<affinity +5>>
+    <<trust +4>>
+    Maya: ¿...Qué?
+    Maya: Espera. ¿Una caja de fotos? ¿Cuál mercadillo? ¿Qué fotos?
+    Maya: Ahora sí me tienes toda. Procede
+-> Encontré una nota con tu número pegada a un rollo de película
+    <<affinity +4>>
+    <<trust +3>>
+    Maya: Un rollo de película...
+    Maya: Eso es demasiado específico para inventarlo, {player_name}
+    Maya: Necesito que me cuentes todo, pero TODO, desde el principio
+-> Mejor te lo cuento otro día, es una historia larga
+    <<trust +1>>
+    Maya: Oye, no me dejes con la curiosidad a medias que eso es de mal amigo
+Maya: Está bien, te voy a dar un voto de confianza
+Maya: Pero con una condición: mañana me cuentas la historia del mercadillo con lujo de detalles
+<<typing true>>
+Maya: Y si no, bloqueo. Ya sé cómo se bloquea a la gente
+-> Trato hecho, mañana te cuento
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Trato hecho entonces 🫡
+-> ¿Y si te cuento ahora mismo?
+    <<affinity +3>>
+    <<romance +1>>
+    Maya: ...¿Ahora? Son las 2 de la mañana
+    Maya: Aunque... un misterio de madrugada suena a mi tipo de plan
+-> Eso depende, ¿eres de fiar?
+    <<trust +3>>
+    Maya: Jaja, eso te lo tengo que preguntar yo a ti, desconocido
+    Maya: Pero me caes bien, eso ya es mucho
+Maya: Buenas noches, desconocido del mercadillo
+Maya: Dormiré pensando en qué fotos podrían estar en esa caja
+<<presence offline>>
+Maya: ...Y no me desaparezcas, que al que se apaga sin avisar le va mal en mi libreta
+<<set $cap_01_done = true>>
+<<jump Cap2_Intro>>
+===

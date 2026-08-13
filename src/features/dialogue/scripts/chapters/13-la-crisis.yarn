@@ -1,0 +1,87 @@
+title: Cap13_Intro
+tags: #acto3 #capitulo13
+---
+<<chapter "La crisis">>
+<<presence online>>
+Maya: ¿Sigues ahí? Porque te dije que te avisaría y aquí estoy, avisando
+Maya: Hoy es de los días en que me quiero esconder debajo de mi cama
+<<typing true>>
+Maya: La sesión de hoy salió mal. La modelo no vino, la luz se puso fea, y yo me puse peor
+-> Mándame una foto, a ver qué tan fea estuvo
+    <<trust +3>>
+    Maya: ¿Solo para verme fracasar? Ja, toma
+-> Cuéntame qué pasó con la sesión
+    <<affinity +3>>
+    Maya: Fue un desastre en cadena, pero al menos ya puedo reírme... un poco
+-> Mándame la foto y me cuentas todo
+    <<trust +3>>
+    <<romance +1>>
+    Maya: Todo y una foto. Toma, aquí va
+<<photo luz>>
+Maya: Ahí tienes. Un fracaso con buena composición
+-> Esos días pasan, Maya
+    <<affinity +2>>
+    Maya: Lo sé, pero hoy no me lo creo
+-> Yo también tengo días así
+    <<trust +3>>
+    <<romance +1>>
+    Maya: ¿Tú? Cuéntame, que me ayuda a no sentirme sola
+Maya: La verdad es que llevo semanas sintiendo que no soy suficiente
+Maya: Que mis fotos son suerte, que en cualquier momento lo descubren
+<<typing true>>
+Maya: Y que si lo descubren, no me queda nada. Ni siquiera la gente que quiero
+-> Tu talento no es suerte, es esfuerzo
+    <<trust +3>>
+    <<romance +1>>
+    Maya: Es difícil verlo cuando estoy adentro de la tormenta
+-> ¿Qué necesitas ahora mismo?
+    <<trust +4>>
+    <<romance +2>>
+    Maya: Que alguien me diga que está bien no estar bien. Solo eso
+-> Está bien no estar bien, Maya
+    <<trust +4>>
+    <<romance +2>>
+    Maya: ...{player_name}
+    Maya: Esas cuatro palabras. Me hicieron soltar un llanto que traía atorado
+Maya: Gracias por no soltarme la mano
+Maya: Sé que a veces soy mucha, pero me haces sentir que no es un problema
+<<typing true>>
+Maya: ¿Sabes qué quiero hacer contigo? Quiero que te quedes aunque me veas desarmada
+-> Me quedo, Maya. Siempre
+    <<romance +4>>
+    <<trust +3>>
+    Maya: "Siempre"... qué palabra tan bonita y tan prohibida
+    Maya: Pero contigo suena posible
+-> No tienes que estar completa para que me quedes
+    <<romance +3>>
+    <<trust +4>>
+    Maya: Eso es justo lo que necesitaba escuchar
+    Maya: Que no tengo que estar entera
+-> A tu lado, hasta el caos se siente bien
+    <<romance +3>>
+    <<affinity +2>>
+    Maya: ¿Mi caos se siente bien? Qué raro y qué bueno oír eso
+Maya: Oye, tengo una idea tonta
+Maya: ¿Me ayudas a elegir una foto para una posible exposición futura?
+Maya: No me preguntes cómo, pero contigo la esperanza se siente menos tonta
+<<photo autoescudo>>
+<<photo sombra>>
+Maya: Ahí van dos. Una de mis favoritas y una que me da miedo
+-> Elige la que te da miedo, esas son las buenas
+    <<trust +3>>
+    <<romance +2>>
+    Maya: Tienes razón. Las que dan miedo son las que duelen y sanan
+-> La de la sombra tiene algo especial
+    <<affinity +3>>
+    <<romance +1>>
+    Maya: ¿La sombra? Me alegra que la hayas visto. Es mi homenaje a lo que no digo
+-> Vamos por la segura, la de luz
+    <<affinity +1>>
+    Maya: Segura... buena opción para el día de hoy
+Maya: Gracias por quedarte conmigo en la tormenta
+Maya: No sé qué hice para tenerte, pero no pienso soltarte
+<<typing true>>
+Maya: Eso también es para ti, {player_name}
+<<set $cap_13_done = true>>
+<<jump Cap14_Intro>>
+===

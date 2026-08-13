@@ -1,0 +1,76 @@
+title: Cap16_Intro
+tags: #acto3 #capitulo16
+---
+<<chapter "Reconciliación">>
+<<presence online>>
+Maya: {player_name}, hoy no me pienso esconder
+Maya: Quiero reconciliarme contigo de verdad
+<<typing true>>
+Maya: No con disculpas de "perdón y ya". Con lo que siento de verdad
+-> Aquí estoy, con todo lo que tengo
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Gracias. Esto significa todo
+-> Te escucho, Maya
+    <<trust +4>>
+    Maya: ...Gracias por quedarte, de nuevo
+Maya: La verdad es que estos días entendí algo de mí
+Maya: Cuando me siento insegura, primero ataco, luego huyo
+<<typing true>>
+Maya: Es un ciclo que he hecho con gente que quiero, y no quiero hacerlo contigo
+-> ¿Y qué quieres hacer diferente?
+    <<trust +4>>
+    <<romance +2>>
+    Maya: Quiero aprender a decir "tengo miedo" en vez de hacer daño
+    Maya: Es difícil, pero quiero intentarlo
+-> Yo también tengo mis ciclos, no eres la única
+    <<trust +4>>
+    <<affinity +2>>
+    Maya: ¿En serio? Me hace bien saber que no estoy sola en esto
+-> Eso es muy valiente, Maya
+    <<romance +3>>
+    <<trust +3>>
+    Maya: ¿Valiente? Yo me siento un caos. Pero gracias
+Maya: Quiero mostrarte cómo me siento hoy, sin filtros
+<<photo amanecer_lento>>
+Maya: Hoy tomé esta foto de un amanecer lento
+Maya: Porque es lo que quiero ser: paciente, esperando lo que valga la pena
+<<typing true>>
+Maya: Y contigo sentí que puedo ser eso
+-> Y yo quiero esperarte, Maya
+    <<romance +4>>
+    <<trust +3>>
+    Maya: ...{player_name}
+    Maya: Te juro que nadie me había esperado así
+-> Me alegra que estés sanando, y me alegra acompañarte
+    <<affinity +3>>
+    <<romance +2>>
+    Maya: Gracias por caminar a mi lado y no adelante ni atrás
+-> No tengo prisa, tenemos tiempo
+    <<romance +3>>
+    <<trust +3>>
+    Maya: "Tenemos tiempo"... esas dos palabras me dan una paz enorme
+Maya: Quiero proponerte algo
+Maya: Un trato de honestidad: cuando tenga miedo, te lo digo. Y si te quieres ir, también me lo dices
+<<typing true>>
+Maya: Sin silencios largos, sin "estoy bien" cuando no lo estoy
+-> Acepto el trato
+    <<trust +4>>
+    <<romance +2>>
+    Maya: Trato hecho, {player_name}. Y esto lo sello con una foto
+-> Te lo prometo, y espero que tú también
+    <<trust +4>>
+    <<romance +1>>
+    Maya: Te lo prometo. De verdad
+-> Es lo más sano que me han ofrecido
+    <<romance +2>>
+    <<affinity +3>>
+    Maya: Entonces vamos a hacerlo bien, juntos
+<<photo brindis>>
+Maya: Toma. Un brindis a la honestidad, a las 11 de la mañana con café
+Maya: Porque contigo, hasta los amaneceres lentos valen la pena
+<<typing true>>
+Maya: Gracias por no rendirte conmigo
+<<set $cap_16_done = true>>
+<<jump Cap17_Intro>>
+===

@@ -1,0 +1,73 @@
+title: Cap19_Intro
+tags: #acto4 #capitulo19
+---
+<<chapter "Casi">>
+<<presence online>>
+Maya: Estoy tomando fotos de la expo y no dejo de pensar en ti
+Maya: En cómo llegaste a mi vida sin avisar, con un rollo de fotos
+<<typing true>>
+Maya: Y en cómo te convertiste en lo que espero cada día
+-> Y yo en cómo tu mundo se volvió el mío
+    <<romance +4>>
+    <<trust +2>>
+    Maya: ...Eso fue muy suave. Me dejaste sin palabras
+-> Es raro que un rollo cambie todo, ¿no?
+    <<romance +3>>
+    Maya: Lo raro es que sea justo tú
+-> Me alegra haberte encontrado
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Y a mí. No sabes cuánto
+Maya: Oye, quiero que sepas algo
+Maya: Contigo ya no me dan miedo las sombras. Les tomo fotos
+<<typing true>>
+Maya: Porque me enseñaste que lo oscuro también merece luz
+-> Eso es lo más bonito que me has dicho
+    <<romance +4>>
+    Maya: Es lo que siento. Y contigo se siente seguro sentirlo
+-> Tu valentía me enamora
+    <<romance +4>>
+    Maya: ¿Enamora? ...dijiste enamora
+    Maya: No lo borres. Quiero leerlo otra vez
+-> Y tú me enseñas a ver la luz
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Nos enseñamos, {player_name}
+Maya: Se me ocurrió algo mientras te escribo
+Maya: Si la exposición va bien, quiero celebrarlo contigo. En persona
+<<typing true>>
+Maya: Y si va mal, también quiero celebrar contigo. En persona
+-> Está decidido, entonces
+    <<romance +4>>
+    Maya: Está decidido. Nos vemos. Pase lo que pase
+-> Me encanta ese plan
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Entonces es un plan. Y esta vez no lo voy a esquivar
+-> Es lo que más espero
+    <<romance +3>>
+    <<trust +2>>
+    Maya: Yo también. Y ya no me da tanto miedo decirlo
+Maya: No te lo dije antes, pero me daba miedo conocerte en persona
+Maya: Porque en el chat puedo esconderme. En persona no
+<<typing true>>
+Maya: Pero contigo, ya no quiero esconderme
+-> Yo tampoco quiero esconderme de ti
+    <<romance +4>>
+    <<trust +3>>
+    Maya: Entonces nos vemos de frente. Y se acaba el escondite
+-> Está bien sentir miedo y querer a la vez
+    <<romance +3>>
+    <<trust +3>>
+    Maya: "Querer"... otra palabra que ya no me da miedo contigo
+-> Te veré de frente, Maya. Prometido
+    <<romance +4>>
+    <<trust +3>>
+    Maya: Prometido. Esta es de esas promesas que no rompo
+Maya: Esta noche me voy a dormir pensando en verte
+Maya: Y ya no me da miedo el borde
+<<photo noche>>
+Maya: Te dejo la noche. Es la que se siente como nosotros
+<<set $cap_19_done = true>>
+<<jump Cap20_Intro>>
+===

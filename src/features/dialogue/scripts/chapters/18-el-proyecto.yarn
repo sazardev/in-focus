@@ -1,0 +1,86 @@
+title: Cap18_Intro
+tags: #acto3 #capitulo18
+---
+<<chapter "El proyecto">>
+<<presence online>>
+Maya: {player_name}!! Necesito tu ojo YA
+Maya: Me aceptaron en la exposición. La que no salió la vez pasada
+<<typing true>>
+Maya: Y ahora sí, me tiemblan las manos de emoción y miedo
+-> ¡Felicidades, Maya! Sabía que podías
+    <<affinity +3>>
+    <<romance +2>>
+    Maya: ¿Sabías? Yo no tanto, pero gracias por creer
+-> Esa es una noticia enorme. Cuéntame todo
+    <<affinity +3>>
+    <<trust +2>>
+    Maya: Te cuento TODO. Pero primero necesito tu opinión
+-> Estoy orgulloso de ti
+    <<romance +3>>
+    <<trust +2>>
+    Maya: ...Gracias. De verdad. Eso me llega
+Maya: El tema de mi exposición es "Las que me dieron miedo"
+Maya: Fotos de cosas que no quise ver: el neón, las sombras, los cuartos a oscuras
+<<typing true>>
+Maya: Y quiero que me ayudes a elegir cuáles van
+-> Muéstrame las candidatas
+    <<affinity +3>>
+    <<romance +1>>
+    Maya: Ahí van. Son las que más me dan miedo
+-> Claro, cuéntame el criterio y elijo contigo
+    <<affinity +3>>
+    <<trust +2>>
+    Maya: El criterio es simple: las que duelen. Pero me gusta que preguntes
+-> Quiero verlas todas primero
+    <<affinity +2>>
+    Maya: Todas, entonces. Prepárate, que ninguna es fácil
+<<photo neon>>
+<<photo sombra>>
+<<photo autoescudo>>
+Maya: Dime tu honesta opinión, la que le darías a un amigo
+-> Elige la del neón, esa es la que tiene historia
+    <<romance +3>>
+    <<trust +3>>
+    Maya: La del neón... sí. Esa es la que duele y la que sana
+-> La sombra representa algo que no dices
+    <<affinity +3>>
+    <<romance +1>>
+    Maya: ¿La ves así? Me alegra que la hayas entendido
+-> Todas merecen estar
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ¿Todas? Qué bonito decirlo, aunque sé que debo elegir
+Maya: Gracias por tu ojo, {player_name}
+<<if $mejores_fotos >= 2>>
+    Maya: Y no es la primera vez que aprecias lo que hago
+    Maya: Ese detalle no se me pasa por alto, aunque no lo diga
+<<endif>>
+Maya: Contigo esta exposición se siente posible
+<<typing true>>
+Maya: Y ahora la parte que me da más miedo
+Maya: Quiero que estés ahí el día de la inauguración
+-> ¿En persona? Cuéntame cuándo y dónde
+    <<romance +4>>
+    <<trust +3>>
+    Maya: ¿En persona? ...No sé si estoy lista, pero quiero intentarlo
+    Maya: Primero la inauguración, y después vemos
+-> Me encantaría estar ahí
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Eso me da una fuerza que no sabía que tenía
+-> Solo si me prometes no esconderte de mí
+    <<trust +3>>
+    <<romance +2>>
+    Maya: Te lo prometo. En persona también
+Maya: Entonces es oficial
+Maya: La exposición es el mes que viene, y tú vas a estar ahí
+<<presence taking-photos>>
+Maya: Necesito celebrar esto, y la mejor forma es con fotos
+<<photo exposicion>>
+<<photo flor>>
+Maya: Te mando un adelanto del mundo que voy a mostrar
+<<typing true>>
+Maya: Y una flor, porque hoy me siento viva
+<<set $cap_18_done = true>>
+<<jump Cap19_Intro>>
+===

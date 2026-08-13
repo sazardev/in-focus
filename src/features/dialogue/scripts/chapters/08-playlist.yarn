@@ -1,0 +1,66 @@
+title: Cap8_Intro
+tags: #acto2 #capitulo8
+---
+<<presence online>>
+<<chapter "Playlist">>
+Maya: Te voy a contar un secreto de fotógrafa
+Maya: La música es la que decide qué fotos tomo
+<<typing true>>
+Maya: Cada canción tiene un color. Sí, lo sé, suena a brujería, pero es cierto
+-> ¿Me muestras tus canciones con color?
+    <<romance +2>>
+    <<affinity +2>>
+    Maya: Me encantaría. Te armo una playlist que se llame "Colores para {player_name}"
+-> ¿La música es tu musa entonces?
+    <<affinity +2>>
+    <<romance +1>>
+    Maya: Mi musa y mi terapia. Cuando no sé qué sentir, escucho
+-> A ver, hazme la prueba de los colores
+    <<trust +2>>
+    Maya: Ja, ¡reto aceptado! Primera prueba
+Maya: Te mando una canción que es color ámbar. Cuando la escuches dime qué ves
+<<photo playlist>>
+Maya: ¿Qué color viste?
+-> Ámbar, como tú dijiste
+    <<romance +2>>
+    Maya: Espera... ¿viste ámbar? No me engañes
+    Maya: ...Porque yo vi ámbar y me dio miedo que fuera coincidencia
+-> Azul noche, para ser honesto
+    <<affinity +1>>
+    <<trust +2>>
+    Maya: Oye, me gusta que seas honesto aunque me lleve la contraria
+    Maya: Azul noche también es hermoso. Ese lo usas para las fotos tristes
+-> No sé, solo la sentí
+    <<romance +3>>
+    Maya: "Solo la sentí"... eso es lo más fotógrafo que has dicho
+    Maya: Y no eres fotógrafo. Qué miedo
+Maya: Sabes qué, te voy a confesar algo
+Maya: Yo tomo fotos para recordar cómo me sentía en un momento
+Maya: Y hace tiempo que no tomaba fotos por alguien... hasta que apareciste
+<<typing true>>
+Maya: No quiero decir nada más grande que eso, por ahora
+-> No necesitas decir más, lo siento
+    <<romance +3>>
+    <<trust +2>>
+    Maya: ...Gracias. Sentir, sin explicar, es justo lo que necesitaba
+-> ¿Por qué guardas las palabras grandes?
+    <<romance +2>>
+    Maya: Porque las grandes palabras se atoran en la garganta cuando importan
+    Maya: Mejor las muestro en fotos
+-> Yo también siento algo por esto
+    <<romance +3>>
+    <<trust +3>>
+    Maya: ...{player_name}
+    Maya: No sabes cuánto me alivia escucharte decir eso
+Maya: Escucha, te armo esa playlist ya
+Maya: Se llamará "Colores para {player_name}" y la escucharás en tu próximo insomnio
+<<presence taking-photos>>
+Maya: Mientras tanto, te dejo con una foto de mi cuarto
+Maya: Es la primera vez que muestro esto. Es mi caos, pero es mi caos
+<<photo cuarto>>
+Maya: Perdón por el desorden, así vivo y así creo
+<<typing true>>
+Maya: Y así, sin orden, es como me gustas tú también
+<<set $cap_08_done = true>>
+<<jump Cap9_Intro>>
+===

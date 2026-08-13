@@ -1,0 +1,42 @@
+{
+	"name": "in-focus",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"tauri": "tauri",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"validate:scripts": "vitest run src/features/dialogue/validate/scripts-gate.test.ts",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"format": "biome format --write .",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@tanstack/react-virtual": "^3.14.9",
+		"@tauri-apps/api": "^2",
+		"@tauri-apps/plugin-opener": "^2",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"yarn-spinner-runner-ts": "^0.1.5-c",
+		"zustand": "^5.0.14"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.8",
+		"@tauri-apps/cli": "^2",
+		"@testing-library/jest-dom": "^7.0.1",
+		"@testing-library/react": "^16.3.2",
+		"@testing-library/user-event": "^14.6.4",
+		"@types/react": "^19.1.8",
+		"@types/react-dom": "^19.1.6",
+		"@vitejs/plugin-react": "^4.6.0",
+		"jsdom": "^30.0.1",
+		"typescript": "~7.0.2",
+		"vite": "^7.0.4",
+		"vitest": "^4.1.10"
+	}
+}

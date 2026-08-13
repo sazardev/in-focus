@@ -1,0 +1,79 @@
+title: Cap4_Intro
+tags: #acto1 #capitulo4
+---
+<<presence online>>
+<<chapter "Primera noche">>
+Maya: No puedo dormir y tú tienes la culpa
+<<typing true>>
+Maya: Dije que no hablaría de la foto, pero mi cabeza no coopera
+Maya: Así que cambio de tema. ¿Qué es lo más raro que has hecho por una persona?
+-> Esta, contándote la historia de un rollo a un desconocido
+    <<affinity +3>>
+    <<romance +2>>
+    Maya: Jaja, buen punto. Eso también me incluye a mí
+    Maya: Dos desconocidos haciendo cosas raras a las 2 a.m., mi escena favorita
+-> Quedarme despierto hablando contigo
+    <<romance +3>>
+    Maya: ...Oye, eso fue demasiado suave para ser verdad
+    Maya: Pero me gusta, no lo borres
+-> Dejé mi número en una caja de fotos para que alguien lo encontrara
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: ¿Qué? Eso... eso lo haría yo
+    Maya: Espera. No me digas que tú también eres fotógrafo
+Maya: Cambiando de tema, porque me da vergüenza seguir tan expuesta
+Maya: ¿Qué música escuchas cuando estás triste?
+-> Algo triste para sentir más, obvio
+    <<affinity +2>>
+    <<romance +1>>
+    Maya: Los que se sumergen en el dolor para sanarlo, mi gente
+-> Algo alegre para no sentir nada
+    <<affinity +1>>
+    Maya: El arte de fingir que todo está bien, también lo conozco
+-> Depende de la tristeza, cada una pide algo distinto
+    <<romance +2>>
+    <<trust +2>>
+    Maya: Uy, eso es de gente que piensa demasiado
+    Maya: Y yo pienso demasiado. Vamos a llevarnos bien
+Maya: Sabes qué, te voy a mandar una canción
+Maya: Es la que escucho cuando no sé qué hacer con mis sentimientos
+Maya: No la analices, solo escúchala
+<<photo playlist>>
+Maya: ¿La escuchaste?
+-> La escuché dos veces
+    <<romance +4>>
+    <<trust +2>>
+    Maya: ¿Dos veces? ...Me estás haciendo algo, {player_name}
+    Maya: No sé si es bueno o malo, pero me está gustando
+-> La escuché una vez, la guardo para cuando la necesite
+    <<affinity +3>>
+    <<trust +2>>
+    Maya: Guardarla para cuando la necesites... eso es tan bonito
+    Maya: Me gusta cómo piensas
+-> Todavía no, perdón
+    <<affinity -1>>
+    Maya: Ugh, se me cayó un punto de respeto
+    Maya: ...Es broma, pero escúchala, no muerde
+Maya: Se está haciendo tarde
+Maya: O temprano, según cómo lo veas
+Maya: Gracias por esta noche, desconocido. No sé cómo, pero ya no me siento tan sola
+<<typing true>>
+Maya: Eso fue muy sincero, no lo digas en voz alta que se me dañó el personaje
+-> No lo diré. Nuestra noche queda entre nosotros
+    <<romance +2>>
+    <<trust +3>>
+    Maya: Eso es justo lo que necesitaba oír
+-> Me alegra haberte acompañado
+    <<affinity +3>>
+    <<romance +1>>
+    Maya: Me alegra que hayas estado aquí
+-> Y yo no me siento tan solo tampoco
+    <<romance +3>>
+    <<trust +2>>
+    Maya: ...{player_name}
+    Maya: Guarda esa frase también, por si la necesitas
+<<presence offline>>
+Maya: Buenas noches. Que sueñes con luces de neón
+<<set $cap_04_done = true>>
+<<jump Cap5_Intro>>
+===

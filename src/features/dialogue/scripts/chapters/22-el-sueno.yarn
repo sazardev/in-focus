@@ -1,0 +1,64 @@
+title: Cap22_Intro
+tags: #acto4 #capitulo22
+---
+<<chapter "El sueño">>
+<<presence online>>
+Maya: No puedo dormir de los nervios, {player_name}
+Maya: Y como no duermo, me puse a imaginar cosas
+<<typing true>>
+Maya: Del día que nos veamos... y de después
+-> Cuéntame qué imaginaste
+    <<romance +3>>
+    Maya: Imaginé que la expo va bien, que nos tomamos un café
+    Maya: Y que no se acaba en un café
+-> Yo también sueño despierto con verte
+    <<romance +4>>
+    Maya: ...¿Tú también? Qué bueno saberlo
+    Maya: Porque yo ya hasta le puse música a esa escena
+-> Vamos a hacerlo realidad
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Sí. Esta vez no es solo sueño
+Maya: ¿Sabes qué es lo que más quiero?
+Maya: Quiero que el día sea largo. Que no se acabe rápido
+<<typing true>>
+Maya: Que haya tiempo de contarte todo lo que no cabió en los mensajes
+-> El tiempo se estira cuando quieres
+    <<romance +3>>
+    <<affinity +2>>
+    Maya: Ojalá. O lo hacemos largo a propósito
+-> Tengo tanto que contarte también
+    <<romance +3>>
+    <<trust +2>>
+    Maya: Entonces no va a alcanzar un día
+    Maya: Y eso me hace feliz
+-> Cada momento contigo vale doble
+    <<romance +4>>
+    Maya: "Vale doble"... me lo guardo
+Maya: También imaginé algo más, y me da un poco de vergüenza
+Maya: Que después del café, nos quedamos caminando por la ciudad
+Maya: Y que en algún momento, por accidente o a propósito, nuestras manos se tocan
+<<typing true>>
+Maya: Ahí está. Lo dije
+-> Me gusta esa escena, Maya
+    <<romance +4>>
+    <<trust +2>>
+    Maya: ¿Te gusta? No sabes el alivio que me da decirlo y que no te asustes
+-> Yo ya la he imaginado también
+    <<romance +4>>
+    <<trust +3>>
+    Maya: ...¿Lo has imaginado? Ahora sí estoy nerviosa
+    Maya: Pero del bueno
+-> Ese momento va a pasar, te lo prometo
+    <<romance +4>>
+    <<trust +3>>
+    Maya: Prometido entonces. Manos que se tocan, pase lo que pase
+Maya: Oye, gracias por jugar a soñar conmigo
+Maya: No sabes cuánto hacía que no me permitía imaginar un futuro
+<<photo noche>>
+Maya: Te mando la ciudad de madrugada. Es donde sueño que caminamos
+<<presence offline>>
+Maya: Duerme bien. Mañana seguimos soñando, esta vez de día
+<<set $cap_22_done = true>>
+<<jump Cap23_Intro>>
+===

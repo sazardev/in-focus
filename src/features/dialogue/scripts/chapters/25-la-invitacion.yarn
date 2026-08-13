@@ -1,0 +1,60 @@
+title: Cap25_Intro
+tags: #acto5 #capitulo25
+---
+<<chapter "La invitación">>
+<<presence online>>
+Maya: {player_name}, la exposición es mañana
+Maya: Y sigo sin creer que vas a estar ahí
+<<typing true>>
+Maya: Te quiero dar algo antes. Una invitación, pero no la del cartel
+-> Una invitación especial, ¿eh?
+    <<romance +3>>
+    Maya: La más importante que he escrito
+    Maya: Aunque no sé si debería decirlo así de pronto
+-> Dímela, Maya
+    <<romance +2>>
+    <<trust +3>>
+    Maya: Aquí va. Es la invitación a mi futuro, si quieres ser parte
+-> Mañana te veo y eso ya es la invitación
+    <<romance +3>>
+    <<trust +2>>
+    Maya: Tienes razón. El que estés ahí ya lo es todo
+Maya: Quiero que mañana, cuando nos veamos
+Maya: No seamos "el del rollo" y "la del neón"
+<<typing true>>
+Maya: Quiero que seamos Maya y {player_name}
+-> Me gusta cómo suena eso
+    <<romance +4>>
+    Maya: A mí también. Mucho
+-> Eso es lo que quiero también
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Entonces quedamos en eso
+-> Somos nosotros, sin etiquetas raras
+    <<affinity +3>>
+    <<romance +2>>
+    Maya: Exactamente. Nosotros. Y listo
+Maya: Mañana te espero
+Maya: En la galería, entre mis fotos, con los nervios de mil demonios
+<<typing true>>
+Maya: Pero con la certeza de que, pase lo que pase, valió la pena haberte conocido
+-> Y yo a ti, Maya
+    <<romance +4>>
+    <<trust +3>>
+    Maya: ...Nos vemos mañana, {player_name}
+    Maya: Nos vemos de verdad
+-> Mañana te espero entre tus fotos
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Y yo a ti, de frente, sin emojis que me escondan
+-> Estoy más nervioso que tú, y eso que no expongo
+    <<affinity +3>>
+    <<romance +2>>
+    Maya: Jaja, entonces seremos dos nervios en la misma galería. Me gusta
+<<photo exposicion>>
+Maya: Te mando la foto principal de la expo
+Maya: La que cuelga en la entrada
+Maya: Es de un amanecer. El que me recordó que se puede volver a empezar
+<<set $cap_25_done = true>>
+<<jump Cap26_Intro>>
+===

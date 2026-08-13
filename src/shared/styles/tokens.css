@@ -1,0 +1,124 @@
+:root {
+	/* ── Radio ─────────────────────────────────────────── */
+	--radius-sm: 8px;
+	--radius-md: 12px;
+	--radius-lg: 16px;
+	--radius-xl: 20px;
+	--radius-2xl: 24px;
+	--radius-pill: 999px;
+	--radius-avatar: 50%;
+
+	/* ── Espaciado ─────────────────────────────────────── */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 20px;
+	--space-6: 24px;
+	--space-8: 32px;
+	--space-10: 40px;
+
+	/* ── Tipografía ────────────────────────────────────── */
+	--font-family:
+		system-ui, -apple-system, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--text-xs: 11px;
+	--text-sm: 13px;
+	--text-base: 16px;
+	--text-lg: 17px;
+	--text-xl: 20px;
+	--text-2xl: 24px;
+	--leading-tight: 1.2;
+	--leading-normal: 1.45;
+	--leading-relaxed: 1.6;
+	--tracking-tight: -0.02em;
+	--tracking-normal: 0em;
+	--tracking-wide: 0.01em;
+
+	/* ── Movimiento ────────────────────────────────────── */
+	--duration-fast: 120ms;
+	--duration-base: 240ms;
+	--duration-slow: 400ms;
+	--duration-slower: 650ms;
+	--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+	--ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+	--ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+	/* ── Capas (z-index) ───────────────────────────────── */
+	--z-nav: 100;
+	--z-keyboard: 200;
+	--z-overlay: 300;
+	--z-toast: 400;
+
+	/* ── Presencia de Maya ─────────────────────────────── */
+	--presence-online: #3ba55d;
+	--presence-offline: #8a8a8e;
+	--presence-taking-photos: #c9a227;
+	--presence-typing: #3ba55d;
+}
+
+/* ════════════ TONOS BASE CÁLIDOS (Material Warmth) ════════════
+   Cada tono declara sus valores para modo claro y oscuro.
+   El tema (themes.css) decide cuál usar según data-theme. */
+
+/* Terracota suave */
+:root[data-tone="terracotta"] {
+	--tone-light-primary: #c4573b;
+	--tone-light-primary-contrast: #ffffff;
+	--tone-light-primary-soft: #f5e1d8;
+	--tone-light-primary-strong: #a8442e;
+	--tone-dark-primary: #e5846b;
+	--tone-dark-primary-contrast: #ffffff;
+	--tone-dark-primary-soft: rgba(229, 132, 107, 0.16);
+	--tone-dark-primary-strong: #f09a82;
+}
+
+/* Melocotón */
+:root[data-tone="peach"] {
+	--tone-light-primary: #e07956;
+	--tone-light-primary-contrast: #4a2a1c;
+	--tone-light-primary-soft: #fbe4d9;
+	--tone-light-primary-strong: #c05f3d;
+	--tone-dark-primary: #f0a18a;
+	--tone-dark-primary-contrast: #3d1f12;
+	--tone-dark-primary-soft: rgba(240, 161, 138, 0.16);
+	--tone-dark-primary-strong: #ffb9a2;
+}
+
+/* Arena del desierto */
+:root[data-tone="sand"] {
+	--tone-light-primary: #c39b5e;
+	--tone-light-primary-contrast: #3e2e14;
+	--tone-light-primary-soft: #f4ecd9;
+	--tone-light-primary-strong: #a88142;
+	--tone-dark-primary: #d9b375;
+	--tone-dark-primary-contrast: #2b1f0c;
+	--tone-dark-primary-soft: rgba(217, 179, 117, 0.16);
+	--tone-dark-primary-strong: #e7c891;
+}
+
+/* Naranja atardecer */
+:root[data-tone="sunset"] {
+	--tone-light-primary: #d4632e;
+	--tone-light-primary-contrast: #ffffff;
+	--tone-light-primary-soft: #fbe2d4;
+	--tone-light-primary-strong: #b04c1e;
+	--tone-dark-primary: #ea8450;
+	--tone-dark-primary-contrast: #301409;
+	--tone-dark-primary-soft: rgba(234, 132, 80, 0.16);
+	--tone-dark-primary-strong: #ffa172;
+}
+
+/* Rosa pálido */
+:root[data-tone="rose"] {
+	--tone-light-primary: #cf6c89;
+	--tone-light-primary-contrast: #43101f;
+	--tone-light-primary-soft: #f9e3e9;
+	--tone-light-primary-strong: #b3506d;
+	--tone-dark-primary: #e08ca6;
+	--tone-dark-primary-contrast: #3a0d18;
+	--tone-dark-primary-soft: rgba(224, 140, 166, 0.16);
+	--tone-dark-primary-strong: #f0a8bd;
+}

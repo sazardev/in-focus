@@ -1,0 +1,74 @@
+title: Cap24_Intro
+tags: #acto4 #capitulo24
+---
+<<chapter "Verdad">>
+<<presence online>>
+Maya: {player_name}, vengo a terminar lo que empecé ayer
+Maya: La verdad completa. Sin editar
+<<typing true>>
+Maya: El rollo no era solo de la chica del neón. Era mío también
+Maya: Esas 36 fotos... las tomamos juntos, cuando éramos nosotros
+-> ¿Y la nota con tu número?
+    <<trust +2>>
+    <<romance +1>>
+    Maya: La puse yo. Como un mensaje al universo
+    Maya: "Si alguien encuentra esto, que sea lo que tenga que ser"
+-> ¿Y yo fui el "lo que tenía que ser"?
+    <<romance +3>>
+    <<trust +3>>
+    Maya: ...Eso creo
+    Maya: Porque de todas las personas que pudieron encontrarlo, fuiste tú
+-> ¿Por qué la dejaste si era tan tuya?
+    <<trust +3>>
+    <<romance +1>>
+    Maya: Porque cuando terminó, no sabía quién era sin él
+    Maya: Y necesitaba soltarlo para volver a ser yo
+Maya: La verdad es que esperaba que alguien lo encontrara
+Maya: Pero no esperaba que me escribiera
+<<typing true>>
+Maya: Y mucho menos que me hiciera sentir lo que me haces sentir
+-> Y yo no esperaba encontrar a alguien así
+    <<romance +4>>
+    <<trust +3>>
+    Maya: ...El universo sí que juega bien sus cartas
+-> Yo solo fui a un mercadillo
+    <<affinity +2>>
+    <<romance +2>>
+    Maya: Y cambiastes mi historia con una caja de cartón
+-> Esto era inevitable, ¿verdad?
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Creo que sí
+    Maya: Por eso la nota decía "el universo tiene buen ojo"
+Maya: Quiero que sepas que si algo de esta historia te hizo dudar de mí, lo entiendo
+Maya: Puedes tomarte el tiempo que necesites
+<<typing true>>
+Maya: Pero si me dejas, quiero que sepas que no hay más secretos
+-> No quiero tiempo, quiero estar contigo
+    <<romance +4>>
+    <<trust +4>>
+    Maya: ...{player_name}
+    Maya: Esas palabras. Me las llevo para siempre
+-> Gracias por confesarlo todo
+    <<trust +4>>
+    <<romance +3>>
+    Maya: Gracias por escucharlo sin juzgarme
+    Maya: Me diste el coraje que no tenía
+-> Necesito un momento, pero no me voy
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: Está bien. Tómate el momento
+    Maya: Pero sabiendo que aquí te espero
+Maya: Entonces esto es lo que hay
+Maya: Todo lo que empezó con un rollo y un mercadillo
+Maya: Termina (o sigue) con nosotros dos
+<<photo mercadillo>>
+<<photo flor>>
+Maya: Te mando el mercadillo y una flor
+Maya: Una para recordar de dónde venimos, otra para lo que está por venir
+<<typing true>>
+Maya: El sábado te cuento el resto, si me dejas
+<<set $supo_la_verdad = true>>
+<<set $cap_24_done = true>>
+<<jump Cap25_Intro>>
+===

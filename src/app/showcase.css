@@ -1,0 +1,60 @@
+.app-shell {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-6);
+	padding: var(--space-6);
+	height: 100%;
+	overflow-y: auto;
+}
+
+.chat-shell {
+	height: min(720px, calc(100vh - 220px));
+	width: min(430px, 100%);
+}
+
+.showcase-panel {
+	width: min(430px, 100%);
+	padding: var(--space-5);
+	background: var(--bg-elevated);
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-2xl);
+	box-shadow: var(--shadow-soft);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+}
+
+.showcase-panel h2 {
+	margin: 0;
+	font-size: var(--text-xl);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: var(--tracking-tight);
+}
+
+.showcase-panel__group {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.showcase-panel__label {
+	font-size: var(--text-xs);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: var(--tracking-wide);
+	text-transform: uppercase;
+	color: var(--text-tertiary);
+}
+
+.showcase-panel__row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+}
+
+.showcase-panel__note {
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+	letter-spacing: var(--tracking-wide);
+}

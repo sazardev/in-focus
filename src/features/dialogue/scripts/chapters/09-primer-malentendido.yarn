@@ -1,0 +1,62 @@
+title: Cap9_Intro
+tags: #acto2 #capitulo9
+---
+<<presence online>>
+<<chapter "El primer malentendido">>
+Maya: Oye, algo me quedó dando vueltas
+Maya: Anoche dijiste algo sobre mi cuarto y no sé si me molestó o me hizo reír
+<<typing true>>
+Maya: Dijiste que parecía "un laberinto de emociones y papeles"
+Maya: ¿Eso era un cumplido o una crítica?
+-> Era un cumplido, tu caos es hermoso
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ...¿En serio? Bueno, así lo tomo entonces
+    Maya: Perdón por tomármelo mal, es que a veces no sé leer
+-> Fue una broma, pero puedo explicarlo
+    <<trust +3>>
+    Maya: Explícame entonces, porque las bromas a medias me ponen nerviosa
+-> No debí decirlo así, perdón
+    <<trust +4>>
+    <<romance +1>>
+    Maya: Oye... eso de disculparte sin rodeos me llegó
+    Maya: No mucha gente lo hace. Gracias
+Maya: La verdad es que me tomé tiempo para contestarte porque me puse rara
+Maya: Me pasa que cuando alguien me gusta, interpreto todo mal
+<<typing true>>
+Maya: ...Dije "cuando alguien me gusta"
+Maya: Quiero borrarlo. No lo voy a borrar. Ya pasó
+-> Me gusta que seas honesta
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Gracias, aunque me tiembla un poco decir cosas así
+-> Guarda las palabras que no quieres borrar
+    <<romance +2>>
+    Maya: Eso fue raro y bonito a la vez
+-> No pasa nada, aquí nadie juzga
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: ¿Nadie juzga? Esa es la frase que necesitaba oír hoy
+Maya: Bueno, para enmendar el malentendido
+Maya: Te mando una foto real de mi caos, sin filtros
+<<photo caos>>
+Maya: Ahí está. Mis notas, mis rollos, mis miedos y un café frío
+Maya: Este soy yo. Sin laberintos, sin laberintos de emociones... bueno, con uno
+<<typing true>>
+Maya: ¿Sigues queriendo escribirle a alguien así?
+-> Sí, más que antes
+    <<romance +3>>
+    <<trust +2>>
+    Maya: Eso me dio fuerza para seguir mostrándome
+-> Tu caos me encanta, es parte de ti
+    <<affinity +3>>
+    <<romance +1>>
+    Maya: ...Parte de mí. Qué lindo
+-> El café frío es imperdonable, eso sí
+    <<affinity +2>>
+    Maya: Jaja, tú y tu humor. Ya me conoces
+Maya: Gracias por no haberte ido con el malentendido
+Maya: Los malentendidos que se arreglan con honestidad valen oro
+<<set $cap_09_done = true>>
+<<jump Cap10_Intro>>
+===

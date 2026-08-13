@@ -1,0 +1,65 @@
+title: Cap15_Intro
+tags: #acto3 #capitulo15
+---
+<<chapter "Distancia">>
+<<presence offline>>
+Maya: Sé que no he hablado mucho estos días
+Maya: No es que te haya olvidado. Es que no sé cómo volver después de lo del otro día
+<<typing true>>
+Maya: Me dio pena haber gritado, y también pena haberme escondido
+-> Yo también necesité distancia
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: ¿En serio? Me hace bien saber que no fui solo yo
+-> No tienes que disculparte, pero me alegra que estés aquí
+    <<trust +3>>
+    <<romance +1>>
+    Maya: Gracias... de verdad
+-> Te extrañé, aunque entiendo tu silencio
+    <<romance +3>>
+    <<trust +2>>
+    Maya: Te extrañé también. Y me daba miedo decirlo
+Maya: Quiero hacer las paces, pero a mi manera
+Maya: No con palabras grandes, sino mostrándote algo
+<<photo calle_vacia>>
+<<photo sombra>>
+Maya: Tomé estas fotos estos días de silencio
+Maya: Son calles vacías y sombras. Así me sentía
+<<typing true>>
+Maya: ¿Las ves? Eso era yo: vacía, esperando saber si seguías ahí
+-> Aquí estoy, Maya. Viendo tus fotos
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Y eso es justo lo que necesitaba: que alguien viera lo que sentía sin que yo lo explicara
+-> Las calles vacías también se llenan
+    <<affinity +3>>
+    Maya: ¿Y quién las llena? Pregunto sin esperar respuesta
+-> Tus fotos me llegan, aunque estén tristes
+    <<romance +2>>
+    <<trust +3>>
+    Maya: Gracias por quedarte en la tristeza conmigo
+Maya: Quiero que sepas una cosa
+Maya: Cuando discutimos, no era que te quisiera menos. Era que me daba miedo quererte tan pronto
+<<typing true>>
+Maya: Y ese miedo salió como grito, y lo siento
+-> Te entiendo, y aquí no hay rencor
+    <<trust +4>>
+    <<romance +2>>
+    Maya: ...¿De verdad? A veces siento que merezco que me guardes rencor
+-> A mí también me da miedo lo que siento
+    <<romance +4>>
+    <<trust +3>>
+    Maya: ...¿Tú también? Eso me hace sentir menos rota
+-> El miedo no nos va a ganar
+    <<romance +3>>
+    <<trust +3>>
+    Maya: "Que el miedo no nos gane"... me lo apunto
+Maya: Está bien. Distancia superada
+Maya: No prometo no tener miedo, pero prometo no esconderme en el silencio
+<<presence online>>
+Maya: Y te prometo algo más: la próxima vez que quiera huir, te lo digo
+<<typing true>>
+Maya: Gracias por insistir, {player_name}. Eres de los que se quedan
+<<set $cap_15_done = true>>
+<<jump Cap16_Intro>>
+===

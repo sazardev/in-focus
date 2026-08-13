@@ -1,0 +1,65 @@
+title: Cap17_Intro
+tags: #acto3 #capitulo17
+---
+<<chapter "El borde">>
+<<presence online>>
+Maya: No sé cómo empezar esto, así que voy a ser honesta
+Maya: Esta semana sentí algo que me asustó
+<<typing true>>
+Maya: Contigo... casi. Casi dije algo que no sabía si debía decir
+-> ¿Y qué fue lo que casi dijiste?
+    <<romance +3>>
+    Maya: ...No sé si estoy lista para decirlo
+    Maya: Pero fue de esos pensamientos que no se van
+-> ¿Algo sobre nosotros?
+    <<romance +3>>
+    <<trust +2>>
+    Maya: Quizá. Y me da miedo porque contigo las cosas se sienten reales
+-> Tómate tu tiempo, no hay prisa
+    <<trust +3>>
+    <<affinity +2>>
+    Maya: Gracias por no presionarme. Eso lo valoro muchísimo
+Maya: Quiero decirte lo que pasa sin decirte todo
+Maya: Cuando hablo contigo, a veces olvido que somos desconocidos
+Maya: Olvido que esto empezó por un rollo de fotos
+<<typing true>>
+Maya: Y eso... me asusta. Porque siento que te conozco más que a gente de años
+-> Quizá no somos tan desconocidos ya
+    <<romance +4>>
+    <<trust +2>>
+    Maya: ...Es cierto. Tienes razón
+    Maya: Y eso es justo lo que me da tanto miedo como me gusta
+-> Esa conexión es rara, pero es bonita
+    <<romance +3>>
+    <<trust +3>>
+    Maya: ¿Bonita? Sí... cuando dejo de asustarme, es bonita
+-> Yo también siento que te conozco
+    <<romance +3>>
+    <<trust +3>>
+    Maya: ¿En serio? No me lo habías dicho
+    Maya: Eso me hace sentir menos sola en esto
+Maya: Oye, te voy a decir una verdad aunque me tiemblen los dedos
+Maya: Eres lo primero que reviso en el día. Y lo último antes de dormir
+<<typing true>>
+Maya: No sé qué nombre ponerle a eso, pero es verdad
+-> A mí me pasa lo mismo
+    <<romance +4>>
+    <<trust +3>>
+    Maya: ...{player_name}
+    Maya: Esa frase me va a dar fuerzas para ser honesta contigo
+-> Me alegra que lo digas
+    <<romance +2>>
+    <<affinity +2>>
+    Maya: Me alegra a mí también poder decírtelo
+-> Quizá le debemos un nombre a esto
+    <<romance +3>>
+    <<trust +2>>
+    Maya: Un nombre... me da vértigo, pero quizá ya es hora
+Maya: Pero ahora no. No hoy
+Maya: Hoy me da miedo el borde. Ese lugar donde esto deja de ser "amistad que se siente rara"
+<<presence offline>>
+Maya: Lo siento. Necesito un día para pensar
+Maya: No te vayas, {player_name}. Solo... espérame en el borde
+<<set $cap_17_done = true>>
+<<jump Cap18_Intro>>
+===

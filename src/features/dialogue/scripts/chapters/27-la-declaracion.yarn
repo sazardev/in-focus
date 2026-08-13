@@ -1,0 +1,78 @@
+title: Cap27_Intro
+tags: #acto5 #capitulo27
+---
+<<chapter "La declaración">>
+<<presence online>>
+Maya: {player_name}...
+Maya: Ahora que te tengo enfrente, se me hace fácil decirlo
+<<typing true>>
+Maya: Porque en persona, el miedo pesa menos que la verdad
+-> Dime, Maya. Aquí estoy, de frente
+    <<romance +3>>
+    <<trust +3>>
+    Maya: Entonces aquí va
+    Maya: La verdad que no cabía en los mensajes
+-> Yo también traigo una verdad sin mensajes
+    <<romance +4>>
+    <<trust +2>>
+    Maya: ¿Tú también? No sabes cuánto me alivia eso
+    Maya: Dime la tuya... no, espera, deja que diga la mía primero
+-> No tengas miedo, Maya. Estoy aquí
+    <<romance +3>>
+    <<trust +4>>
+    Maya: ...Con esas palabras ya me diste la mitad del coraje
+Maya: Cuando encontraste el rollo, no sabía que el universo me iba a devolver una razón
+Maya: Pero resultó que la razón eres tú
+<<typing true>>
+Maya: Quiero que sepas que contigo aprendí a no tener miedo de mis sombras
+Maya: Y que eso no se lo debí a nadie antes que a ti
+-> Yo también siento algo por ti, Maya
+    <<romance +4>>
+    <<trust +3>>
+    Maya: ...¿Lo sientes? No sabes cuánto necesitaba escucharlo
+    Maya: Me tiemblan las manos, pero de alegría
+-> Desde el primer mensaje, algo en mí sabía
+    <<romance +4>>
+    Maya: "Desde el primer mensaje"... y yo que creí que era solo mi imaginación
+-> Contigo, el miedo se volvió ganas de quedarme
+    <<romance +4>>
+    <<trust +3>>
+    Maya: Esa frase... me la voy a llevar siempre
+Maya: Entonces ya no hay nada que esconder
+Maya: Nosotros dos, un rollo, una nota y una historia que creció entre mensajes
+<<if $supo_la_verdad == true>>
+    Maya: Y tú supiste toda la verdad del rollo antes de estar aquí
+    Maya: Sabiendo todo eso, decidiste quedarte. Eso lo significa todo
+<<endif>>
+<<typing true>>
+Maya: ¿Quieres ser algo más que mi desconocido?
+-> Sí, Maya. Quiero serlo
+    <<romance +4>>
+    <<trust +4>>
+    Maya: ...Me hiciste la persona más feliz del mundo
+    Maya: Esto lo voy a contar en mis fotos para siempre
+-> Quiero estar contigo, pase lo que pase
+    <<romance +4>>
+    <<trust +3>>
+    Maya: "Pase lo que pase"... eso es justo lo que necesitaba oír
+-> No sé qué nos depara, pero quiero descubrirlo contigo
+    <<romance +4>>
+    <<trust +4>>
+    Maya: Entonces lo descubrimos juntos
+    Maya: Sin rollos que nos separen
+Maya: Entonces es oficial
+Maya: Ya no soy "la del neón" ni tú "el del rollo"
+Maya: Somos nosotros
+<<presence taking-photos>>
+Maya: Quiero que esta noche quede inmortalizada
+Maya: No con una cámara. Con lo que se siente
+<<photo enmarcada>>
+<<photo brindis>>
+Maya: Y quiero regalarte algo
+Maya: La foto del amanecer de la expo
+Maya: Porque fue la primera que pensé en ti al tomarla
+<<typing true>>
+Maya: Y esta vez, no hay nada que tirar
+<<set $cap_27_done = true>>
+<<jump Cap28_Finales>>
+===

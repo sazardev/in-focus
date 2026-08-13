@@ -1,0 +1,65 @@
+title: Cap7_Intro
+tags: #acto2 #capitulo7
+---
+<<presence taking-photos>>
+<<chapter "Sesión en la azotea">>
+Maya: Hoy tengo sesión en la azotea de mi edificio
+Maya: La luz está perfecta, el cielo está perfecto, todo conspira a mi favor
+<<typing true>>
+Maya: ¿Quieres ser mi compañía virtual? Te mando fotos detrás de cámaras
+-> Acompañarte virtualmente suena perfecto
+    <<affinity +3>>
+    <<romance +2>>
+    Maya: ¡Bien! Prepárate para una avalancha de fotos
+-> Mejor te dejo trabajar
+    <<affinity +1>>
+    Maya: Ugh, no. Quédate. Los que se van se pierden la magia
+-> Casi prefiero estar ahí en persona
+    <<romance +3>>
+    Maya: ...En persona, ¿eh?
+    Maya: Guarda eso. Cuando menos lo esperes te voy a tomar la palabra
+<<presence taking-photos>>
+Maya: ¡YA EMPEZÓ! Te mando la primera
+<<photo azotea>>
+Maya: ¿Qué te parece? ¿La luz? ¿El encuadre? Dime la verdad
+-> Es impresionante, Maya
+    <<affinity +3>>
+    <<romance +1>>
+    <<set $mejores_fotos = $mejores_fotos + 1>>
+    Maya: ¿Impresionante? Me sonrojé un poquito, no lo digas
+-> El encuadre está perfecto
+    <<affinity +3>>
+    <<trust +2>>
+    <<set $mejores_fotos = $mejores_fotos + 1>>
+    Maya: Sabes de encuadres, {player_name}. Me gusta que lo notes
+-> Tiene algo, pero le falta una historia
+    <<trust +2>>
+    Maya: ¿Una historia? Dime más, porque ahí está el detalle
+Maya: Sabes qué, tienes razón
+Maya: Las fotos bonitas sobran. Las que cuentan algo son las que importan
+<<typing true>>
+Maya: Y tú, sin saberlo, le estás dando una historia a esta conversación
+Maya: Ya no me siento sola haciendo esto. Es raro y me gusta
+<<photo plano>>
+<<photo escalera>>
+Maya: Aquí van más. Esta luz dorada no se repite
+Maya: Quiero que veas cómo se ve el mundo desde arriba, con mis ojos
+-> La estoy viendo con tus ojos
+    <<romance +3>>
+    <<trust +2>>
+    Maya: ...Eso fue muy dulce
+    Maya: Nadie me había pedido ver el mundo así antes
+-> Me encanta cómo ves la luz
+    <<affinity +2>>
+    <<romance +1>>
+    Maya: ¿Ves? Por eso te escribo. Me entiendes sin explicar nada
+-> Parece un atardecer para una despedida
+    <<romance +1>>
+    Maya: ¿Despedida? Ni lo digas, esto apenas empieza
+Maya: La sesión terminó. Gracias por estar aquí
+Maya: Sé que solo fue un chat, pero te juro que sentí tu mirada sobre el hombro
+<<typing true>>
+Maya: Eso es raro de decir, pero contigo se siente natural decir cosas raras
+<<set $cap_07_done = true>>
+<<jump Cap8_Intro>>
+===

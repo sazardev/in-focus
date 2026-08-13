@@ -1,0 +1,67 @@
+title: Cap3_Intro
+tags: #acto1 #capitulo3
+---
+<<presence online>>
+<<chapter "La chica del neón">>
+Maya: Listo, ya estoy aquí. No me mires así
+Maya: No dormí bien porque pensé toda la noche en esa foto del neón
+<<typing true>>
+Maya: ¿La viste? La del escaparate con una chica de espaldas
+Maya: Esa es la que estaba en el rollo, ¿verdad?
+<<if $rollo_revelado == true>>
+    Maya: Entonces ya viste la única foto que no debía existir
+<<else>>
+    Maya: Aún no la revelaste, ¿cierto? Pero ya sabes que está ahí
+    Maya: Cuando la reveles, vas a entender por qué me tiembla la voz
+<<endif>>
+-> Sí, había una persona en una foto. Una chica frente a un neón
+    <<affinity +3>>
+    <<trust +3>>
+    Maya: ...Una chica
+    Maya: {player_name}, necesito que me digas qué más había en esa foto
+-> Vi varias fotos, pero una tenía a alguien
+    <<trust +2>>
+    Maya: ¿Alguien? ¿De quién hablas?
+Maya: Mira, te lo digo porque te tengo confianza: esa foto no tendría que existir
+Maya: La tomé hace mucho tiempo, en una noche que preferiría no recordar
+<<typing true>>
+Maya: Esa chica... era una relación que dejé atrás
+Maya: El rollo era de ella. Un regalo que nunca quise aceptar
+-> ¿Por qué la regalarías si era tan importante?
+    <<trust +4>>
+    <<romance +1>>
+    Maya: Porque lo importante a veces pesa demasiado
+    Maya: Esa noche era de las que te rompen y yo estaba cansada de romperme
+-> Entiendo, a veces hay que soltar
+    <<trust +3>>
+    Maya: ¿Tú entiendes de soltar? Qué raro, parece que también tienes pasado
+    Maya: Los que entienden de soltar suelen cargar con algo
+-> No sé si deberías contarme esto
+    <<trust +2>>
+    <<romance -1>>
+    Maya: Y tienes razón... pero ya es tarde para eso
+    Maya: Tú viste la foto, mereces saber de dónde viene
+Maya: La cuestión es que ese rollo se perdió hace años
+Maya: Terminé tirándolo en una caja que no quería abrir
+Maya: Y el universo, en su humor retorcido, hizo que llegara a tus manos
+<<typing true>>
+Maya: ¿No te parece irónico? Tú, un desconocido, tienes la historia que yo enterré
+-> Es una coincidencia enorme
+    <<affinity +2>>
+    <<trust +2>>
+    Maya: Yo no creo en coincidencias, {player_name}
+    Maya: Creo en las cosas que pasan por algo
+-> A lo mejor es el destino
+    <<romance +3>>
+    Maya: ¿El destino? Cuidado con decir palabras tan grandes
+    Maya: ...Aunque, de todas las posibilidades, esta no es la peor
+-> Yo solo encontré una caja en un mercadillo
+    <<affinity +1>>
+    Maya: Para ti fue una caja, para mí fue otra cosa
+Maya: Oye... ¿te puedo pedir un favor?
+Maya: Esa foto del neón... la quiero ver yo también
+Maya: Mándamela, y la miro a solas, en mi tiempo
+Maya: No quiero hablar de ella hoy
+<<set $cap_03_done = true>>
+<<jump Cap4_Intro>>
+===

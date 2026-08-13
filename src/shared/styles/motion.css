@@ -1,0 +1,114 @@
+/* ════════════ KEYFRAMES ════════════ */
+
+/* Burbuja de "escribiendo..." con tres puntos que saltan */
+@keyframes typing-dot-bounce {
+	0%,
+	60%,
+	100% {
+		transform: translateY(0);
+		opacity: 0.45;
+	}
+	30% {
+		transform: translateY(-4px);
+		opacity: 1;
+	}
+}
+
+/* Entrada de mensajes nuevos desde abajo (ease-out) */
+@keyframes message-in {
+	from {
+		opacity: 0;
+		transform: translateY(14px) scale(0.98);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+/* Aparición elástica del indicador de typing ("pop") */
+@keyframes pop-in {
+	0% {
+		opacity: 0;
+		transform: scale(0.7);
+	}
+	70% {
+		transform: scale(1.06);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* Tecla presionada (feedback del teclado falso) */
+@keyframes key-press {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.92);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+/* Teclado virtual subiendo desde abajo */
+@keyframes keyboard-up {
+	from {
+		transform: translateY(100%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+/* Flecha de enviar que se ilumina */
+@keyframes send-glow {
+	0% {
+		box-shadow: 0 0 0 0 var(--accent-soft);
+	}
+	100% {
+		box-shadow: 0 0 0 8px transparent;
+	}
+}
+
+/* Resplandor sutil para fotos en galería al tocar */
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* ════════════ UTILIDADES ════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		/* biome-ignore lint/complexity/noImportantStyles: necesario para anular estilos animados en prefers-reduced-motion */
+		animation-duration: 0.01ms !important;
+		/* biome-ignore lint/complexity/noImportantStyles: necesario para anular estilos animados en prefers-reduced-motion */
+		animation-iteration-count: 1 !important;
+		/* biome-ignore lint/complexity/noImportantStyles: necesario para anular estilos animados en prefers-reduced-motion */
+		transition-duration: 0.01ms !important;
+		/* biome-ignore lint/complexity/noImportantStyles: necesario para anular el scroll suave en prefers-reduced-motion */
+		scroll-behavior: auto !important;
+	}
+}
+
+.anim-message-in {
+	animation: message-in var(--duration-base) var(--ease-out) both;
+}
+
+.anim-pop-in {
+	animation: pop-in var(--duration-base) var(--ease-spring) both;
+}
+
+.anim-fade-in {
+	animation: fade-in var(--duration-base) var(--ease-out) both;
+}
